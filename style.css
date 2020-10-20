@@ -1,4 +1,6 @@
-body {
-    background-color: #cfecfd;
-    padding:20px
+button{
+    cursor: pointer;
+}
+.col-md-2{
+    padding: 3px;
 }

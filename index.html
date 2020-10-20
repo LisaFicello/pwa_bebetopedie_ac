@@ -6,9 +6,9 @@
   
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Pwa pour une veille des technos">
+    <meta name="description" content="Projet pour le cours de PWA - Développement d'une application Bêbétopédie d'Animal Crossing New Horizon">
     <meta name="author" content="">
-    <title>Veille Techno</title>    
+    <title>Bêbétopédie</title>    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
     <link href="style.css" rel="stylesheet">
   
@@ -16,25 +16,50 @@
   
   <body>
 
-    <div class="container">
-      <h1><b>Insectes</b> > Actuellement</h1>
-      <div class="row">
-        <div class="col-md-3">
-          <div>
-            <div style="background:url(https://www.animalcrossing-online.com/img/fond.png);" align="center">
-              <img src="https://www.animalcrossing-online.com/new-horizons-switch/img/insectes/Araign%C3%A9e.png" alt="Araignée - Animal Crossing : New Horizons (Switch) [ACNH]">
-            </div>
-            <h4 align="center">Araignée</h4>
-            <span><strong>Période : </strong> Toute l'année</span><br>
-						<span><strong>Heure : </strong>19h - 8h</span><br>
-						<span><strong>Lieu : </strong><span>Arbres</span></span><br>
-						<span><strong>Prix : </strong><span>600</span> Clochettes</span>
-          </div>
-        </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+      <a class="navbar-brand" href="#">Bêbétopédie</a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Temps réel <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Insectes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Poissons</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Créatures marines</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Événements</a>
+          </li>
+        </ul>        
+        <ul class="navbar-nav ml-md-auto">
+          <li class="nav-item">
+            <form class="form-inline my-2 my-lg-0">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Connexion</button>
+            </form>
+          </li>
+        </ul>
       </div>
-      <h1><b>Poissons</b> > Actuellement</h1>
-      <h1><b>Créatures marines</b> > Actuellement</h1>  
+    </nav>
+
+    <div class="container">
+      <h1 class="row"><b>Insectes</b> > Actuellement</h1>
+      <div id="insectes" class="row"></div>
+      <h1 class="row"><b>Poissons</b> > Actuellement</h1>
+      <h1 class="row"><b>Créatures marines</b> > Actuellement</h1>      
     </div>
+
+    <script src="main.js"></script>
 
   </body>
 
