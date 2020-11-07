@@ -11,8 +11,6 @@
     <title>Bébêtopédie</title>    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
     <link href="style.css" rel="stylesheet">
-    <link href="creatures/sprite-fish.css" rel="stylesheet">
-    <link href="creatures/sprite-insect.css" rel="stylesheet">
   
   </head>
   
@@ -28,6 +26,10 @@
     <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-analytics.js"></script>
 
     <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
+
 
     <script>
       // Your web app's Firebase configuration
@@ -47,13 +49,9 @@
       firebase.analytics();
     </script>
 
-    <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
-
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
-      <a class="navbar-brand" href="#">Bébêtopédie</a>
+      <a class="navbar-brand" href="#">Bêbétopédie</a>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -76,33 +74,24 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Événements</a>
           </li>
-        </ul>        
+        </ul>  
+        <!--     
         <ul class="navbar-nav ml-md-auto">
           <li class="nav-item">
-            <div id="connect-button">
-              <form class="form-inline my-2 my-lg-0" action="/login.html">
-                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Connexion</button>
-              </form>
-            </div>
+            <form class="form-inline my-2 my-lg-0" action="/login.html">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Connexion</button>
+            </form>
           </li>
-        </ul>
+        </ul>-->
       </div>
     </nav>
 
-    <div id="user-greet"></div>
+    <div id="loader">Loading...</div>
+    <div id="firebaseui-auth-container"></div>
+    <script src="login.js"></script>
 
-    <br>
 
-    <div class="container">
-      <h1 class="row"><b>Insectes</b> > Actuellement</h1>
-      <div id="insectes" class="row"></div>
-      <h1 class="row"><b>Poissons</b> > Actuellement</h1>
-      <div class="sprite-insect sprite-insect-ant"></div>
-      <h1 class="row"><b>Créatures marines</b> > Actuellement</h1>      
-    </div>
-
-    <script src="main.js"></script>
-    <script src="logout.js"></script>
   </body>
 
 </html>
+
