@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/LisaFicello/pwa_bebetopedie_ac#readme",
   "dependencies": {
+    "firebaseui": "^4.7.1",
     "json-server": "^0.16.2",
     "live-server": "^1.2.1"
   }

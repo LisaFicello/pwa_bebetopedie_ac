@@ -1,3 +1,29 @@
+// Account stuff
+const userDiv = document.querySelector('#user-greet');
+const connectButtonDiv = document.querySelector('#connect-button');
+
+const loginButton = `
+                    <form class="form-inline my-2 my-lg-0" action="/login.html">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Connexion</button>
+                    </form>`;
+
+const logOutButton = `
+                    <form class="form-inline my-2 my-lg-0">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onClick="signOut()">Déconnexion</button>
+                    </form>`;
+
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+        console.log(user.displayName +" is logged in")
+        const greetUserName = "<h2>Bienvenue "+user.displayName+" !</h2>";
+        userDiv.innerHTML = greetUserName;
+        connectButtonDiv.innerHTML = logOutButton;
+    } else {
+        console.log("No one is logged in")
+        connectButtonDiv.innerHTML = loginButton;
+    }
+  });
+
 const insectesDiv = document.querySelector('#insectes');
 
 function loadInsectes(insectes) {
