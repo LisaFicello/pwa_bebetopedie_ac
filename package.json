@@ -1,22 +1,26 @@
 {
-    "name": "pwa_bebetopedie_ac",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-      "jsonserver": "json-server -p 3001 --watch db.json",
-      "start": "live-server --port=3000",
-      "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-      "type": "git",
-      "url": "git+https://github.com/LisaFicello/pwa_bebetopedie_ac.git"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-      "url": "https://github.com/LisaFicello/pwa_bebetopedie_ac/issues"
-    },
-    "homepage": "https://github.com/LisaFicello/pwa_bebetopedie_ac#readme"
+  "name": "pwa_bebetopedie_ac",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "jsonserver": "json-server -p 3001 --watch db.json",
+    "start": "live-server --port=3000",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LisaFicello/pwa_bebetopedie_ac.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LisaFicello/pwa_bebetopedie_ac/issues"
+  },
+  "homepage": "https://github.com/LisaFicello/pwa_bebetopedie_ac#readme",
+  "dependencies": {
+    "json-server": "^0.16.2",
+    "live-server": "^1.2.1"
   }
+}
