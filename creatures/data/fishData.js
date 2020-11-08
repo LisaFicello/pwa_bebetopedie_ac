@@ -1,217 +1,229 @@
-[
+const fishData = [
     {
         "id": 1,
-        "name": "Common Butterfly",
-        "location": "Flying",
-        "price": 160,
+        "name": "Bitterling",
+        "location": "River",
+        "shadow_size": "Smallest",
+        "price": 900,
         "times": {
-            "array": [
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16,
-                17,
-                18
-            ],
-            "text": "4 a.m. - 7 p.m."
+            "array": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "text": "All Day"
         },
         "months": {
             "northern": {
-                "array": [
-                    1,
-                    2,
-                    3,
-                    4,
-                    5,
-                    6,
-                    9,
-                    10,
-                    11,
-                    12
-                ],
-                "text": "September - June"
+                "array": [1, 2, 3, 11, 12],
+                "text": "November - March"
             },
             "southern": {
-                "array": [
-                    3,
-                    4,
-                    5,
-                    6,
-                    7,
-                    8,
-                    9,
-                    10,
-                    11,
-                    12
-                ],
-                "text": "March - December"
+                "array": [5, 6, 7, 8, 9],
+                "text": "May - September"
             }
         }
     },
     {
         "id": 2,
-        "name": "Yellow Butterfly",
-        "location": "Flying",
+        "name": "Pale Chub",
+        "location": "River",
+        "shadow_size": "Smallest",
         "price": 160,
         "times": {
             "array": [
-                4,
-                5,
-                6,
-                7,
-                8,
                 9,
                 10,
                 11,
                 12,
                 13,
                 14,
-                15,
-                16,
-                17,
-                18
+                15
             ],
-            "text": "4 a.m. - 7 p.m."
+            "text": "9 a.m. - 4 p.m."
         },
         "months": {
             "northern": {
                 "array": [
-                    3,
-                    4,
-                    5,
-                    6,
-                    9,
-                    10
-                ],
-                "text": "March - June, September - October"
-            },
-            "southern": {
-                "array": [
-                    3,
-                    4,
-                    9,
-                    10,
-                    11,
-                    12
-                ],
-                "text": "March - April, September - December"
-            }
-        }
-    },
-    {
-        "id": 3,
-        "name": "Tiger Butterfly",
-        "location": "Flying",
-        "price": 240,
-        "times": {
-            "array": [
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16,
-                17,
-                18
-            ],
-            "text": "4 a.m. - 7 p.m."
-        },
-        "months": {
-            "northern": {
-                "array": [
+                    1,
+                    2,
                     3,
                     4,
                     5,
                     6,
                     7,
                     8,
-                    9
+                    9,
+                    10,
+                    11,
+                    12
                 ],
-                "text": "March - September"
+                "text": "Year Round"
             },
             "southern": {
                 "array": [
                     1,
                     2,
                     3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
                     9,
                     10,
                     11,
                     12
                 ],
-                "text": "September - March"
+                "text": "Year Round"
+            }
+        }
+    },
+    {
+        "id": 3,
+        "name": "Crucian Carp",
+        "location": "River",
+        "shadow_size": "Small",
+        "price": 160,
+        "times": {
+            "array": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
+            ],
+            "text": "All day"
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12
+                ],
+                "text": "Year Round"
+            },
+            "southern": {
+                "array": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12
+                ],
+                "text": "Year Round"
             }
         }
     },
     {
         "id": 4,
-        "name": "Peacock Butterfly",
-        "location": "Flying",
-        "price": 2500,
+        "name": "Dace",
+        "location": "River",
+        "shadow_size": "Medium",
+        "price": 240,
         "times": {
             "array": [
+                0,
+                1,
+                2,
+                3,
                 4,
                 5,
                 6,
                 7,
                 8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
                 16,
                 17,
-                18
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
             ],
-            "text": "4 a.m. - 7 p.m."
+            "text": "4 p.m. - 9 a.m."
         },
         "months": {
             "northern": {
                 "array": [
+                    1,
+                    2,
                     3,
                     4,
                     5,
-                    6
-                ],
-                "text": "March - June"
-            },
-            "southern": {
-                "array": [
+                    6,
+                    7,
+                    8,
                     9,
                     10,
                     11,
                     12
                 ],
-                "text": "September - December"
+                "text": "Year Round"
+            },
+            "southern": {
+                "array": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12
+                ],
+                "text": "Year Round"
             }
         }
     },
     {
         "id": 5,
-        "name": "Common Bluebottle",
-        "location": "Flying",
+        "name": "Carp",
+        "location": "Pond",
+        "shadow_size": "Large",
         "price": 300,
         "times": {
             "array": [
+                0,
+                1,
+                2,
+                3,
                 4,
                 5,
                 6,
@@ -226,53 +238,79 @@
                 15,
                 16,
                 17,
-                18
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
             ],
-            "text": "4 a.m. - 7 p.m."
+            "text": "All day"
         },
         "months": {
             "northern": {
                 "array": [
+                    1,
+                    2,
+                    3,
                     4,
                     5,
                     6,
                     7,
-                    8
+                    8,
+                    9,
+                    10,
+                    11,
+                    12
                 ],
-                "text": "April - August"
+                "text": "Year Round"
             },
             "southern": {
                 "array": [
                     1,
                     2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
                     10,
                     11,
                     12
                 ],
-                "text": "October - February"
+                "text": "Year Round"
             }
         }
     },
     {
         "id": 6,
-        "name": "Paper Kite Butterfly",
-        "location": "Flying",
-        "price": 1000,
+        "name": "Koi",
+        "location": "Pond",
+        "shadow_size": "Large",
+        "price": 4000,
         "times": {
             "array": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
                 8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
                 16,
                 17,
-                18
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
             ],
-            "text": "8 a.m. - 7 p.m."
+            "text": "4 p.m. - 9 a.m."
         },
         "months": {
             "northern": {
@@ -313,11 +351,16 @@
     },
     {
         "id": 7,
-        "name": "Great Purple Emperor",
-        "location": "Flying",
-        "price": 3000,
+        "name": "Goldfish",
+        "location": "Pond",
+        "shadow_size": "Smallest",
+        "price": 1300,
         "times": {
             "array": [
+                0,
+                1,
+                2,
+                3,
                 4,
                 5,
                 6,
@@ -332,97 +375,124 @@
                 15,
                 16,
                 17,
-                18
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
             ],
-            "text": "4 a.m. - 7 p.m."
+            "text": "All day"
         },
         "months": {
             "northern": {
                 "array": [
+                    1,
+                    2,
+                    3,
+                    4,
                     5,
                     6,
                     7,
-                    8
+                    8,
+                    9,
+                    10,
+                    11,
+                    12
                 ],
-                "text": "May - August"
+                "text": "Year Round"
             },
             "southern": {
                 "array": [
                     1,
                     2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
                     11,
                     12
                 ],
-                "text": "November - February"
+                "text": "Year Round"
             }
         }
     },
     {
         "id": 8,
-        "name": "Monach Butterfly",
-        "location": "Flying",
-        "price": 140,
+        "name": "Pop-eyed Goldfish",
+        "location": "Pond",
+        "shadow_size": "Smallest",
+        "price": 1300,
         "times": {
             "array": [
-                4,
-                5,
-                6,
-                7,
-                8,
                 9,
                 10,
                 11,
                 12,
                 13,
                 14,
-                15,
-                16
+                15
             ],
-            "text": "4 a.m. - 5 p.m."
+            "text": "9 a.m. - 4 p.m."
         },
         "months": {
             "northern": {
                 "array": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
                     9,
                     10,
-                    11
+                    11,
+                    12
                 ],
-                "text": "September - November"
+                "text": "Year Round"
             },
             "southern": {
                 "array": [
+                    1,
+                    2,
                     3,
                     4,
-                    5
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12
                 ],
-                "text": "March - May"
+                "text": "Year Round"
             }
         }
     },
     {
         "id": 9,
-        "name": "Emperor Butterfly",
-        "location": "Flying",
-        "price": 4000,
+        "name": "Ranchu Goldfish",
+        "location": "Pond",
+        "shadow_size": "Small",
+        "price": 4500,
         "times": {
             "array": [
-                0,
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                17,
-                18,
-                19,
-                20,
-                21,
-                22,
-                23
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15
             ],
-            "text": "5 p.m. - 8 a.m."
+            "text": "9 a.m. - 4 p.m."
         },
         "months": {
             "northern": {
@@ -430,1647 +500,43 @@
                     1,
                     2,
                     3,
+                    4,
+                    5,
                     6,
                     7,
                     8,
                     9,
+                    10,
+                    11,
                     12
                 ],
-                "text": "June - September, December - March"
+                "text": "Year Round"
             },
             "southern": {
                 "array": [
                     1,
                     2,
                     3,
+                    4,
+                    5,
                     6,
                     7,
                     8,
                     9,
+                    10,
+                    11,
                     12
                 ],
-                "text": "June - September, December - March"
+                "text": "Year Round"
             }
         }
     },
     {
         "id": 10,
-        "name": "Agrias Butterfly",
-        "location": "Flying",
-        "price": 3000,
-        "times": {
-            "array": [
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16
-            ],
-            "text": "8 a.m. - 5 p.m."
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    4,
-                    5,
-                    6,
-                    7,
-                    8,
-                    9
-                ],
-                "text": "April - September"
-            },
-            "southern": {
-                "array": [
-                    1,
-                    2,
-                    3,
-                    11,
-                    12
-                ],
-                "text": "November - March"
-            }
-        }
-    },
-    {
-        "id": 11,
-        "name": "Raja Brooke's Birdwing",
-        "location": "Flying",
-        "price": 2500,
-        "times": {
-            "array": [
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16
-            ],
-            "text": "8 a.m. - 5 p.m."
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    1,
-                    2,
-                    4,
-                    5,
-                    6,
-                    7,
-                    8,
-                    9,
-                    12
-                ],
-                "text": "April-September, December-February"
-            },
-            "southern": {
-                "array": [
-                    1,
-                    2,
-                    3,
-                    6,
-                    7,
-                    8,
-                    11,
-                    12
-                ],
-                "text": "November-March, June-August"
-            }
-        }
-    },
-    {
-        "id": 12,
-        "name": "Queen Alexandra's Birdwing",
-        "location": "Flying",
-        "price": 4000,
-        "times": {
-            "array": [
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15
-            ],
-            "text": "8 a.m. - 4 p.m."
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    5,
-                    6,
-                    7,
-                    8,
-                    9
-                ],
-                "text": "May - September"
-            },
-            "southern": {
-                "array": [
-                    1,
-                    2,
-                    3,
-                    11,
-                    12
-                ],
-                "text": "November - March"
-            }
-        }
-    },
-    {
-        "id": 13,
-        "name": "Moth",
-        "location": "Flying by light",
-        "price": 130,
-        "times": {
-            "array": [
-                0,
-                1,
-                2,
-                3,
-                19,
-                20,
-                21,
-                22,
-                23
-            ],
-            "text": "7 p.m. - 4 a.m."
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    1,
-                    2,
-                    3,
-                    4,
-                    5,
-                    6,
-                    7,
-                    8,
-                    9,
-                    10,
-                    11,
-                    12
-                ],
-                "text": "Year Round"
-            },
-            "southern": {
-                "array": [
-                    1,
-                    2,
-                    3,
-                    4,
-                    5,
-                    6,
-                    7,
-                    8,
-                    9,
-                    10,
-                    11,
-                    12
-                ],
-                "text": "Year Round"
-            }
-        }
-    },
-    {
-        "id": 14,
-        "name": "Atlas Moth",
-        "location": "On trees",
-        "price": 3000,
-        "times": {
-            "array": [
-                0,
-                1,
-                2,
-                3,
-                19,
-                20,
-                21,
-                22,
-                23
-            ],
-            "text": "7 p.m. - 4 a.m."
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    4,
-                    5,
-                    6,
-                    7,
-                    8,
-                    9
-                ],
-                "text": "April - September"
-            },
-            "southern": {
-                "array": [
-                    1,
-                    2,
-                    3,
-                    10,
-                    11,
-                    12
-                ],
-                "text": "October - March"
-            }
-        }
-    },
-    {
-        "id": 15,
-        "name": "Madagascan Sunset Moth",
-        "location": "Flying",
-        "price": 2500,
-        "times": {
-            "array": [
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15
-            ],
-            "text": "8 a.m. - 4 p.m."
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    4,
-                    5,
-                    6,
-                    7,
-                    8,
-                    9
-                ],
-                "text": "April - September"
-            },
-            "southern": {
-                "array": [
-                    1,
-                    2,
-                    3,
-                    10,
-                    11,
-                    12
-                ],
-                "text": "October - March"
-            }
-        }
-    },
-    {
-        "id": 16,
-        "name": "Long Locust",
-        "location": "On ground",
-        "price": 200,
-        "times": {
-            "array": [
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16,
-                17,
-                18
-            ],
-            "text": "8 a.m. - 7 p.m."
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    4,
-                    5,
-                    6,
-                    7,
-                    8,
-                    9,
-                    10,
-                    11
-                ],
-                "text": "April - November"
-            },
-            "southern": {
-                "array": [
-                    1,
-                    2,
-                    3,
-                    4,
-                    5,
-                    11,
-                    12
-                ],
-                "text": "November - May"
-            }
-        }
-    },
-    {
-        "id": 17,
-        "name": "Migratory Locust",
-        "location": "On ground",
-        "price": 600,
-        "times": {
-            "array": [
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16,
-                17,
-                18
-            ],
-            "text": "8 a.m. - 7 p.m."
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    8,
-                    9,
-                    10,
-                    11
-                ],
-                "text": "August - November"
-            },
-            "southern": {
-                "array": [
-                    2,
-                    3,
-                    4,
-                    5
-                ],
-                "text": "February - May"
-            }
-        }
-    },
-    {
-        "id": 18,
-        "name": "Rice Grasshopper",
-        "location": "On ground",
-        "price": 160,
-        "times": {
-            "array": [
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16,
-                17,
-                18
-            ],
-            "text": "8 a.m. - 7 p.m."
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    8,
-                    9,
-                    10,
-                    11
-                ],
-                "text": "August - November"
-            },
-            "southern": {
-                "array": [
-                    2,
-                    3,
-                    4,
-                    5
-                ],
-                "text": "February - May"
-            }
-        }
-    },
-    {
-        "id": 19,
-        "name": "Grasshopper",
-        "location": "On ground",
-        "price": 160,
-        "times": {
-            "array": [
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16
-            ],
-            "text": "8 a.m. - 5 p.m."
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    7,
-                    8,
-                    9
-                ],
-                "text": "July - September"
-            },
-            "southern": {
-                "array": [
-                    1,
-                    2,
-                    3
-                ],
-                "text": "January - March"
-            }
-        }
-    },
-    {
-        "id": 20,
-        "name": "Cricket",
-        "location": "Dig at cricket noise",
-        "price": 130,
-        "times": {
-            "array": [
-                0,
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                17,
-                18,
-                19,
-                20,
-                21,
-                22,
-                23
-            ],
-            "text": "5 p.m. - 8 a.m."
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    9,
-                    10,
-                    11
-                ],
-                "text": "September - November"
-            },
-            "southern": {
-                "array": [
-                    3,
-                    4,
-                    5
-                ],
-                "text": "March - May"
-            }
-        }
-    },
-    {
-        "id": 21,
-        "name": "Bell Cricket",
-        "location": "On ground",
-        "price": 430,
-        "times": {
-            "array": [
-                0,
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                17,
-                18,
-                19,
-                20,
-                21,
-                22,
-                23
-            ],
-            "text": "5 p.m. - 8 a.m."
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    9,
-                    10
-                ],
-                "text": "September - October"
-            },
-            "southern": {
-                "array": [
-                    3,
-                    4
-                ],
-                "text": "March - April"
-            }
-        }
-    },
-    {
-        "id": 22,
-        "name": "Mantis",
-        "location": "On flowers",
-        "price": 430,
-        "times": {
-            "array": [
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16
-            ],
-            "text": "8 a.m. - 5 p.m."
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    3,
-                    4,
-                    5,
-                    6,
-                    7,
-                    8,
-                    9,
-                    10
-                ],
-                "text": "March - November"
-            },
-            "southern": {
-                "array": [
-                    1,
-                    2,
-                    3,
-                    4,
-                    5,
-                    9,
-                    10,
-                    11,
-                    12
-                ],
-                "text": "September - May"
-            }
-        }
-    },
-    {
-        "id": 23,
-        "name": "Orchid Mantis",
-        "location": "On white flowers",
-        "price": 2400,
-        "times": {
-            "array": [
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16
-            ],
-            "text": "8 a.m. - 5 p.m."
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    3,
-                    4,
-                    5,
-                    6,
-                    7,
-                    8,
-                    9,
-                    10
-                ],
-                "text": "March - November"
-            },
-            "southern": {
-                "array": [
-                    1,
-                    2,
-                    3,
-                    4,
-                    5,
-                    9,
-                    10,
-                    11,
-                    12
-                ],
-                "text": "September - May"
-            }
-        }
-    },
-    {
-        "id": 24,
-        "name": "Honeybee",
-        "location": "Flying",
-        "price": 200,
-        "times": {
-            "array": [
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16
-            ],
-            "text": "8 a.m. - 5 p.m."
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    3,
-                    4,
-                    5,
-                    6,
-                    7
-                ],
-                "text": "March - July"
-            },
-            "southern": {
-                "array": [
-                    3,
-                    4,
-                    5,
-                    6,
-                    7
-                ],
-                "text": "March - July"
-            }
-        }
-    },
-    {
-        "id": 25,
-        "name": "Wasp",
-        "location": "Falls from shaking trees",
-        "price": 2500,
-        "times": {
-            "array": [
-                0,
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16,
-                17,
-                18,
-                19,
-                20,
-                21,
-                22,
-                23
-            ],
-            "text": "All day"
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    1,
-                    2,
-                    3,
-                    4,
-                    5,
-                    6,
-                    7,
-                    8,
-                    9,
-                    10,
-                    11,
-                    12
-                ],
-                "text": "Year Round"
-            },
-            "southern": {
-                "array": [
-                    1,
-                    2,
-                    3,
-                    4,
-                    5,
-                    6,
-                    7,
-                    8,
-                    9,
-                    10,
-                    11,
-                    12
-                ],
-                "text": "Year Round"
-            }
-        }
-    },
-    {
-        "id": 26,
-        "name": "Brown Cicada",
-        "location": "On trees",
-        "price": 250,
-        "times": {
-            "array": [
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16
-            ],
-            "text": "8 a.m. - 5 p.m."
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    7,
-                    8
-                ],
-                "text": "July - August"
-            },
-            "southern": {
-                "array": [
-                    1,
-                    2
-                ],
-                "text": "January - February"
-            }
-        }
-    },
-    {
-        "id": 27,
-        "name": "Robust Cicada",
-        "location": "On trees",
+        "name": "Killifish",
+        "location": "Pond",
+        "shadow_size": "Smallest",
         "price": 300,
-        "times": {
-            "array": [
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16
-            ],
-            "text": "8 a.m. - 5 p.m."
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    7,
-                    8
-                ],
-                "text": "July - August"
-            },
-            "southern": {
-                "array": [
-                    1,
-                    2
-                ],
-                "text": "January - February"
-            }
-        }
-    },
-    {
-        "id": 28,
-        "name": "Giant Cicada",
-        "location": "On trees",
-        "price": 600,
-        "times": {
-            "array": [
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16
-            ],
-            "text": "8 a.m. - 5 p.m."
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    7,
-                    8
-                ],
-                "text": "July - August"
-            },
-            "southern": {
-                "array": [
-                    1,
-                    2
-                ],
-                "text": "January - February"
-            }
-        }
-    },
-    {
-        "id": 29,
-        "name": "Walker Cicada",
-        "location": "On trees",
-        "price": 400,
-        "times": {
-            "array": [
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16
-            ],
-            "text": "8 a.m. - 5 p.m."
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    8,
-                    9
-                ],
-                "text": "August - September"
-            },
-            "southern": {
-                "array": [
-                    2,
-                    3
-                ],
-                "text": "February - March"
-            }
-        }
-    },
-    {
-        "id": 30,
-        "name": "Evening Cicada",
-        "location": "On trees",
-        "price": 660,
-        "times": {
-            "array": [
-                4,
-                5,
-                6,
-                7,
-                16,
-                17,
-                18
-            ],
-            "text": "4 a.m. - 8 a.m., 4 p.m. - 7 p.m."
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    7,
-                    8
-                ],
-                "text": "July - August"
-            },
-            "southern": {
-                "array": [
-                    1,
-                    2
-                ],
-                "text": "January - February"
-            }
-        }
-    },
-    {
-        "id": 31,
-        "name": "Cicada Shell",
-        "location": "On trees",
-        "price": 10,
-        "times": {
-            "array": [
-                0,
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16,
-                17,
-                18,
-                19,
-                20,
-                21,
-                22,
-                23
-            ],
-            "text": "All day"
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    7,
-                    8
-                ],
-                "text": "July - August"
-            },
-            "southern": {
-                "array": [
-                    1,
-                    2
-                ],
-                "text": "January - February"
-            }
-        }
-    },
-    {
-        "id": 32,
-        "name": "Red Dragonfly",
-        "location": "Flying",
-        "price": 180,
-        "times": {
-            "array": [
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16,
-                17,
-                18
-            ],
-            "text": "8 a.m. - 7 p.m."
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    9,
-                    10
-                ],
-                "text": "September - October"
-            },
-            "southern": {
-                "array": [
-                    3,
-                    4
-                ],
-                "text": "March - April"
-            }
-        }
-    },
-    {
-        "id": 33,
-        "name": "Darner Dragonfly",
-        "location": "Flying",
-        "price": 230,
-        "times": {
-            "array": [
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16
-            ],
-            "text": "8 a.m. - 5 p.m."
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    4,
-                    5,
-                    6,
-                    7,
-                    8,
-                    9,
-                    11
-                ],
-                "text": "April - October"
-            },
-            "southern": {
-                "array": [
-                    1,
-                    2,
-                    3,
-                    4,
-                    10,
-                    11,
-                    12
-                ],
-                "text": "October - April"
-            }
-        }
-    },
-    {
-        "id": 34,
-        "name": "Banded Dragonfly",
-        "location": "Flying",
-        "price": 4500,
-        "times": {
-            "array": [
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16
-            ],
-            "text": "8 a.m. - 5 p.m."
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    5,
-                    6,
-                    7,
-                    8,
-                    9,
-                    11
-                ],
-                "text": "May - October"
-            },
-            "southern": {
-                "array": [
-                    1,
-                    2,
-                    3,
-                    4,
-                    11,
-                    12
-                ],
-                "text": "November - April"
-            }
-        }
-    },
-    {
-        "id": 35,
-        "name": "Damselfly",
-        "location": "Flying",
-        "price": 500,
-        "times": {
-            "array": [
-                0,
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16,
-                17,
-                18,
-                19,
-                20,
-                21,
-                22,
-                23
-            ],
-            "text": "All day"
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    1,
-                    2,
-                    11,
-                    12
-                ],
-                "text": "November - February"
-            },
-            "southern": {
-                "array": [
-                    5,
-                    6,
-                    7,
-                    8
-                ],
-                "text": "May - August"
-            }
-        }
-    },
-    {
-        "id": 36,
-        "name": "Firefly",
-        "location": "Flying",
-        "price": 300,
-        "times": {
-            "array": [
-                0,
-                1,
-                2,
-                3,
-                19,
-                20,
-                21,
-                22,
-                23
-            ],
-            "text": "7 p.m. - 4 a.m."
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    6
-                ],
-                "text": "June"
-            },
-            "southern": {
-                "array": [
-                    12
-                ],
-                "text": "December"
-            }
-        }
-    },
-    {
-        "id": 37,
-        "name": "Mole Cricket",
-        "location": "Underground",
-        "price": 500,
-        "times": {
-            "array": [
-                0,
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16,
-                17,
-                18,
-                19,
-                20,
-                21,
-                22,
-                23
-            ],
-            "text": "All day"
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    1,
-                    2,
-                    3,
-                    4,
-                    5,
-                    11,
-                    12
-                ],
-                "text": "November - May"
-            },
-            "southern": {
-                "array": [
-                    5,
-                    6,
-                    7,
-                    8,
-                    9,
-                    10,
-                    11
-                ],
-                "text": "May - November"
-            }
-        }
-    },
-    {
-        "id": 38,
-        "name": "Pondskater",
-        "location": "Ponds",
-        "price": 130,
-        "times": {
-            "array": [
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16,
-                17,
-                18
-            ],
-            "text": "8 a.m. - 7 p.m."
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    5,
-                    6,
-                    7,
-                    8,
-                    9
-                ],
-                "text": "May - September"
-            },
-            "southern": {
-                "array": [
-                    1,
-                    2,
-                    3,
-                    11,
-                    12
-                ],
-                "text": "November - March"
-            }
-        }
-    },
-    {
-        "id": 39,
-        "name": "Diving Beetle",
-        "location": "Ponds and rivers",
-        "price": 800,
-        "times": {
-            "array": [
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16,
-                17,
-                18
-            ],
-            "text": "8 a.m. - 7 p.m."
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    5,
-                    6,
-                    7,
-                    8,
-                    9
-                ],
-                "text": "May - September"
-            },
-            "southern": {
-                "array": [
-                    1,
-                    2,
-                    3,
-                    11,
-                    12
-                ],
-                "text": "November - March"
-            }
-        }
-    },
-    {
-        "id": 40,
-        "name": "Giant Water Bug",
-        "location": "Ponds and rivers",
-        "price": 2000,
-        "times": {
-            "array": [
-                0,
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                19,
-                20,
-                21,
-                22,
-                23
-            ],
-            "text": "7 p.m. - 8 a.m."
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    4,
-                    5,
-                    6,
-                    7,
-                    8,
-                    9
-                ],
-                "text": "April - September"
-            },
-            "southern": {
-                "array": [
-                    1,
-                    2,
-                    3,
-                    10,
-                    11,
-                    12
-                ],
-                "text": "October - March"
-            }
-        }
-    },
-    {
-        "id": 41,
-        "name": "Stinkbug",
-        "location": "On flowers",
-        "price": 120,
-        "times": {
-            "array": [
-                0,
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16,
-                17,
-                18,
-                19,
-                20,
-                21,
-                22,
-                23
-            ],
-            "text": "All day"
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    3,
-                    4,
-                    5,
-                    6,
-                    7,
-                    8,
-                    9,
-                    10
-                ],
-                "text": "March - November"
-            },
-            "southern": {
-                "array": [
-                    1,
-                    2,
-                    3,
-                    4,
-                    5,
-                    9,
-                    10,
-                    11,
-                    12
-                ],
-                "text": "September - May"
-            }
-        }
-    },
-    {
-        "id": 42,
-        "name": "Man-faced Stink Bug",
-        "location": "On flowers",
-        "price": 1000,
-        "times": {
-            "array": [
-                0,
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                19,
-                20,
-                21,
-                22,
-                23
-            ],
-            "text": "7 p.m. - 8 a.m."
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    3,
-                    4,
-                    5,
-                    6,
-                    7,
-                    8,
-                    9,
-                    10
-                ],
-                "text": "March - November"
-            },
-            "southern": {
-                "array": [
-                    1,
-                    2,
-                    3,
-                    4,
-                    5,
-                    9,
-                    10,
-                    11,
-                    12
-                ],
-                "text": "September - May"
-            }
-        }
-    },
-    {
-        "id": 43,
-        "name": "Ladybug",
-        "location": "On flowers",
-        "price": 200,
-        "times": {
-            "array": [
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16
-            ],
-            "text": "8 a.m. - 5 p.m."
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    3,
-                    4,
-                    5,
-                    6,
-                    10
-                ],
-                "text": "March - June, October"
-            },
-            "southern": {
-                "array": [
-                    4,
-                    9,
-                    10,
-                    11,
-                    12
-                ],
-                "text": "April, September - December"
-            }
-        }
-    },
-    {
-        "id": 44,
-        "name": "Tiger Beetle",
-        "location": "On ground",
-        "price": 1500,
-        "times": {
-            "array": [
-                0,
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16,
-                17,
-                18,
-                19,
-                20,
-                21,
-                22,
-                23
-            ],
-            "text": "All day"
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    2,
-                    3,
-                    4,
-                    5,
-                    6,
-                    7,
-                    8,
-                    9,
-                    10,
-                    11
-                ],
-                "text": "February - November"
-            },
-            "southern": {
-                "array": [
-                    1,
-                    2,
-                    3,
-                    4,
-                    5,
-                    8,
-                    9,
-                    10,
-                    11,
-                    12
-                ],
-                "text": "August - May"
-            }
-        }
-    },
-    {
-        "id": 45,
-        "name": "Jewel Beetle",
-        "location": "On trees",
-        "price": 2400,
         "times": {
             "array": [
                 0,
@@ -2113,8 +579,8 @@
             },
             "southern": {
                 "array": [
+                    0,
                     1,
-                    2,
                     10,
                     11,
                     12
@@ -2124,10 +590,11 @@
         }
     },
     {
-        "id": 46,
-        "name": "Violin Beetle",
-        "location": "On tree stumps",
-        "price": 450,
+        "id": 11,
+        "name": "Crawfish",
+        "location": "Pond",
+        "shadow_size": "Small",
+        "price": 200,
         "times": {
             "array": [
                 0,
@@ -2160,157 +627,640 @@
         "months": {
             "northern": {
                 "array": [
-                    5,
-                    6,
-                    9,
-                    10,
-                    11
-                ],
-                "text": "May - June, September - November"
-            },
-            "southern": {
-                "array": [
-                    3,
                     4,
-                    11,
-                    12
-                ],
-                "text": "November - December, March - April"
-            }
-        }
-    },
-    {
-        "id": 47,
-        "name": "Citrus Long-horned Beetle",
-        "location": "On tree stumps",
-        "price": 350,
-        "times": {
-            "array": [
-                0,
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16,
-                17,
-                18,
-                19,
-                20,
-                21,
-                22,
-                23
-            ],
-            "text": "All day"
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    1,
-                    2,
-                    3,
-                    4,
-                    5,
-                    6,
-                    7,
-                    8,
-                    9,
-                    10,
-                    11,
-                    12
-                ],
-                "text": "Year Round"
-            },
-            "southern": {
-                "array": [
-                    1,
-                    2,
-                    3,
-                    4,
-                    5,
-                    6,
-                    7,
-                    8,
-                    9,
-                    10,
-                    11,
-                    12
-                ],
-                "text": "Year Round"
-            }
-        }
-    },
-    {
-        "id": 48,
-        "name": "Rosalia Batesi Beetle",
-        "location": "On tree stumps",
-        "price": 3000,
-        "times": {
-            "array": [
-                0,
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16,
-                17,
-                18,
-                19,
-                20,
-                21,
-                22,
-                23
-            ],
-            "text": "All day"
-        },
-        "months": {
-            "northern": {
-                "array": [
                     5,
                     6,
                     7,
                     8,
                     9
                 ],
-                "text": "May - September"
+                "text": "April - September"
+            },
+            "southern": {
+                "array": [
+                    0,
+                    1,
+                    10,
+                    11,
+                    12
+                ],
+                "text": "October - March"
+            }
+        }
+    },
+    {
+        "id": 12,
+        "name": "Soft-shelled Turtle",
+        "location": "River",
+        "shadow_size": "Large",
+        "price": 3750,
+        "times": {
+            "array": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
+            ],
+            "text": "4 p.m. - 9 a.m."
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    8,
+                    9
+                ],
+                "text": "August - September"
+            },
+            "southern": {
+                "array": [
+                    2,
+                    3
+                ],
+                "text": "February - March"
+            }
+        }
+    },
+    {
+        "id": 13,
+        "name": "Snapping Turtle",
+        "location": "River",
+        "shadow_size": "Extra Large",
+        "price": 5000,
+        "times": {
+            "array": [
+                0,
+                1,
+                2,
+                3,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
+            ],
+            "text": "9 a.m. - 4 a.m."
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10
+                ],
+                "text": "April - October"
+            },
+            "southern": {
+                "array": [
+                    0,
+                    1,
+                    10,
+                    11,
+                    12
+                ],
+                "text": "October - April"
+            }
+        }
+    },
+    {
+        "id": 14,
+        "name": "Tadpole",
+        "location": "Pond",
+        "shadow_size": "Smallest",
+        "price": 100,
+        "times": {
+            "array": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
+            ],
+            "text": "All day"
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    3,
+                    4,
+                    5,
+                    6,
+                    7
+                ],
+                "text": "March - July"
+            },
+            "southern": {
+                "array": [
+                    0,
+                    1,
+                    9,
+                    10,
+                    11,
+                    12
+                ],
+                "text": "September - January"
+            }
+        }
+    },
+    {
+        "id": 15,
+        "name": "Frog",
+        "location": "Pond",
+        "shadow_size": "Small",
+        "price": 120,
+        "times": {
+            "array": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
+            ],
+            "text": "All day"
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "text": "May - August"
+            },
+            "southern": {
+                "array": [
+                    0,
+                    1,
+                    11,
+                    12
+                ],
+                "text": "November - February"
+            }
+        }
+    },
+    {
+        "id": 16,
+        "name": "Freshwater Goby",
+        "location": "River",
+        "shadow_size": "Small",
+        "price": 400,
+        "times": {
+            "array": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
+            ],
+            "text": "4 p.m. - 9 a.m."
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12
+                ],
+                "text": "Year Round"
             },
             "southern": {
                 "array": [
                     1,
                     2,
                     3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
                     11,
                     12
                 ],
-                "text": "November - March"
+                "text": "Year Round"
             }
         }
     },
     {
-        "id": 49,
-        "name": "Blue Weevil Beetle",
-        "location": "On palm trees",
+        "id": 17,
+        "name": "Loach",
+        "location": "River",
+        "shadow_size": "Small",
+        "price": 400,
+        "times": {
+            "array": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
+            ],
+            "text": "All day"
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    3,
+                    4,
+                    5
+                ],
+                "text": "March - May"
+            },
+            "southern": {
+                "array": [
+                    9,
+                    10,
+                    11
+                ],
+                "text": "September - November"
+            }
+        }
+    },
+    {
+        "id": 18,
+        "name": "Catfish",
+        "location": "Pond",
+        "shadow_size": "Large",
+        "price": 800,
+        "times": {
+            "array": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
+            ],
+            "text": "4 p.m. - 9 a.m."
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10
+                ],
+                "text": "May - October"
+            },
+            "southern": {
+                "array": [
+                    0,
+                    1,
+                    11,
+                    12
+                ],
+                "text": "November - April"
+            }
+        }
+    },
+    {
+        "id": 19,
+        "name": "Giant Snakehead",
+        "location": "Pond",
+        "shadow_size": "Extra Large",
+        "price": 5500,
+        "times": {
+            "array": [
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15
+            ],
+            "text": "9 a.m. - 4 p.m."
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    6,
+                    7,
+                    8
+                ],
+                "text": "June - August"
+            },
+            "southern": {
+                "array": [
+                    0,
+                    1,
+                    12
+                ],
+                "text": "December - February"
+            }
+        }
+    },
+    {
+        "id": 20,
+        "name": "Bluegill",
+        "location": "River",
+        "shadow_size": "Small",
+        "price": 180,
+        "times": {
+            "array": [
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15
+            ],
+            "text": "9 a.m. - 4 p.m."
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12
+                ],
+                "text": "Year Round"
+            },
+            "southern": {
+                "array": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12
+                ],
+                "text": "Year Round"
+            }
+        }
+    },
+    {
+        "id": 21,
+        "name": "Yellow Perch",
+        "location": "River",
+        "shadow_size": "Medium",
+        "price": 300,
+        "times": {
+            "array": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
+            ],
+            "text": "All day"
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    0,
+                    1,
+                    10,
+                    11,
+                    12
+                ],
+                "text": "October - March"
+            },
+            "southern": {
+                "array": [
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9
+                ],
+                "text": "April - September"
+            }
+        }
+    },
+    {
+        "id": 22,
+        "name": "Black Bass",
+        "location": "River",
+        "shadow_size": "Large",
+        "price": 400,
+        "times": {
+            "array": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
+            ],
+            "text": "All day"
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12
+                ],
+                "text": "Year Round"
+            },
+            "southern": {
+                "array": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12
+                ],
+                "text": "Year Round"
+            }
+        }
+    },
+    {
+        "id": 23,
+        "name": "Tilapia",
+        "location": "River",
+        "shadow_size": "Medium",
         "price": 800,
         "times": {
             "array": [
@@ -2344,34 +1294,120 @@
         "months": {
             "northern": {
                 "array": [
+                    6,
                     7,
-                    8
+                    8,
+                    9,
+                    10
                 ],
-                "text": "July - August"
+                "text": "June - October"
             },
             "southern": {
                 "array": [
+                    0,
                     1,
-                    2
+                    12
                 ],
-                "text": "January - February"
+                "text": "December - April"
             }
         }
     },
     {
-        "id": 50,
-        "name": "Dung Beetle",
-        "location": "Pushing snowballs",
-        "price": 3000,
+        "id": 24,
+        "name": "Pike",
+        "location": "River",
+        "shadow_size": "Extra Large",
+        "price": 1800,
         "times": {
-            "array": [],
-            "text": "--UNKNOWN--"
+            "array": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
+            ],
+            "text": "All day"
         },
         "months": {
             "northern": {
                 "array": [
+                    9,
+                    10,
+                    11,
+                    12
+                ],
+                "text": "September - December"
+            },
+            "southern": {
+                "array": [
+                    3,
+                    4,
+                    5,
+                    6
+                ],
+                "text": "March - June"
+            }
+        }
+    },
+    {
+        "id": 25,
+        "name": "Pond Smelt",
+        "location": "River",
+        "shadow_size": "Small",
+        "price": 500,
+        "times": {
+            "array": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
+            ],
+            "text": "All day"
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    0,
                     1,
-                    2,
                     12
                 ],
                 "text": "December - February"
@@ -2387,10 +1423,11 @@
         }
     },
     {
-        "id": 51,
-        "name": "Earth-boring Dung Beetle",
-        "location": "On ground",
-        "price": 300,
+        "id": 26,
+        "name": "Sweetfish",
+        "location": "River",
+        "shadow_size": "Medium",
+        "price": 900,
         "times": {
             "array": [
                 0,
@@ -2440,10 +1477,11 @@
         }
     },
     {
-        "id": 52,
-        "name": "Scarab Beetle",
-        "location": "On trees",
-        "price": 10000,
+        "id": 27,
+        "name": "Cherry Salmon",
+        "location": "River (Clifftop)",
+        "shadow_size": "Medium",
+        "price": 1000,
         "times": {
             "array": [
                 0,
@@ -2454,32 +1492,209 @@
                 5,
                 6,
                 7,
+                8,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
                 23
             ],
-            "text": "11 p.m. - 8 a.m."
+            "text": "4 p.m. - 9 a.m."
         },
         "months": {
             "northern": {
                 "array": [
-                    7,
-                    8
+                    3,
+                    4,
+                    5,
+                    6,
+                    9,
+                    10,
+                    11
                 ],
-                "text": "July - August"
+                "text": "March - June, September - November"
             },
             "southern": {
                 "array": [
-                    1,
-                    2
+                    3,
+                    4,
+                    5,
+                    9,
+                    10,
+                    11,
+                    12
                 ],
-                "text": "January - February"
+                "text": "March - May, September - December"
             }
         }
     },
     {
-        "id": 53,
-        "name": "Drone Beetle",
-        "location": "On trees",
-        "price": 200,
+        "id": 28,
+        "name": "Char",
+        "location": "River (Clifftop)\/Pond",
+        "shadow_size": "Medium",
+        "price": 3800,
+        "times": {
+            "array": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
+            ],
+            "text": "4 p.m. - 9 a.m."
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    3,
+                    4,
+                    5,
+                    6,
+                    9,
+                    10,
+                    11
+                ],
+                "text": "March - June, September - November"
+            },
+            "southern": {
+                "array": [
+                    3,
+                    4,
+                    5,
+                    9,
+                    10,
+                    11,
+                    12
+                ],
+                "text": "March - May, September - December"
+            }
+        }
+    },
+    {
+        "id": 29,
+        "name": "Golden Trout",
+        "location": "River (Clifftop)",
+        "shadow_size": "Medium",
+        "price": 15000,
+        "times": {
+            "array": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
+            ],
+            "text": "4 p.m. - 9 a.m."
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    3,
+                    4,
+                    5,
+                    6,
+                    9,
+                    10,
+                    11
+                ],
+                "text": "March - June, September - November"
+            },
+            "southern": {
+                "array": [
+                    3,
+                    4,
+                    5,
+                    9,
+                    10,
+                    11,
+                    12
+                ],
+                "text": "March - May, September - December"
+            }
+        }
+    },
+    {
+        "id": 30,
+        "name": "Stringfish",
+        "location": "River (Clifftop)",
+        "shadow_size": "Largest",
+        "price": 15000,
+        "times": {
+            "array": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
+            ],
+            "text": "4 p.m. - 9 a.m."
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    0,
+                    1,
+                    12
+                ],
+                "text": "December - March"
+            },
+            "southern": {
+                "array": [
+                    6,
+                    7,
+                    8,
+                    9
+                ],
+                "text": "June - September"
+            }
+        }
+    },
+    {
+        "id": 31,
+        "name": "Salmon",
+        "location": "River (mouth)",
+        "shadow_size": "Small",
+        "price": 700,
         "times": {
             "array": [
                 0,
@@ -2512,27 +1727,24 @@
         "months": {
             "northern": {
                 "array": [
-                    6,
-                    7,
-                    8
+                    9
                 ],
-                "text": "June - August"
+                "text": "September"
             },
             "southern": {
                 "array": [
-                    1,
-                    2,
-                    12
+                    3
                 ],
-                "text": "December - February"
+                "text": "March"
             }
         }
     },
     {
-        "id": 54,
-        "name": "Goliath Beetle",
-        "location": "On trees",
-        "price": 8000,
+        "id": 32,
+        "name": "King Salmon",
+        "location": "River (mouth)",
+        "shadow_size": "Smallest",
+        "price": 1800,
         "times": {
             "array": [
                 0,
@@ -2543,6 +1755,15 @@
                 5,
                 6,
                 7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
                 17,
                 18,
                 19,
@@ -2551,33 +1772,28 @@
                 22,
                 23
             ],
-            "text": "5 p.m. - 8 a.m."
+            "text": "All day"
         },
         "months": {
             "northern": {
                 "array": [
-                    6,
-                    7,
-                    8,
                     9
                 ],
-                "text": "June - September"
+                "text": "September"
             },
             "southern": {
                 "array": [
-                    1,
-                    2,
-                    3,
-                    12
+                    3
                 ],
-                "text": "December - March"
+                "text": "March"
             }
         }
     },
     {
-        "id": 55,
-        "name": "Saw Stag",
-        "location": "On trees",
+        "id": 33,
+        "name": "Mitten Crab",
+        "location": "River",
+        "shadow_size": "Small",
         "price": 2000,
         "times": {
             "array": [
@@ -2590,13 +1806,6 @@
                 6,
                 7,
                 8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
                 16,
                 17,
                 18,
@@ -2606,30 +1815,117 @@
                 22,
                 23
             ],
-            "text": "All day"
+            "text": "4 p.m. - 9 a.m."
         },
         "months": {
             "northern": {
                 "array": [
-                    7,
-                    8
+                    9,
+                    10,
+                    11
                 ],
-                "text": "July - August"
+                "text": "September - November"
             },
             "southern": {
                 "array": [
-                    1,
-                    2
+                    3,
+                    4,
+                    5
                 ],
-                "text": "January - February"
+                "text": "March - May"
             }
         }
     },
     {
-        "id": 56,
-        "name": "Miyama Stag",
-        "location": "On trees",
-        "price": 1000,
+        "id": 34,
+        "name": "Guppy",
+        "location": "River",
+        "shadow_size": "Smallest",
+        "price": 1300,
+        "times": {
+            "array": [
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15
+            ],
+            "text": "9 a.m. - 4 p.m."
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11
+                ],
+                "text": "April - November"
+            },
+            "southern": {
+                "array": [
+                    0,
+                    1,
+                    10,
+                    11,
+                    12
+                ],
+                "text": "October - May"
+            }
+        }
+    },
+    {
+        "id": 35,
+        "name": "Nibble Fish",
+        "location": "River",
+        "shadow_size": "Small",
+        "price": 1500,
+        "times": {
+            "array": [
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15
+            ],
+            "text": "9 a.m. - 4 p.m."
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    5,
+                    6,
+                    7,
+                    8,
+                    9
+                ],
+                "text": "May - September"
+            },
+            "southern": {
+                "array": [
+                    0,
+                    1,
+                    11,
+                    12
+                ],
+                "text": "November - March"
+            }
+        }
+    },
+    {
+        "id": 36,
+        "name": "Angelfish",
+        "location": "River",
+        "shadow_size": "Small",
+        "price": 3000,
         "times": {
             "array": [
                 0,
@@ -2641,13 +1937,6 @@
                 6,
                 7,
                 8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
                 16,
                 17,
                 18,
@@ -2657,29 +1946,207 @@
                 22,
                 23
             ],
-            "text": "All day"
+            "text": "4 p.m. - 9 a.m."
         },
         "months": {
             "northern": {
                 "array": [
+                    5,
+                    6,
                     7,
-                    8
+                    8,
+                    9,
+                    10
                 ],
-                "text": "July - August"
+                "text": "May - October"
             },
             "southern": {
                 "array": [
+                    0,
                     1,
-                    2
+                    11,
+                    12
                 ],
-                "text": "January - February"
+                "text": "November - April"
             }
         }
     },
     {
-        "id": 57,
-        "name": "Giant Stag",
-        "location": "On trees",
+        "id": 37,
+        "name": "Betta",
+        "location": "River",
+        "shadow_size": "Small",
+        "price": 2500,
+        "times": {
+            "array": [
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15
+            ],
+            "text": "9 a.m. - 4 p.m."
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10
+                ],
+                "text": "May - October"
+            },
+            "southern": {
+                "array": [
+                    0,
+                    1,
+                    11,
+                    12
+                ],
+                "text": "November - April"
+            }
+        }
+    },
+    {
+        "id": 38,
+        "name": "Neon Tetra",
+        "location": "River",
+        "shadow_size": "Smallest",
+        "price": 500,
+        "times": {
+            "array": [
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15
+            ],
+            "text": "9 a.m. - 4 p.m."
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11
+                ],
+                "text": "April - November"
+            },
+            "southern": {
+                "array": [
+                    0,
+                    1,
+                    10,
+                    11,
+                    12
+                ],
+                "text": "October - May"
+            }
+        }
+    },
+    {
+        "id": 39,
+        "name": "Rainbowfish",
+        "location": "River",
+        "shadow_size": "Small",
+        "price": 800,
+        "times": {
+            "array": [
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15
+            ],
+            "text": "9 a.m. - 4 p.m."
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10
+                ],
+                "text": "May - October"
+            },
+            "southern": {
+                "array": [
+                    0,
+                    1,
+                    11,
+                    12
+                ],
+                "text": "November - April"
+            }
+        }
+    },
+    {
+        "id": 40,
+        "name": "Piranha",
+        "location": "River",
+        "shadow_size": "Small",
+        "price": 2500,
+        "times": {
+            "array": [
+                0,
+                1,
+                2,
+                3,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                21,
+                22,
+                23
+            ],
+            "text": "9 a.m. - 4 p.m., 9 p.m. - 4 a.m."
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    6,
+                    7,
+                    8,
+                    9
+                ],
+                "text": "June - September"
+            },
+            "southern": {
+                "array": [
+                    0,
+                    1,
+                    12
+                ],
+                "text": "December - March"
+            }
+        }
+    },
+    {
+        "id": 41,
+        "name": "Arowana",
+        "location": "River",
+        "shadow_size": "Large",
         "price": 10000,
         "times": {
             "array": [
@@ -2691,31 +2158,91 @@
                 5,
                 6,
                 7,
+                8,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
                 23
             ],
-            "text": "11 p.m. - 8 a.m."
+            "text": "4 p.m. - 9 a.m."
         },
         "months": {
             "northern": {
                 "array": [
+                    6,
                     7,
-                    8
+                    8,
+                    9
                 ],
-                "text": "July - August"
+                "text": "June - September"
             },
             "southern": {
                 "array": [
+                    0,
                     1,
-                    2
+                    12
                 ],
-                "text": "January - February"
+                "text": "December - March"
             }
         }
     },
     {
-        "id": 58,
-        "name": "Rainbow Stag",
-        "location": "On trees",
+        "id": 42,
+        "name": "Dorado",
+        "location": "River",
+        "shadow_size": "Extra Large",
+        "price": 15000,
+        "times": {
+            "array": [
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+            ],
+            "text": "4 a.m. - 9 p.m."
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    6,
+                    7,
+                    8,
+                    9
+                ],
+                "text": "June - September"
+            },
+            "southern": {
+                "array": [
+                    0,
+                    1,
+                    12
+                ],
+                "text": "December - March"
+            }
+        }
+    },
+    {
+        "id": 43,
+        "name": "Gar",
+        "location": "Pond",
+        "shadow_size": "Largest",
         "price": 6000,
         "times": {
             "array": [
@@ -2727,13 +2254,17 @@
                 5,
                 6,
                 7,
+                8,
+                16,
+                17,
+                18,
                 19,
                 20,
                 21,
                 22,
                 23
             ],
-            "text": "7 p.m. - 8 a.m."
+            "text": "4 p.m. - 9 a.m."
         },
         "months": {
             "northern": {
@@ -2747,9 +2278,8 @@
             },
             "southern": {
                 "array": [
+                    0,
                     1,
-                    2,
-                    3,
                     12
                 ],
                 "text": "December - March"
@@ -2757,10 +2287,11 @@
         }
     },
     {
-        "id": 59,
-        "name": "Cyclommatus Stag",
-        "location": "On trees",
-        "price": 8000,
+        "id": 44,
+        "name": "Arapaima",
+        "location": "River",
+        "shadow_size": "Largest",
+        "price": 10000,
         "times": {
             "array": [
                 0,
@@ -2771,6 +2302,8 @@
                 5,
                 6,
                 7,
+                8,
+                16,
                 17,
                 18,
                 19,
@@ -2779,321 +2312,72 @@
                 22,
                 23
             ],
-            "text": "5 p.m. - 8 a.m."
+            "text": "4 p.m. - 9 a.m."
         },
         "months": {
             "northern": {
                 "array": [
-                    7,
-                    8
-                ],
-                "text": "July - August"
-            },
-            "southern": {
-                "array": [
-                    1,
-                    2
-                ],
-                "text": "January - February"
-            }
-        }
-    },
-    {
-        "id": 60,
-        "name": "Golden Stag",
-        "location": "On trees",
-        "price": 12000,
-        "times": {
-            "array": [
-                0,
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                17,
-                18,
-                19,
-                20,
-                21,
-                22,
-                23
-            ],
-            "text": "5 p.m. - 8 a.m."
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    7,
-                    8
-                ],
-                "text": "July - August"
-            },
-            "southern": {
-                "array": [
-                    1,
-                    2
-                ],
-                "text": "January - February"
-            }
-        }
-    },
-    {
-        "id": 61,
-        "name": "Giraffe Stag",
-        "location": "On trees",
-        "price": 12000,
-        "times": {
-            "array": [
-                0,
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                17,
-                18,
-                19,
-                20,
-                21,
-                22,
-                23
-            ],
-            "text": "5 p.m. - 8 a.m."
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    7,
-                    8
-                ],
-                "text": "July - August"
-            },
-            "southern": {
-                "array": [
-                    1,
-                    2
-                ],
-                "text": "January - February"
-            }
-        }
-    },
-    {
-        "id": 62,
-        "name": "Horned Dynastid",
-        "location": "On trees",
-        "price": 1350,
-        "times": {
-            "array": [
-                0,
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                17,
-                18,
-                19,
-                20,
-                21,
-                22,
-                23
-            ],
-            "text": "5 p.m. - 8 a.m."
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    7,
-                    8
-                ],
-                "text": "July - August"
-            },
-            "southern": {
-                "array": [
-                    1,
-                    2
-                ],
-                "text": "January - February"
-            }
-        }
-    },
-    {
-        "id": 63,
-        "name": "Horned Atlas",
-        "location": "On trees",
-        "price": 8000,
-        "times": {
-            "array": [
-                0,
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                17,
-                18,
-                19,
-                20,
-                21,
-                22,
-                23
-            ],
-            "text": "5 p.m. - 8 a.m."
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    7,
-                    8
-                ],
-                "text": "July - August"
-            },
-            "southern": {
-                "array": [
-                    1,
-                    2
-                ],
-                "text": "January - February"
-            }
-        }
-    },
-    {
-        "id": 64,
-        "name": "Horned Elephant",
-        "location": "On trees",
-        "price": 8000,
-        "times": {
-            "array": [
-                0,
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                17,
-                18,
-                19,
-                20,
-                21,
-                22,
-                23
-            ],
-            "text": "5 p.m. - 8 a.m."
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    7,
-                    8
-                ],
-                "text": "July - August"
-            },
-            "southern": {
-                "array": [
-                    1,
-                    2
-                ],
-                "text": "January - February"
-            }
-        }
-    },
-    {
-        "id": 65,
-        "name": "Horned Herucles",
-        "location": "On trees",
-        "price": 12000,
-        "times": {
-            "array": [
-                0,
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                17,
-                18,
-                19,
-                20,
-                21,
-                22,
-                23
-            ],
-            "text": "5 p.m. - 8 a.m."
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    7,
-                    8
-                ],
-                "text": "July - August"
-            },
-            "southern": {
-                "array": [
-                    1,
-                    2
-                ],
-                "text": "January - February"
-            }
-        }
-    },
-    {
-        "id": 66,
-        "name": "Walking Stick",
-        "location": "Falls from shaking trees",
-        "price":600,
-        "times": {
-            "array": [
-                4,
-                5,
-                6,
-                7,
-                17,
-                18
-            ],
-            "text": "4 a.m. - 8 a.m., 5 p.m. - 7 p.m."
-        },
-        "months": {
-            "northern": {
-                "array": [
+                    6,
                     7,
                     8,
-                    9,
-                    10,
-                    11
+                    9
                 ],
-                "text": "July - November"
+                "text": "June - September"
             },
             "southern": {
                 "array": [
+                    0,
                     1,
-                    2,
-                    3,
-                    4,
-                    5
+                    12
                 ],
-                "text": "January - May"
+                "text": "December - March"
             }
         }
     },
     {
-        "id": 67,
-        "name": "Walking Leaf",
-        "location": "Near trees, disguised as furniture leaf",
-        "price": 600,
+        "id": 45,
+        "name": "Saddled Bichir",
+        "location": "River",
+        "shadow_size": "Large",
+        "price": 4000,
+        "times": {
+            "array": [
+                0,
+                1,
+                2,
+                3,
+                21,
+                22,
+                23
+            ],
+            "text": "9 p.m. - 4 a.m."
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    6,
+                    7,
+                    8,
+                    9
+                ],
+                "text": "June - September"
+            },
+            "southern": {
+                "array": [
+                    0,
+                    1,
+                    12
+                ],
+                "text": "December - March"
+            }
+        }
+    },
+    {
+        "id": 46,
+        "name": "Sturgeon",
+        "location": "River (mouth)",
+        "shadow_size": "Largest",
+        "price": 10000,
         "times": {
             "array": [
                 0,
@@ -3126,167 +2410,34 @@
         "months": {
             "northern": {
                 "array": [
-                    7,
-                    8
+                    0,
+                    1,
+                    9,
+                    10,
+                    11,
+                    12
                 ],
-                "text": "July - August"
+                "text": "September - March"
             },
             "southern": {
                 "array": [
-                    1,
-                    2,
-                    3
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9
                 ],
-                "text": "January - March"
+                "text": "March - September"
             }
         }
     },
     {
-        "id": 68,
-        "name": "Bagworm",
-        "location": "Falls from shaking trees",
-        "price": 600,
-        "times": {
-            "array": [
-                0,
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16,
-                17,
-                18,
-                19,
-                20,
-                21,
-                22,
-                23
-            ],
-            "text": "All day"
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    1,
-                    2,
-                    3,
-                    4,
-                    5,
-                    6,
-                    7,
-                    8,
-                    9,
-                    10,
-                    11,
-                    12
-                ],
-                "text": "Year Round"
-            },
-            "southern": {
-                "array": [
-                    1,
-                    2,
-                    3,
-                    4,
-                    5,
-                    6,
-                    7,
-                    8,
-                    9,
-                    10,
-                    11,
-                    12
-                ],
-                "text": "Year Round"
-            }
-        }
-    },
-    {
-        "id": 69,
-        "name": "Ant",
-        "location": "On Rotten Food",
-        "price": 80,
-        "times": {
-            "array": [
-                0,
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16,
-                17,
-                18,
-                19,
-                20,
-                21,
-                22,
-                23
-            ],
-            "text": "All day"
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    1,
-                    2,
-                    3,
-                    4,
-                    5,
-                    6,
-                    7,
-                    8,
-                    9,
-                    10,
-                    11,
-                    12
-                ],
-                "text": "Year Round"
-            },
-            "southern": {
-                "array": [
-                    1,
-                    2,
-                    3,
-                    4,
-                    5,
-                    6,
-                    7,
-                    8,
-                    9,
-                    10,
-                    11,
-                    12
-                ],
-                "text": "Year Round"
-            }
-        }
-    },
-    {
-        "id": 70,
-        "name": "Hermit Crab",
-        "location": "Beach",
+        "id": 47,
+        "name": "Sea Butterfly",
+        "location": "Sea",
+        "shadow_size": "Smallest",
         "price": 1000,
         "times": {
             "array": [
@@ -3298,66 +2449,6 @@
                 5,
                 6,
                 7,
-                19,
-                20,
-                21,
-                22,
-                23
-            ],
-            "text": "7 p.m. - 8 a.m."
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    1,
-                    2,
-                    3,
-                    4,
-                    5,
-                    6,
-                    7,
-                    8,
-                    9,
-                    10,
-                    11,
-                    12
-                ],
-                "text": "Year Round"
-            },
-            "southern": {
-                "array": [
-                    1,
-                    2,
-                    3,
-                    4,
-                    5,
-                    6,
-                    7,
-                    8,
-                    9,
-                    10,
-                    11,
-                    12
-                ],
-                "text": "Year Round"
-            }
-        }
-    },
-    {
-        "id": 71,
-        "name": "Wharf Roach",
-        "location": "On rocks at beach",
-        "price": 200,
-        "times": {
-            "array": [
-                0,
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
                 8,
                 9,
                 10,
@@ -3380,134 +2471,13 @@
         "months": {
             "northern": {
                 "array": [
+                    0,
                     1,
-                    2,
-                    3,
-                    4,
-                    5,
-                    6,
-                    7,
-                    8,
-                    9,
-                    10,
-                    11,
                     12
                 ],
-                "text": "Year Round"
+                "text": "December - March"
             },
             "southern": {
-                "array": [
-                    1,
-                    2,
-                    3,
-                    4,
-                    5,
-                    6,
-                    7,
-                    8,
-                    9,
-                    10,
-                    11,
-                    12
-                ],
-                "text": "Year Round"
-            }
-        }
-    },
-    {
-        "id": 72,
-        "name": "Fly",
-        "location": "On trash items",
-        "price": 60,
-        "times": {
-            "array": [
-                0,
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16,
-                17,
-                18,
-                19,
-                20,
-                21,
-                22,
-                23
-            ],
-            "text": "All day"
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    1,
-                    2,
-                    3,
-                    4,
-                    5,
-                    6,
-                    7,
-                    8,
-                    9,
-                    10,
-                    11,
-                    12
-                ],
-                "text": "Year Round"
-            },
-            "southern": {
-                "array": [
-                    1,
-                    2,
-                    3,
-                    4,
-                    5,
-                    6,
-                    7,
-                    8,
-                    9,
-                    10,
-                    11,
-                    12
-                ],
-                "text": "Year Round"
-            }
-        }
-    },
-    {
-        "id": 73,
-        "name": "Mosquito",
-        "location": "Flying",
-        "price": 130,
-        "times": {
-            "array": [
-                0,
-                1,
-                2,
-                3,
-                17,
-                18,
-                19,
-                20,
-                21,
-                22,
-                23
-            ],
-            "text": "5 p.m. - 4 a.m."
-        },
-        "months": {
-            "northern": {
                 "array": [
                     6,
                     7,
@@ -3515,23 +2485,15 @@
                     9
                 ],
                 "text": "June - September"
-            },
-            "southern": {
-                "array": [
-                    1,
-                    2,
-                    3,
-                    12
-                ],
-                "text": "December - March"
             }
         }
     },
     {
-        "id": 74,
-        "name": "Flea",
-        "location": "On villagers",
-        "price": 70,
+        "id": 48,
+        "name": "Sea Horse",
+        "location": "Sea",
+        "shadow_size": "Smallest",
+        "price": 1100,
         "times": {
             "array": [
                 0,
@@ -3577,11 +2539,8 @@
             },
             "southern": {
                 "array": [
+                    0,
                     1,
-                    2,
-                    3,
-                    4,
-                    5,
                     10,
                     11,
                     12
@@ -3591,10 +2550,455 @@
         }
     },
     {
-        "id": 75,
-        "name": "Snail",
-        "location": "On rocks (raining)",
+        "id": 49,
+        "name": "Clown Fish",
+        "location": "Sea",
+        "shadow_size": "Smallest",
+        "price": 650,
+        "times": {
+            "array": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
+            ],
+            "text": "All day"
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9
+                ],
+                "text": "April - September"
+            },
+            "southern": {
+                "array": [
+                    0,
+                    1,
+                    10,
+                    11,
+                    12
+                ],
+                "text": "October - March"
+            }
+        }
+    },
+    {
+        "id": 50,
+        "name": "Surgeonfish",
+        "location": "Sea",
+        "shadow_size": "Small",
+        "price": 1000,
+        "times": {
+            "array": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
+            ],
+            "text": "All day"
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9
+                ],
+                "text": "April - September"
+            },
+            "southern": {
+                "array": [
+                    0,
+                    1,
+                    10,
+                    11,
+                    12
+                ],
+                "text": "October - March"
+            }
+        }
+    },
+    {
+        "id": 51,
+        "name": "Butterfly Fish",
+        "location": "Sea",
+        "shadow_size": "Small",
+        "price": 1000,
+        "times": {
+            "array": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
+            ],
+            "text": "All day"
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9
+                ],
+                "text": "April - September"
+            },
+            "southern": {
+                "array": [
+                    0,
+                    1,
+                    10,
+                    11,
+                    12
+                ],
+                "text": "October - March"
+            }
+        }
+    },
+    {
+        "id": 52,
+        "name": "Napoleonfish",
+        "location": "Sea",
+        "shadow_size": "Largest",
+        "price": 10000,
+        "times": {
+            "array": [
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+            ],
+            "text": "4 a.m. - 9 p.m."
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    7,
+                    8
+                ],
+                "text": "July - August"
+            },
+            "southern": {
+                "array": [
+                    1,
+                    2
+                ],
+                "text": "January - February"
+            }
+        }
+    },
+    {
+        "id": 53,
+        "name": "Zebra Turkeyfish",
+        "location": "Sea",
+        "shadow_size": "Medium",
+        "price": 500,
+        "times": {
+            "array": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
+            ],
+            "text": "All day"
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11
+                ],
+                "text": "April - November"
+            },
+            "southern": {
+                "array": [
+                    0,
+                    1,
+                    10,
+                    11,
+                    12
+                ],
+                "text": "October - May"
+            }
+        }
+    },
+    {
+        "id": 54,
+        "name": "Blowfish",
+        "location": "Sea",
+        "shadow_size": "Medium",
+        "price": 5000,
+        "times": {
+            "array": [
+                0,
+                1,
+                2,
+                3,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
+            ],
+            "text": "6 p.m. - 4 a.m."
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    0,
+                    1,
+                    11,
+                    12
+                ],
+                "text": "November - February"
+            },
+            "southern": {
+                "array": [
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "text": "May - August"
+            }
+        }
+    },
+    {
+        "id": 55,
+        "name": "Puffer Fish",
+        "location": "Sea",
+        "shadow_size": "Medium",
         "price": 250,
+        "times": {
+            "array": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
+            ],
+            "text": "All day"
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    7,
+                    8,
+                    9
+                ],
+                "text": "July - September"
+            },
+            "southern": {
+                "array": [
+                    1,
+                    2,
+                    3
+                ],
+                "text": "January - March"
+            }
+        }
+    },
+    {
+        "id": 56,
+        "name": "Anchovy",
+        "location": "Sea",
+        "shadow_size": "Small",
+        "price": 200,
+        "times": {
+            "array": [
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+            ],
+            "text": "4 a.m. - 9 p.m."
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12
+                ],
+                "text": "Year Round"
+            },
+            "southern": {
+                "array": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12
+                ],
+                "text": "Year Round"
+            }
+        }
+    },
+    {
+        "id": 57,
+        "name": "Horse Mackerel",
+        "location": "Sea",
+        "shadow_size": "Small",
+        "price": 150,
         "times": {
             "array": [
                 0,
@@ -3662,10 +3066,11 @@
         }
     },
     {
-        "id": 76,
-        "name": "Pill Bug",
-        "location": "Hit rocks",
-        "price": 250,
+        "id": 58,
+        "name": "Barred Knifejaw",
+        "location": "Sea",
+        "shadow_size": "Medium",
+        "price": 5000,
         "times": {
             "array": [
                 0,
@@ -3684,77 +3089,19 @@
                 13,
                 14,
                 15,
-                23
-            ],
-            "text": "11 p.m. - 4 p.m."
-        },
-        "months": {
-            "northern": {
-                "array": [
-                    1,
-                    2,
-                    3,
-                    4,
-                    5,
-                    6,
-                    9,
-                    10,
-                    11,
-                    12
-                ],
-                "text": "September - June"
-            },
-            "southern": {
-                "array": [
-                    3,
-                    4,
-                    5,
-                    6,
-                    7,
-                    8,
-                    9,
-                    10,
-                    11,
-                    12
-                ],
-                "text": "March - December"
-            }
-        }
-    },
-    {
-        "id": 77,
-        "name": "Centipede",
-        "location": "Hit rocks",
-        "price": 300,
-        "times": {
-            "array": [
                 16,
                 17,
                 18,
                 19,
                 20,
                 21,
-                22
+                22,
+                23
             ],
-            "text": "4 p.m. - 11 p.m."
+            "text": "All day"
         },
         "months": {
             "northern": {
-                "array": [
-                    1,
-                    2,
-                    3,
-                    4,
-                    5,
-                    6,
-                    9,
-                    10,
-                    11,
-                    12
-                ],
-                "text": "September - June"
-            },
-            "southern": {
                 "array": [
                     3,
                     4,
@@ -3764,18 +3111,29 @@
                     8,
                     9,
                     10,
+                    11
+                ],
+                "text": "March - November"
+            },
+            "southern": {
+                "array": [
+                    0,
+                    1,
+                    9,
+                    10,
                     11,
                     12
                 ],
-                "text": "March - December"
+                "text": "September - May"
             }
         }
     },
     {
-        "id": 78,
-        "name": "Spider",
-        "location": "Falls from shaking trees",
-        "price": 480,
+        "id": 59,
+        "name": "Sea Bass",
+        "location": "Sea",
+        "shadow_size": "Extra Large",
+        "price": 400,
         "times": {
             "array": [
                 0,
@@ -3786,13 +3144,24 @@
                 5,
                 6,
                 7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
                 19,
                 20,
                 21,
                 22,
                 23
             ],
-            "text": "7 p.m. - 8 a.m."
+            "text": "All day"
         },
         "months": {
             "northern": {
@@ -3832,23 +3201,39 @@
         }
     },
     {
-        "id": 79,
-        "name": "Tarantula",
-        "location": "On ground",
-        "price": 8000,
+        "id": 60,
+        "name": "Red Snapper",
+        "location": "Sea",
+        "shadow_size": "Large",
+        "price": 3000,
         "times": {
             "array": [
                 0,
                 1,
                 2,
                 3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
                 19,
                 20,
                 21,
                 22,
                 23
             ],
-            "text": "7 p.m. - 4 a.m."
+            "text": "All day"
         },
         "months": {
             "northern": {
@@ -3857,6 +3242,378 @@
                     2,
                     3,
                     4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12
+                ],
+                "text": "Year Round"
+            },
+            "southern": {
+                "array": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12
+                ],
+                "text": "Year Round"
+            }
+        }
+    },
+    {
+        "id": 61,
+        "name": "Dab",
+        "location": "Sea",
+        "shadow_size": "Medium",
+        "price": 300,
+        "times": {
+            "array": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
+            ],
+            "text": "All day"
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    0,
+                    1,
+                    10,
+                    11,
+                    12
+                ],
+                "text": "October - April"
+            },
+            "southern": {
+                "array": [
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10
+                ],
+                "text": "April - October"
+            }
+        }
+    },
+    {
+        "id": 62,
+        "name": "Olive Flounder",
+        "location": "Sea",
+        "shadow_size": "Large",
+        "price": 800,
+        "times": {
+            "array": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
+            ],
+            "text": "All day"
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12
+                ],
+                "text": "Year Round"
+            },
+            "southern": {
+                "array": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12
+                ],
+                "text": "Year Round"
+            }
+        }
+    },
+    {
+        "id": 63,
+        "name": "Squid",
+        "location": "Sea",
+        "shadow_size": "Medium",
+        "price": 500,
+        "times": {
+            "array": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
+            ],
+            "text": "All day"
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    0,
+                    1,
+                    12
+                ],
+                "text": "December - August"
+            },
+            "southern": {
+                "array": [
+                    0,
+                    1,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12
+                ],
+                "text": "June - February"
+            }
+        }
+    },
+    {
+        "id": 64,
+        "name": "Moray Eel",
+        "location": "Sea",
+        "shadow_size": "Extra Large",
+        "price": 2000,
+        "times": {
+            "array": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
+            ],
+            "text": "All day"
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    8,
+                    9,
+                    10
+                ],
+                "text": "August - October"
+            },
+            "southern": {
+                "array": [
+                    2,
+                    3,
+                    4
+                ],
+                "text": "February - April"
+            }
+        }
+    },
+    {
+        "id": 65,
+        "name": "Ribbon Eel",
+        "location": "Sea",
+        "shadow_size": "Narrow",
+        "price": 600,
+        "times": {
+            "array": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
+            ],
+            "text": "All day"
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    6,
+                    7,
+                    8,
+                    9,
+                    10
+                ],
+                "text": "June - October"
+            },
+            "southern": {
+                "array": [
+                    0,
+                    1,
+                    12
+                ],
+                "text": "December - April"
+            }
+        }
+    },
+    {
+        "id": 66,
+        "name": "Tuna",
+        "location": "Pier",
+        "shadow_size": "Extra Large",
+        "price": 7000,
+        "times": {
+            "array": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
+            ],
+            "text": "All day"
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    0,
+                    1,
                     11,
                     12
                 ],
@@ -3876,23 +3633,104 @@
         }
     },
     {
-        "id": 80,
-        "name": "Scorpion",
-        "location": "On ground",
-        "price": 8000,
+        "id": 67,
+        "name": "Blue Marlin",
+        "location": "Pier",
+        "shadow_size": "Extra Large",
+        "price": 10000,
         "times": {
             "array": [
                 0,
                 1,
                 2,
                 3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
                 19,
                 20,
                 21,
                 22,
                 23
             ],
-            "text": "7 p.m. - 4 a.m."
+            "text": "All day"
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    0,
+                    1,
+                    7,
+                    8,
+                    9,
+                    11,
+                    12
+                ],
+                "text": "July - September, November - April"
+            },
+            "southern": {
+                "array": [
+                    1,
+                    2,
+                    3,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11
+                ],
+                "text": "January - March, May - November"
+            }
+        }
+    },
+    {
+        "id": 68,
+        "name": "Giant Trevally",
+        "location": "Pier",
+        "shadow_size": "Large",
+        "price": 4500,
+        "times": {
+            "array": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
+            ],
+            "text": "All day"
         },
         "months": {
             "northern": {
@@ -3902,9 +3740,571 @@
                     7,
                     8,
                     9,
-                    11
+                    10
                 ],
                 "text": "May - October"
+            },
+            "southern": {
+                "array": [
+                    0,
+                    1,
+                    11,
+                    12
+                ],
+                "text": "November - April"
+            }
+        }
+    },
+    {
+        "id": 69,
+        "name": "Mahi-mahi",
+        "location": "Sea",
+        "shadow_size": "Large",
+        "price": 6000,
+        "times": {
+            "array": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
+            ],
+            "text": "All day"
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10
+                ],
+                "text": "May - October"
+            },
+            "southern": {
+                "array": [
+                    0,
+                    1,
+                    11,
+                    12
+                ],
+                "text": "November - April"
+            }
+        }
+    },
+    {
+        "id": 70,
+        "name": "Ocean Sunfish",
+        "location": "Sea",
+        "shadow_size": "Largest (Fin)",
+        "price": 4000,
+        "times": {
+            "array": [
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+            ],
+            "text": "4 a.m. - 9 p.m."
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    7,
+                    8,
+                    9
+                ],
+                "text": "July - September"
+            },
+            "southern": {
+                "array": [
+                    1,
+                    2,
+                    3
+                ],
+                "text": "January - March"
+            }
+        }
+    },
+    {
+        "id": 71,
+        "name": "Ray",
+        "location": "Sea",
+        "shadow_size": "Extra Large",
+        "price": 3000,
+        "times": {
+            "array": [
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+            ],
+            "text": "4 a.m. - 9 p.m."
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    8,
+                    9,
+                    10,
+                    11
+                ],
+                "text": "August - November"
+            },
+            "southern": {
+                "array": [
+                    2,
+                    3,
+                    4,
+                    5
+                ],
+                "text": "February - May"
+            }
+        }
+    },
+    {
+        "id": 72,
+        "name": "Saw Shark",
+        "location": "Sea",
+        "shadow_size": "Largest (Fin)",
+        "price": 12000,
+        "times": {
+            "array": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
+            ],
+            "text": "4 p.m. - 9 a.m."
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    6,
+                    7,
+                    8,
+                    9
+                ],
+                "text": "June - September"
+            },
+            "southern": {
+                "array": [
+                    0,
+                    1,
+                    12
+                ],
+                "text": "December - March"
+            }
+        }
+    },
+    {
+        "id": 73,
+        "name": "Hammerhead Shark",
+        "location": "Sea",
+        "shadow_size": "Largest (Fin)",
+        "price": 8000,
+        "times": {
+            "array": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
+            ],
+            "text": "4 p.m. - 9 a.m."
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    6,
+                    7,
+                    8,
+                    9
+                ],
+                "text": "June - September"
+            },
+            "southern": {
+                "array": [
+                    0,
+                    1,
+                    12
+                ],
+                "text": "December - March"
+            }
+        }
+    },
+    {
+        "id": 74,
+        "name": "Great White Shark",
+        "location": "Sea",
+        "shadow_size": "Largest (Fin)",
+        "price": 15000,
+        "times": {
+            "array": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
+            ],
+            "text": "4 p.m. - 9 a.m."
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    6,
+                    7,
+                    8,
+                    9
+                ],
+                "text": "June - September"
+            },
+            "southern": {
+                "array": [
+                    0,
+                    1,
+                    12
+                ],
+                "text": "December - March"
+            }
+        }
+    },
+    {
+        "id": 75,
+        "name": "Whale Shark",
+        "location": "Sea",
+        "shadow_size": "Largest (Fin)",
+        "price": 13000,
+        "times": {
+            "array": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
+            ],
+            "text": "All day"
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    6,
+                    7,
+                    8,
+                    9
+                ],
+                "text": "June - September"
+            },
+            "southern": {
+                "array": [
+                    0,
+                    1,
+                    12
+                ],
+                "text": "December - March"
+            }
+        }
+    },
+    {
+        "id": 76,
+        "name": "Suckerfish",
+        "location": "Sea",
+        "shadow_size": "(Fin)",
+        "price": 1500,
+        "times": {
+            "array": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
+            ],
+            "text": "All day"
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    6,
+                    7,
+                    8,
+                    9
+                ],
+                "text": "June - September"
+            },
+            "southern": {
+                "array": [
+                    0,
+                    1,
+                    12
+                ],
+                "text": "December - March"
+            }
+        }
+    },
+    {
+        "id": 77,
+        "name": "Football Fish",
+        "location": "Sea",
+        "shadow_size": "Large",
+        "price": 2500,
+        "times": {
+            "array": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
+            ],
+            "text": "4 p.m. - 9 a.m."
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    0,
+                    1,
+                    11,
+                    12
+                ],
+                "text": "November - March"
+            },
+            "southern": {
+                "array": [
+                    5,
+                    6,
+                    7,
+                    8,
+                    9
+                ],
+                "text": "May - September"
+            }
+        }
+    },
+    {
+        "id": 78,
+        "name": "Oarfish",
+        "location": "Sea",
+        "shadow_size": "Largest",
+        "price": 9000,
+        "times": {
+            "array": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
+            ],
+            "text": "All day"
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    0,
+                    1,
+                    12
+                ],
+                "text": "December - May"
+            },
+            "southern": {
+                "array": [
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11
+                ],
+                "text": "June - November"
+            }
+        }
+    },
+    {
+        "id": 79,
+        "name": "Barreleye",
+        "location": "Sea",
+        "shadow_size": "Small",
+        "price": 15000,
+        "times": {
+            "array": [
+                0,
+                1,
+                2,
+                3,
+                21,
+                22,
+                23
+            ],
+            "text": "9 p.m. - 4 a.m."
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12
+                ],
+                "text": "Year Round"
             },
             "southern": {
                 "array": [
@@ -3912,10 +4312,88 @@
                     2,
                     3,
                     4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
                     11,
                     12
                 ],
-                "text": "November - April"
+                "text": "Year Round"
+            }
+        }
+    },
+    {
+        "id": 80,
+        "name": "Coelacanth",
+        "location": "Sea (rainy days)",
+        "shadow_size": "Largest",
+        "price": 15000,
+        "times": {
+            "array": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
+            ],
+            "text": "All day"
+        },
+        "months": {
+            "northern": {
+                "array": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12
+                ],
+                "text": "Year Round"
+            },
+            "southern": {
+                "array": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12
+                ],
+                "text": "Year Round"
             }
         }
     }

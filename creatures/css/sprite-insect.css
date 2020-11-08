@@ -1,5 +1,5 @@
 .sprite-insect {
-    background-image: url(insects.png);
+    background-image: url(../images/insectImages.png);
     width: 128px;
     height: 128px;
 }
@@ -240,7 +240,7 @@
 	background-position: -256px -896px
 }
 
-.sprite-insect-rajah_brookes_birdwing {
+.sprite-insect-raja_brookes_birdwing {
 	background-position: -384px -896px
 }
 

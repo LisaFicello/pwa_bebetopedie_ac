@@ -11,12 +11,16 @@
     <title>Bébêtopédie</title>    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
     <link href="style.css" rel="stylesheet">
-    <link href="creatures/sprite-fish.css" rel="stylesheet">
-    <link href="creatures/sprite-insect.css" rel="stylesheet">
+    <link href="creatures/css/sprite-fish.css" rel="stylesheet">
+    <link href="creatures/css/sprite-insect.css" rel="stylesheet">
   
   </head>
   
   <body>
+
+    <script type="text/javascript" src="creatures/data/fishData.js"></script>
+    <script type="text/javascript" src="creatures/data/insectData.js"></script>
+    <script src="creatures/creaturesAPI.js"></script>
 
     <!-- Integration Firebase -->
 
@@ -95,9 +99,9 @@
 
     <div class="container">
       <h1 class="row"><b>Insectes</b> > Actuellement</h1>
-      <div id="insectes" class="row"></div>
+      <div id="insects" class="row"></div>
       <h1 class="row"><b>Poissons</b> > Actuellement</h1>
-      <div class="sprite-insect sprite-insect-ant"></div>
+      <div id="fishes" class="row"></div>
       <h1 class="row"><b>Créatures marines</b> > Actuellement</h1>      
     </div>
 
