@@ -1,0 +1,173 @@
+.sprite-marineCreature {
+    background-image: url(marineCreature.png);
+    width: 128px;
+    height: 128px;
+}
+
+.sprite-marineCreature-sea_grapes {
+	background-position: 0 0
+}
+
+.sprite-marineCreature-sea_anemone {
+	background-position: -128px 0
+}
+
+.sprite-marineCreature-spotted_garden_eel {
+	background-position: -256px 0
+}
+
+.sprite-marineCreature-acorn_barnacle {
+	background-position: -384px 0
+}
+
+.sprite-marineCreature-giant_isopod {
+	background-position: -512px 0
+}
+
+.sprite-marineCreature-gigas_giant_clam {
+	background-position: -640px 0
+}
+
+.sprite-marineCreature-whelk {
+	background-position: -768px 0
+}
+
+.sprite-marineCreature-firefly_squid {
+	background-position: -896px 0
+}
+
+.sprite-marineCreature-sea_pig {
+    background-position: -1024px 0
+}
+
+
+
+.sprite-marineCreature-sea_cucumber {
+	background-position: 0 -128px
+}
+
+.sprite-marineCreature-venus_flower_basket {
+	background-position: -128px -128px
+}
+
+.sprite-marineCreature-dungeness_crab {
+	background-position: -256px -128px
+}
+
+.sprite-marineCreature-snow_crab {
+	background-position: -384px -128px
+}
+
+.sprite-marineCreature-gazami_crab {
+	background-position: -512px -128px
+}
+
+.sprite-marineCreature-red_king_crab {
+	background-position: -640px -128px
+}
+
+.sprite-marineCreature-spider_crab {
+	background-position: -768px -128px
+}
+
+.sprite-marineCreature-sweet_shrimp {
+	background-position: -896px -128px
+}
+
+.sprite-marineCreature-tiger_prawn {
+    background-position: -1024px -128px
+}
+
+
+
+.sprite-marineCreature-mantis_shrimp {
+	background-position: 0 -256px
+}
+
+.sprite-marineCreature-sea_star {
+	background-position: -128px -256px
+}
+
+.sprite-marineCreature-sea_pineapple {
+	background-position: -256px -256px
+}
+
+.sprite-marineCreature-lobster {
+	background-position: -384px -256px
+}
+
+.sprite-marineCreature-pearl_oyster {
+	background-position: -512px -256px
+}
+
+.sprite-marineCreature-oyster {
+	background-position: -640px -256px
+}
+
+.sprite-marineCreature-spiny_lobster {
+	background-position: -768px -256px
+}
+
+.sprite-marineCreature-sea_slug {
+	background-position: -896px -256px
+}
+
+.sprite-marineCreature-horseshoe_crab {
+    background-position: -1024px -256px
+}
+
+
+
+.sprite-marineCreature-moon_jellyfish {
+	background-position: 0 -384px
+}
+
+.sprite-marineCreature-mussel {
+	background-position: -128px -384px
+}
+
+.sprite-marineCreature-chambered_nautilus {
+	background-position: -256px -384px
+}
+
+.sprite-marineCreature-abalone {
+	background-position: -384px -384px
+}
+
+.sprite-marineCreature-slate_pencil_urchin {
+	background-position: -512px -384px
+}
+
+.sprite-marineCreature-sea_urchin {
+	background-position: -640px -384px
+}
+
+.sprite-marineCreature-scallop {
+	background-position: -768px -384px
+}
+
+.sprite-marineCreature-umbrella_octopus {
+	background-position: -896px -384px
+}
+
+.sprite-marineCreature-octopus {
+    background-position: -1024px -384px
+}
+
+
+
+.sprite-marineCreature-turban_shell {
+    background-position: 0 -512px
+}
+
+.sprite-marineCreature-vampire_squid {
+    background-position: -128px -512px
+}
+
+.sprite-marineCreature-flatworm {
+    background-position: -256px -512px
+}
+
+.sprite-marineCreature-seaweed {
+    background-position: -384px -512px
+}
