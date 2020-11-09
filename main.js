@@ -186,3 +186,14 @@ function fishStateChanged(fishId, state) {
 function marineStateChanged(marineId, state) {
     document.getElementById("marine-checkbox-"+marineId).checked = state;
 }
+
+
+
+
+// Register SW
+
+if(navigator.serviceWorker) {
+    navigator.serviceWorker
+        .register('sw.js')
+        .catch(err => console.error('service worker NON enregistré', err));
+}
