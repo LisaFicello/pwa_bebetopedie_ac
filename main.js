@@ -34,7 +34,17 @@ function loadInsectes() {
         <div class="col-md-2">
             <div class="card">
                 <div style="background:url(https://www.animalcrossing-online.com/img/fond.png);" align="center">
-                    <div class="${getInsectSpriteClassNameById(t.id-1)}"></div>
+                <div class="${getInsectSpriteClassNameById(t.id-1)}"></div>
+                  <div class="center">
+                    <label class="label">
+                      <input id="insect-checkbox-${t.id-1}" onclick="insectChecked(${t.id-1})" class="label__checkbox" type="checkbox" />
+                      <span class="label__text">
+                        <span class="label__check">
+                          <i class="fa fa-check icon"></i>
+                        </span>
+                      </span>
+                    </label>
+                  </div>
                 </div>
                 <div class="card-body" style="padding: 5px;">
                     <h5 class="card-title" style="font-size: 14px;text-align: center;">${t.name}</h5>
@@ -75,6 +85,21 @@ function loadFishes() {
     `).join('');
 
     fishesDiv.innerHTML = allFishes; 
+}
+
+
+function insectChecked(insectId) {
+    const newState = document.getElementById("insect-checkbox-"+insectId).checked;
+    console.log(insectData[insectId]["name"]+ " checked: "+ newState);
+    if (newState == true){
+        addInsectId(insectId);
+    } else {
+        console.log('on degage');
+        removeInsectId(insectId);
+    }
+}
+
+function fishChecked(fishId) {
 
 }
 

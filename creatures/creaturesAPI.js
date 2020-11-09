@@ -45,6 +45,10 @@ function getInsectById(id) {
 
 }
 
+function getInsectNameById(id) {
+    console.log(insectData[id]["name"]);
+}
+
 function getInsectSpriteClassNameById(id) {
     if (insectData[id] == null) {return ""}
     var className = "sprite-insect sprite-insect-";
