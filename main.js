@@ -70,7 +70,17 @@ function loadFishes() {
         <div class="col-md-2">
             <div class="card">
                 <div style="background:url(https://www.animalcrossing-online.com/img/fond.png);" align="center">
-                    <div class="${getFishSpriteClassNameById(t.id-1)}"></div>
+                <div class="${getFishSpriteClassNameById(t.id-1)}"></div>
+                <div class="center">
+                    <label class="label">
+                    <input id="fish-checkbox-${t.id-1}" onclick="fishChecked(${t.id-1})" class="label__checkbox" type="checkbox" />
+                    <span class="label__text">
+                        <span class="label__check">
+                        <i class="fa fa-check icon"></i>
+                        </span>
+                    </span>
+                    </label>
+                </div>
                 </div>
                 <div class="card-body" style="padding: 5px;">
                     <h5 class="card-title" style="font-size: 14px;text-align: center;">${t.name}</h5>
@@ -93,8 +103,18 @@ function loadMarines() {
     const allMarines = marineData.map(t => `
         <div class="col-md-2">
             <div class="card">
-                <div style="background:url(https://www.animalcrossing-online.com/img/fond.png);" align="center">
-                    <div class="${getMarineSpriteClassNameById(t.id-1)}"></div>
+            <div style="background:url(https://www.animalcrossing-online.com/img/fond.png);" align="center">
+                <div class="${getMarineSpriteClassNameById(t.id-1)}"></div>
+                <div class="center">
+                    <label class="label">
+                    <input id="marine-checkbox-${t.id-1}" onclick="marineChecked(${t.id-1})" class="label__checkbox" type="checkbox" />
+                    <span class="label__text">
+                        <span class="label__check">
+                        <i class="fa fa-check icon"></i>
+                        </span>
+                    </span>
+                    </label>
+                </div>
                 </div>
                 <div class="card-body" style="padding: 5px;">
                     <h5 class="card-title" style="font-size: 14px;text-align: center;">${t.name}</h5>
@@ -125,9 +145,44 @@ function insectChecked(insectId) {
 }
 
 function fishChecked(fishId) {
+    const newState = document.getElementById("fish-checkbox-"+fishId).checked;
+    console.log(fishData[fishId]["name"]+ " checked: "+ newState);
+    if (newState == true){
+        addFishId(fishId);
+    } else {
+        console.log('on degage');
+        removeFishId(fishId);
+    }
+}
 
+function marineChecked(marineId) {
+    const newState = document.getElementById("marine-checkbox-"+marineId).checked;
+    console.log(marineData[marineId]["name"]+ " checked: "+ newState);
+    if (newState == true){
+        addMarineId(marineId);
+    } else {
+        console.log('on degage');
+        removeMarineId(marineId);
+    }
 }
 
 loadInsectes();
 loadFishes();
 loadMarines();
+
+
+
+
+// Delegates from database API
+
+function insectSateChanged(insectId, state) {
+    document.getElementById("insect-checkbox-"+insectId).checked = state;
+}
+
+function fishStateChanged(fishId, state) {
+    document.getElementById("fish-checkbox-"+fishId).checked = state;
+}
+
+function marineStateChanged(marineId, state) {
+    document.getElementById("marine-checkbox-"+marineId).checked = state;
+}
