@@ -26,6 +26,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 const insectesDiv = document.querySelector('#insects');
 const fishesDiv = document.querySelector('#fishes');
+const marineDiv = document.querySelector('#marine');
 
 
 function loadInsectes() {
@@ -87,6 +88,30 @@ function loadFishes() {
     fishesDiv.innerHTML = allFishes; 
 }
 
+function loadMarines() {
+    //TODO: MANAGE SOUTHERN just have to replace the tag
+    const allMarines = marineData.map(t => `
+        <div class="col-md-2">
+            <div class="card">
+                <div style="background:url(https://www.animalcrossing-online.com/img/fond.png);" align="center">
+                    <div class="${getMarineSpriteClassNameById(t.id-1)}"></div>
+                </div>
+                <div class="card-body" style="padding: 5px;">
+                    <h5 class="card-title" style="font-size: 14px;text-align: center;">${t.name}</h5>
+                    <p class="card-text" style="font-size: 10px;">
+                        <span><strong>Période : </strong> ${t.months.northern.text}</span><br>
+                        <span><strong>Heure : </strong>${t.times.text}</span><br>
+                        <span><strong>Lieu : </strong><span>${t.location}</span></span><br>
+                        <span><strong>Prix : </strong>${t.price}</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    `).join('');
+
+    marineDiv.innerHTML = allMarines; 
+}
+
 
 function insectChecked(insectId) {
     const newState = document.getElementById("insect-checkbox-"+insectId).checked;
@@ -105,3 +130,4 @@ function fishChecked(fishId) {
 
 loadInsectes();
 loadFishes();
+loadMarines();

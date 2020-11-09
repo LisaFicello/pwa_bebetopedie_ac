@@ -67,6 +67,24 @@ function getInsectImageHTMLById(id) {
     return html
 }
 
+
+// Marine Creatures
+
+function getMarineNameById(id) {
+    console.log(marineData[id]["name"]);
+}
+
+function getMarineSpriteClassNameById(id) {
+    if (marineData[id] == null) {return ""}
+    var className = "sprite-marineCreature sprite-marineCreature-";
+    var marineName = marineData[id]["name"];
+    marineName = marineName.replace("'", "");
+    marineName = marineName.replace(/\s+/g, '_').toLowerCase();
+
+    className = className + marineName;
+    return className;
+}
+
 //Not used
 // function getAllInsectImagesHTML() {
 //     var html = ``;
