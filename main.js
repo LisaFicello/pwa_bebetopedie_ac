@@ -12,6 +12,11 @@ const logOutButton = `
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onClick="signOut()">Déconnexion</button>
                     </form>`;
 
+const offlineButton = `
+                    <form class="form-inline my-2 my-lg-0">
+                        <p>Mode hors connexion</p>
+                    </form>`;
+
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         console.log(user.displayName +" is logged in")
@@ -22,7 +27,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         console.log("No one is logged in")
         connectButtonDiv.innerHTML = loginButton;
     }
-  });
+});
 
 const insectesDiv = document.querySelector('#insects');
 const fishesDiv = document.querySelector('#fishes');
@@ -34,7 +39,7 @@ function loadInsectes() {
     const allInsectes = insectData.map(t => `
         <div class="col-md-2">
             <div class="card">
-                <div style="background:url(https://www.animalcrossing-online.com/img/fond.png);" align="center">
+                <div style="background:url(images/icons/fond.png);" align="center">
                 <div class="${getInsectSpriteClassNameById(t.id-1)}"></div>
                   <div class="center">
                     <label class="label">
@@ -69,7 +74,7 @@ function loadFishes() {
     const allFishes = fishData.map(t => `
         <div class="col-md-2">
             <div class="card">
-                <div style="background:url(https://www.animalcrossing-online.com/img/fond.png);" align="center">
+                <div style="background:url(images/icons/fond.png);" align="center">
                 <div class="${getFishSpriteClassNameById(t.id-1)}"></div>
                 <div class="center">
                     <label class="label">
@@ -103,7 +108,7 @@ function loadMarines() {
     const allMarines = marineData.map(t => `
         <div class="col-md-2">
             <div class="card">
-            <div style="background:url(https://www.animalcrossing-online.com/img/fond.png);" align="center">
+            <div style="background:url(images/icons/fond.png);" align="center">
                 <div class="${getMarineSpriteClassNameById(t.id-1)}"></div>
                 <div class="center">
                     <label class="label">
@@ -190,10 +195,16 @@ function marineStateChanged(marineId, state) {
 
 
 
-// Register SW
-
+// PWA
 if(navigator.serviceWorker) {
     navigator.serviceWorker
         .register('sw.js')
         .catch(err => console.error('service worker NON enregistré', err));
+}
+
+const cacheName = 'bebetopedia-1.0';
+if(window.caches) {
+    caches.open(cacheName);
+    caches.open('other-1.0');
+    caches.keys().then(console.log);
 }
