@@ -20,7 +20,7 @@ const offlineButton = `
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         console.log(user.displayName +" is logged in")
-        const greetUserName = "<h2>Bienvenue "+user.displayName+" !</h2>";
+        const greetUserName = "<h2>Welcome "+user.displayName+"!</h2>";
         userDiv.innerHTML = greetUserName;
         connectButtonDiv.innerHTML = logOutButton;
     } else {
@@ -55,10 +55,10 @@ function loadInsectes() {
                 <div class="card-body" style="padding: 5px;">
                     <h5 class="card-title" style="font-size: 14px;text-align: center;">${t.name}</h5>
                     <p class="card-text" style="font-size: 10px;">
-                        <span><strong>Période : </strong> ${t.months.northern.text}</span><br>
-                        <span><strong>Heure : </strong>${t.times.text}</span><br>
-                        <span><strong>Lieu : </strong><span>${t.location}</span></span><br>
-                        <span><strong>Prix : </strong>${t.price}</span>
+                        <span><strong>Period : </strong> ${t.months.northern.text}</span><br>
+                        <span><strong>Hour : </strong>${t.times.text}</span><br>
+                        <span><strong>Place : </strong><span>${t.location}</span></span><br>
+                        <span><strong>Price : </strong>${t.price}</span>
                     </p>
                 </div>
             </div>
@@ -90,10 +90,10 @@ function loadFishes() {
                 <div class="card-body" style="padding: 5px;">
                     <h5 class="card-title" style="font-size: 14px;text-align: center;">${t.name}</h5>
                     <p class="card-text" style="font-size: 10px;">
-                        <span><strong>Période : </strong> ${t.months.northern.text}</span><br>
-                        <span><strong>Heure : </strong>${t.times.text}</span><br>
-                        <span><strong>Lieu : </strong><span>${t.location}</span></span><br>
-                        <span><strong>Prix : </strong>${t.price}</span>
+                        <span><strong>Period : </strong> ${t.months.northern.text}</span><br>
+                        <span><strong>Hour : </strong>${t.times.text}</span><br>
+                        <span><strong>Place : </strong><span>${t.location}</span></span><br>
+                        <span><strong>Price : </strong>${t.price}</span>
                     </p>
                 </div>
             </div>
@@ -124,10 +124,10 @@ function loadMarines() {
                 <div class="card-body" style="padding: 5px;">
                     <h5 class="card-title" style="font-size: 14px;text-align: center;">${t.name}</h5>
                     <p class="card-text" style="font-size: 10px;">
-                        <span><strong>Période : </strong> ${t.months.northern.text}</span><br>
-                        <span><strong>Heure : </strong>${t.times.text}</span><br>
-                        <span><strong>Lieu : </strong><span>${t.location}</span></span><br>
-                        <span><strong>Prix : </strong>${t.price}</span>
+                        <span><strong>Period : </strong> ${t.months.northern.text}</span><br>
+                        <span><strong>Hour : </strong>${t.times.text}</span><br>
+                        <span><strong>Place : </strong><span>${t.location}</span></span><br>
+                        <span><strong>Price : </strong>${t.price}</span>
                     </p>
                 </div>
             </div>
