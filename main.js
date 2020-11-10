@@ -14,10 +14,11 @@ const logOutButton = `
 
 const offlineButton = `
                     <form class="form-inline my-2 my-lg-0">
-                        <p>Mode hors connexion</p>
+                        <p class="nav-link my-2 my-sm-0">Mode hors connexion</p>
                     </form>`;
 
-firebase.auth().onAuthStateChanged(function(user) {
+
+function checkLoginButton(user) {
     if (user) {
         console.log(user.displayName +" is logged in")
         const greetUserName = "<h2>Welcome "+user.displayName+"!</h2>";
@@ -26,6 +27,20 @@ firebase.auth().onAuthStateChanged(function(user) {
     } else {
         console.log("No one is logged in")
         connectButtonDiv.innerHTML = loginButton;
+    }
+}
+
+firebase.auth().onAuthStateChanged(function(user) {checkLoginButton(user)});
+
+
+var connectedRef = firebase.database().ref(".info/connected");
+connectedRef.on("value", function(snap) {
+    if (snap.val() === true) {
+        console.log("Connected to the database");
+        checkLoginButton(firebase.auth().currentUser);
+    } else {
+        console.log("Disconnected from the database");
+        connectButtonDiv.innerHTML = offlineButton;
     }
 });
 

@@ -48,13 +48,12 @@ self.addEventListener('activate', (evt) => {
 });
  	
 self.addEventListener('fetch', (evt) => {
-    console.log('sw intercepte la requête suivante via fetch', evt);
-    console.log('url interceptée', evt.request.url);
+    //console.log('sw intercepte la requête suivante via fetch', evt);
+    //console.log('url interceptée', evt.request.url);
 });
 
 self.addEventListener('sync', event => {
     console.log('sync event', event);
-    console.log("online back");
     // test du tag de synchronisation utilisé dans add_techno
     // if (event.tag === 'sync-technos') {
     //     console.log('syncing', event.tag);

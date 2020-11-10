@@ -1,14 +1,16 @@
 var database = firebase.database()
 
-
 var insectsUniqueIds = {};
 var fishesUniqueIds = {};
 var marinesUniqueIds = {};
 
-
 var insectsRef;
 var fishesRef;
 var marinesRef;
+
+var offlineInsectsId = [];
+var offlineFishesId = [];
+var offlineMarinesId = [];
 
 
 firebase.auth().onAuthStateChanged(function(user) {
@@ -18,9 +20,9 @@ firebase.auth().onAuthStateChanged(function(user) {
     marinesRef = firebase.database().ref('users/' + user.uid + "/caughtCreatures/marines");
     
     insectsRef.on('child_added', function(data) {
-        console.log("child added " + data.key)      
+       // console.log("child added " + data.key)      
         console.log("child added id " + data.val());
-        console.log(data);
+        //console.log(data);
         const insectIdAdded = data.val(); 
         const key = data.key;
         insectsUniqueIds[insectIdAdded] = key;
@@ -36,9 +38,9 @@ firebase.auth().onAuthStateChanged(function(user) {
     });
 
     fishesRef.on('child_added', function(data) {
-        console.log("child added " + data.key)      
+        //console.log("child added " + data.key)      
         console.log("child added id " + data.val());
-        console.log(data);
+        //console.log(data);
         const fishIdAdded = data.val(); 
         const key = data.key;
         fishesUniqueIds[fishIdAdded] = key;
@@ -54,9 +56,9 @@ firebase.auth().onAuthStateChanged(function(user) {
     });
 
     marinesRef.on('child_added', function(data) {
-        console.log("child added " + data.key)      
+        //console.log("child added " + data.key)      
         console.log("child added id " + data.val());
-        console.log(data);
+        //console.log(data);
         const marineIdAdded = data.val(); 
         const key = data.key;
         marinesUniqueIds[marineIdAdded] = key;
