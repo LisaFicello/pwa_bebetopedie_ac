@@ -112,6 +112,7 @@
             </a>
   
             <ul class="dropdown-menu dropdown-menu-right">
+              <li><a href="#"><i class="icon-calendar3"></i> Event</a></li>
               <li><a href="#"><i class="icon-switch2"></i> Logout</a></li>
             </ul>
 
@@ -257,7 +258,7 @@
       </div>
   
     </div>
-
+    <script src="event.js"></script>
     <script src="main.js"></script>
     <script src="logout.js"></script>
 
@@ -266,6 +267,21 @@
     <script src="assets/js/uniform.min.js"></script>
 
     <script>
+      var time = new Date().getTime();
+      function showCurrentCreatures(animalSelected,hemisphereSelected){
+            console.log(' NEW Currently period');
+            var currentDate = new Date();
+            var currentHours = currentDate.getHours();
+            var currentMonth = currentDate.getMonth() + 1;
+            $("#" + animalSelected + " .caption").each(function(index, elem){
+                var hours = $(this).find("span[data-times-array]").attr("data-times-array").split(',');
+                var months = $(this).find("span[data-months-" + hemisphereSelected + "-array]").attr("data-months-" + hemisphereSelected + "-array").split(',');
+                if(hours.indexOf(currentHours.toString()) != -1 && months.indexOf(currentMonth.toString()) != -1){
+                  $(this).parent().parent().show();
+                }
+              });
+      }
+
       $(".styled").uniform({
         radioClass: 'choice'
       });
@@ -285,26 +301,17 @@
         var animalSelected = $("[name='animalRadios']:checked").val();
         var hemisphereSelected = $("[name='hemisphereRadios']:checked").val();
         $("#" + animalSelected).children().hide();
-        switch ($(this).val()) {
-          case 'all':
-            console.log('All period');
-            $("#" + animalSelected).children().show();
-            break;
-          case 'currently':
-            console.log('Currently period');
-            var currentDate = new Date();
-            var currentHours = currentDate.getHours();
-            var currentMonth = currentDate.getMonth() + 1;
-            $("#" + animalSelected + " .caption").each(function(index, elem){
-              var hours = $(this).find("span[data-times-array]").attr("data-times-array").split(',');
-              var months = $(this).find("span[data-months-" + hemisphereSelected + "-array]").attr("data-months-" + hemisphereSelected + "-array").split(',');
-              if(hours.indexOf(currentHours.toString()) != -1 && months.indexOf(currentMonth.toString()) != -1){
-                $(this).parent().parent().show();
-              }
-            });
-            break;
-          case 'month':
-            console.log('In month period');
+        if($(this).val()=='all'){
+          console.log('All period');
+          $("#" + animalSelected).children().show();
+        }
+        else if ($(this).val()=='currently'){
+          console.log('Currently period');
+          showCurrentCreatures(animalSelected,hemisphereSelected);
+          setInterval(function(){showCurrentCreatures(animalSelected,hemisphereSelected)}, 60000);
+        }
+        else if ($(this).val()=='month'){
+          console.log('In month period');
             var currentDate = new Date();
             var currentMonth = currentDate.getMonth() + 1;
             $("#" + animalSelected + " .caption").each(function(index, elem){
@@ -313,10 +320,22 @@
                 $(this).parent().parent().show();
               }
             });
-            break;
-          default:
-            break;
-        } 
+        }
+        // switch ($(this).val()) {
+        //   case 'all':
+            
+        //     break;
+        //   case 'currently':
+            
+            
+        //     //*********
+        //     break;
+        //   case 'month':
+            
+        //     break;
+        //   default:
+        //     break;
+        // } 
       });
       $("#searchByName").on("keyup", function(){
         var animalSelected = $("[name='animalRadios']:checked").val();

@@ -2,44 +2,7 @@
 // const insectData = require("./data/insectData.json")
 
 
-// TODO: Add filters logic here
-
-function getAllCurrentCreatures(){
-
-}
-
-function getNorthernCreature(){
-
-}
-
-function getSouthernCreature(){
-    
-}
-
 // Fishes
-
-function getCurrentHourFishes() {
-    var currentDate = Date.now();
-    var currentHour = currentDate.getMonth
-    const reader = new FileReader();
-    reader.readAsText('./data/fishData.js');
-    var data =[];
-    for (var i = 0; i <= reader.length; i++) {
-        
-        data.push(reader[id]);
-    }
-    return data;
-}
-// var temps = fishData[0]["times"]["array"];
-// for (i=0; i<temps.count; i++)
-// if temps[i] == 10 { c ok}
-// 10
-
-
-function getFishById(id) {
-
-}
-
 function getFishSpriteClassNameById(id) {
     if (fishData[id] == null) {return ""}
     var className = "sprite-fish sprite-fish-";
@@ -58,14 +21,6 @@ function getFishImageHTMLById(id) {
 }
 
 // Insects
-
-function getAllInsects() {
-
-}
-
-function getInsectById(id) {
-
-}
 
 function getInsectNameById(id) {
     console.log(insectData[id]["name"]);
