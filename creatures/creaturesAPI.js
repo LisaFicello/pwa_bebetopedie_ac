@@ -4,15 +4,37 @@
 
 // TODO: Add filters logic here
 
-function getAllCreatures(){
+function getAllCurrentCreatures(){
 
+}
+
+function getNorthernCreature(){
+
+}
+
+function getSouthernCreature(){
+    
 }
 
 // Fishes
 
-function getAllFishes() {
-
+function getCurrentHourFishes() {
+    var currentDate = Date.now();
+    var currentHour = currentDate.getMonth
+    const reader = new FileReader();
+    reader.readAsText('./data/fishData.js');
+    var data =[];
+    for (var i = 0; i <= reader.length; i++) {
+        
+        data.push(reader[id]);
+    }
+    return data;
 }
+// var temps = fishData[0]["times"]["array"];
+// for (i=0; i<temps.count; i++)
+// if temps[i] == 10 { c ok}
+// 10
+
 
 function getFishById(id) {
 
