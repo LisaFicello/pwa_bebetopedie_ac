@@ -29,6 +29,32 @@ const fishesDiv = document.querySelector('#fishes');
 const marineDiv = document.querySelector('#marine');
 
 
+// if(window.Notification && window.Notification !== "denied"){
+//     // demande une permission
+//     Notification.requestPermission(perm => {
+//         // vérifie si la permission est acceptée par l'utilisateur
+//         // 3 valeurs possibles : default | granted | denied
+//         if(perm === "granted"){
+            
+//             // 7.2 Option de la notification
+//             const options = {
+//                 body : "Body de la notification",
+//                 icon : "images/icons/icon-72x72.png"
+//             }
+ 
+//             // On crée une nouvelle notification
+//             // 7.2 On passe les options en deuxième argument
+//             const notif = new Notification("Hello notification", options);
+          
+//         }
+//         else{
+//             // Notification refusée
+//             console.log("Notification refusée");
+//         }
+//     })
+// }
+
+
 function loadInsectes() {
     const allInsectes = insectData.map(t => `
             <div class="col-lg-2 col-sm-2 col-xs-6">
@@ -137,7 +163,6 @@ function loadMarines() {
     marineDiv.innerHTML = allMarines; 
 }
 
-
 function insectChecked(insectId) {
     const newState = document.getElementById("insect-checkbox-"+insectId).checked;
     console.log(insectData[insectId]["name"]+ " checked: "+ newState);
@@ -173,10 +198,7 @@ function marineChecked(marineId) {
 
 loadInsectes();
 loadFishes();
-loadMarines();
-setTimeout(showCurrentCreatures(),3000);  
-
-
+loadMarines(); 
 
 
 // Delegates from database API
@@ -192,7 +214,6 @@ function fishStateChanged(fishId, state) {
 function marineStateChanged(marineId, state) {
     document.getElementById("marine-checkbox-"+marineId).checked = state;
 }
-
 
 	
 function urlBase64ToUint8Array(base64String) {
@@ -210,23 +231,6 @@ function urlBase64ToUint8Array(base64String) {
     return outputArray;
 }
 
-function extractKeysFromArrayBuffer(subscription){
-    // no more keys proprety directly visible on the subscription objet. So you have to use getKey()
-    const keyArrayBuffer = subscription.getKey('p256dh');
-    const authArrayBuffer = subscription.getKey('auth');
-    const p256dh = btoa(String.fromCharCode.apply(null, new Uint8Array(keyArrayBuffer)));
-    const auth = btoa(String.fromCharCode.apply(null, new Uint8Array(authArrayBuffer)));
-    console.log('p256dh key', keyArrayBuffer, p256dh);
-    console.log('auth key', authArrayBuffer, auth);
-    
-    // Paramètres nécessaires à l'objet de notification pushSubscription
-    console.log('endpoint :');
-    console.dir(subscription.endpoint);
-    console.log('p256dh key :', p256dh);
-    console.log('auth key :', auth);
-}
-
-
 // Register SW
 
 // if(navigator.serviceWorker) {
@@ -235,7 +239,7 @@ function extractKeysFromArrayBuffer(subscription){
 //         .catch(err => console.error('service worker NON enregistré', err));
 // }
 
-// 3.2
+
 if(navigator.serviceWorker) {
 	// Enregistrement du service worker
     navigator.serviceWorker
@@ -246,7 +250,7 @@ if(navigator.serviceWorker) {
         
         	// tentative d'obtention d'une souscription
             // public vapid key générée par web-push, en prod appel d'api via fetch plutôt que static
-            const publicKey = "BM_N8uzNdYnoL5ZpjZIZPTovgY9gT9h5S3egjbDU6BohlOsf8XnhApEjquX3v_XoQQL7DMtT10PHiGFChCTeYXY";
+            const publicKey = "BLRgJRKwVe4AUMzctcnqQvxnEeQuBhJ8G4gGUx2iiNtE6wX5dIXgxLrSx8l-b4USdnBNxXjBfnXt-SyN2Zn8lzE";
             registration.pushManager.getSubscription().then(subscription => {
             
             	// Déjà une souscription, on l'affiche
@@ -278,3 +282,18 @@ if(navigator.serviceWorker) {
         .catch(err => console.error('service worker NON enregistré', err));
 }
 
+function extractKeysFromArrayBuffer(subscription){
+    // no more keys proprety directly visible on the subscription objet. So you have to use getKey()
+    const keyArrayBuffer = subscription.getKey('p256dh');
+    const authArrayBuffer = subscription.getKey('auth');
+    const p256dh = btoa(String.fromCharCode.apply(null, new Uint8Array(keyArrayBuffer)));
+    const auth = btoa(String.fromCharCode.apply(null, new Uint8Array(authArrayBuffer)));
+    console.log('p256dh key', keyArrayBuffer, p256dh);
+    console.log('auth key', authArrayBuffer, auth);
+    
+    // Paramètres nécessaires à l'objet de notification pushSubscription
+    console.log('endpoint :');
+    console.dir(subscription.endpoint);
+    console.log('p256dh key :', p256dh);
+    console.log('auth key :', auth);
+}
