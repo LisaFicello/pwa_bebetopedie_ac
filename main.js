@@ -33,11 +33,12 @@ function loadInsectes() {
     //TODO: MANAGE SOUTHERN just have to replace the tag
 
     const allInsectes = insectData.map(t => `
-            <div class="col-lg-2 col-sm-2 col-xs-6">
+            <div class="col-lg-2 col-sm-3 col-md-3 col-xs-6" style="padding: 15px 20px 0px 10px;">
                 <div class="thumbnail">
                     <div class="thumb">
-                        <img src="https://www.animalcrossing-online.com/img/fond.png" alt="">
-                        <div class="${getInsectSpriteClassNameById(t.id-1)}" style="position: absolute;top: 0; margin: 20px 0px 0 15%;"></div>
+                        <div class="outer-div" style="background-image: url('https://www.animalcrossing-online.com/img/fond.png');">
+                            <div class="inner-div ${getInsectSpriteClassNameById(t.id-1)}" style="margin: auto;"></div>
+                        </div>
                         <div class="center">
                             <label class="label">
                                 <input id="insect-checkbox-${t.id-1}" onclick="insectChecked(${t.id-1})" class="label__checkbox" type="checkbox" />
@@ -69,11 +70,12 @@ function loadInsectes() {
 function loadFishes() {
     //TODO: MANAGE SOUTHERN just have to replace the tag
     const allFishes = fishData.map(t => `    
-        <div class="col-lg-2 col-sm-2 col-xs-6">
+        <div class="col-lg-2 col-sm-3 col-md-3 col-xs-6" style="padding: 15px 20px 0px 10px;">
             <div class="thumbnail">
                 <div class="thumb">
-                    <img src="https://www.animalcrossing-online.com/img/fond.png" alt="">
-                    <div class="${getFishSpriteClassNameById(t.id-1)}" style="position: absolute;top: 0; margin: 20px 0px 0 15%;"></div>
+                    <div class="outer-div" style="background-image: url('https://www.animalcrossing-online.com/img/fond.png');">
+                        <div class="inner-div ${getFishSpriteClassNameById(t.id-1)}" style="margin: auto;"></div>
+                    </div>
                     <div class="center">
                         <label class="label">
                             <input id="fish-checkbox-${t.id-1}" onclick="fishChecked(${t.id-1})" class="label__checkbox" type="checkbox" />
@@ -105,11 +107,12 @@ function loadFishes() {
 function loadMarines() {
     //TODO: MANAGE SOUTHERN just have to replace the tag
     const allMarines = marineData.map(t => `
-        <div class="col-lg-2 col-sm-2 col-xs-6">
+        <div class="col-lg-2 col-sm-3 col-md-3 col-xs-6" style="padding: 15px 20px 0px 10px;">
             <div class="thumbnail">
                 <div class="thumb">
-                    <img src="https://www.animalcrossing-online.com/img/fond.png" alt="">
-                    <div class="${getMarineSpriteClassNameById(t.id-1)}" style="position: absolute;top: 0; margin: 20px 0px 0 15%;"></div>
+                    <div class="outer-div" style="background-image: url('https://www.animalcrossing-online.com/img/fond.png');">
+                        <div class="inner-div ${getMarineSpriteClassNameById(t.id-1)}" style="margin: auto;"></div>
+                    </div>
                     <div class="center">
                         <label class="label">
                             <input id="marine-checkbox-${t.id-1}" onclick="marineChecked(${t.id-1})" class="label__checkbox" type="checkbox" />

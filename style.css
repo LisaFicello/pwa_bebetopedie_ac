@@ -2,11 +2,20 @@ button{
     cursor: pointer;
 }
 
+.show-important{
+  display: block !important;
+}
+
 .caption{
   padding: 5px !important;
 }
 .thumbnail .caption{
   height: 180px !important;
+}
+
+#block-filter-mobile .radio{
+  margin: 0;
+  margin-bottom: 5px;
 }
 
 .label__checkbox {
