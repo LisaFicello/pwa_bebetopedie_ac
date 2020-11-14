@@ -27,7 +27,20 @@ self.addEventListener('install', (evt) => {
             'creatures/data/insectData.js',
             'creatures/data/marineData.js',
             'idb/database.js',
-            'idb/idb.js'
+            'idb/idb.js',
+            'assets/js/bootstrap.min.js',
+            'assets/js/firebase-app.js',
+            'assets/js/firebase-auth.js',
+            'assets/js/firebase-database.js',
+            'assets/js/jquery.min.js',
+            'assets/js/uniform.min.js',
+            'assets/css/bootstrap.css',
+            'assets/css/components.css',
+            'assets/css/core.css',
+            'assets/css/colors.css',
+            'assets/js/select2.min.js',
+            'assets/js/fab.min.js'
+            //maybe icons missing in that folder?
         ])
         .then(console.log('cache initialisé'))
         .catch(console.err);

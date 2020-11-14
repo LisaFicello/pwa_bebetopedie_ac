@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Projet pour le cours de PWA - Développement d'une application Bêbétopédie d'Animal Crossing New Horizon">
     <meta name="author" content="">
-    <title>Bébêtopédie</title>
+    <title>Bebetopedia</title>
 
     <link rel="apple-touch-icon" sizes="180x180" href="apple/apple-icon-180.jpg">
     <link rel="apple-touch-icon" sizes="167x167" href="apple/apple-icon-167.jpg">
@@ -31,16 +31,13 @@
     <meta name="theme-color" content="#fec560"/>
     <link rel="manifest" href="/manifest.json">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<!-- 
-    <link rel="stylesheet" href="vendor/bootstrap.min.css">
-    <link rel="stylesheet" href="vendor/fontawesome-free-5.15.1-web/css/all.min.css" /> -->
 
     <link rel="stylesheet" href="assets/css/bootstrap.css">
     <link rel="stylesheet" href="assets/css/icons/icomoon/styles.css" />
     <link rel="stylesheet" href="assets/css/icons/fontawesome/styles.min.css" />
     <link rel="stylesheet" href="assets/css/components.css" />
     <link rel="stylesheet" href="assets/css/core.css" />
-    <link rel="stylesheet" href="https://dev.lanfranchi-family.fr/LIMITLESS/layout_3/LTR/default/assets/css/colors.css" />
+    <link rel="stylesheet" href="assets/css/colors.css" />
 
     <link href="style.css" rel="stylesheet">
     <link href="creatures/css/sprite-fish.css" rel="stylesheet">
@@ -62,15 +59,11 @@
     <!-- Integration Firebase -->
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="vendor/firebase-app.js"></script>
+    <script src="assets/js/firebase-app.js"></script>
 
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-        https://firebase.google.com/docs/web/setup#available-libraries -->
-    <!-- <script src="vendor/firebase-analytics.js"></script> -->
+    <script src="assets/js/firebase-auth.js"></script>
 
-    <script src="vendor/firebase-auth.js"></script>
-
-    <script src="vendor/firebase-database.js"></script>
+    <script src="assets/js/firebase-database.js"></script>
 
     <script>
       // Your web app's Firebase configuration
@@ -541,8 +534,6 @@
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/uniform.min.js"></script>
-    <script src="https://dev.lanfranchi-family.fr/LIMITLESS/layout_3/LTR/default/assets/js/plugins/forms/selects/select2.min.js"></script>
-    <script src="https://dev.lanfranchi-family.fr/LIMITLESS/layout_3/LTR/default/assets/js/plugins/loaders/progressbar.min.js"></script>
 
     <script>
       var time = new Date().getTime();
@@ -612,8 +603,8 @@
         });
       });
     </script>
-    <script type="text/javascript" src="https://dev.lanfranchi-family.fr/LIMITLESS/layout_3/LTR/default/assets/js/plugins/ui/fab.min.js"></script>
-    <!-- <script type="text/javascript" src="view-source:https://dev.lanfranchi-family.fr/LIMITLESS/layout_3/LTR/default/extra_fab.html"></script> -->
+    <script src="assets/js/select2.min.js"></script>
+    <script type="text/javascript" src="assets/js/fab.min.js"></script>
 
     <script src="functions.js"></script>
 

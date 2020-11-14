@@ -9,6 +9,10 @@ var uiConfig = {
         // or whether we leave that to developer to handle.
         return true;
       },
+      signInFailure: function(error) {
+        console.log(error);
+        window.location='/';
+      },
       uiShown: function() {
         // The widget is rendered.
         // Hide the loader.

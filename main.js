@@ -19,12 +19,31 @@ function logOutButton(text) {
       <b><i class="icon-reading"></i></b> ${text} <span class="caret"></span>
     </button>
     <ul class="dropdown-menu dropdown-menu-right">
-      <li><a href="#"><i class="fa fa-sign-out"></i> Logout</a></li>
+      <li><a onclick="signOut()"><i class="fa fa-sign-out"></i> Logout</a></li>
     </ul>
   </div>
 
     </ul>`;
 }
+
+function logOutButtonOffline(text) {
+    return `
+    <ul class="nav navbar-nav navbar-right">
+    <div class="btn-group" style="margin-top: 5px;">
+            <button type="button" class="btn bg-danger btn-labeled dropdown-toggle" data-toggle="dropdown">
+              <b><i class="icon-reading"></i></b> ${text} <span class="label label-default">OFFLINE MODE</span><span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li><a onclick="signOut()"><i class="fa fa-sign-out"></i> Logout</a></li>
+            </ul>
+          </div>
+          </ul>`;
+
+}
+
+const offlineButton = `<ul class="nav navbar-nav navbar-right"><button type="button" class="btn bg-danger btn-labeled" style="margin-top: 5px;"><b><i class="icon-connection" style="height: 16px;width: 16px;"></i></b> OFFLINE MODE</button></ul>`
+
+
 firebase.auth().onAuthStateChanged(function(user) {checkLoginButton(user)});
 
 
@@ -38,7 +57,7 @@ function checkLoginButton(user) {
             return;
         } 
         if (user && isOnline == false) {
-            loginZoneDiv.innerHTML = logOutButton(user.displayName+" (Offline mode)");
+            loginZoneDiv.innerHTML = logOutButtonOffline(user.displayName);;
             return;
         }
         if (user == null && isOnline == true) {
@@ -46,7 +65,7 @@ function checkLoginButton(user) {
             return;
         }
         if (user == null && isOnline == false) {
-            loginZoneDiv.innerHTML = "Full Offline";
+            loginZoneDiv.innerHTML = offlineButton;
             return;
         } 
     });
@@ -64,7 +83,7 @@ function loadEvents() {
             <div class="col-lg-2 col-sm-3 col-md-3 col-xs-6" style="padding: 15px 20px 0px 10px;">
                 <div class="thumbnail">
                     <div class="thumb">
-                        <div class="outer-div" style="background-image: url('https://www.animalcrossing-online.com/img/fond.png');">
+                        <div class="outer-div" style="background-image: url(images/icons/fond.png);">
                             <div class="inner-div ${getEventSpriteClassNameById(t.id-1)}" style="margin: auto;"></div>
                         </div>
                     </div>  
@@ -114,7 +133,7 @@ function loadInsectes() {
             <div class="col-lg-2 col-sm-3 col-md-3 col-xs-6" style="padding: 15px 20px 0px 10px;">
                 <div class="thumbnail">
                     <div class="thumb">
-                        <div class="outer-div" style="background-image: url('https://www.animalcrossing-online.com/img/fond.png');">
+                        <div class="outer-div" style="background-image: url(images/icons/fond.png);">
                             <div class="inner-div ${getInsectSpriteClassNameById(t.id-1)}" style="margin: auto;"></div>
                         </div>
                         <div class="center">
@@ -151,7 +170,7 @@ function loadFishes() {
         <div class="col-lg-2 col-sm-3 col-md-3 col-xs-6" style="padding: 15px 20px 0px 10px;">
             <div class="thumbnail">
                 <div class="thumb">
-                    <div class="outer-div" style="background-image: url('https://www.animalcrossing-online.com/img/fond.png');">
+                    <div class="outer-div" style="background-image: url(images/icons/fond.png);">
                         <div class="inner-div ${getFishSpriteClassNameById(t.id-1)}" style="margin: auto;"></div>
                     </div>
                     <div class="center">
@@ -188,7 +207,7 @@ function loadMarines() {
         <div class="col-lg-2 col-sm-3 col-md-3 col-xs-6" style="padding: 15px 20px 0px 10px;">
             <div class="thumbnail">
                 <div class="thumb">
-                    <div class="outer-div" style="background-image: url('https://www.animalcrossing-online.com/img/fond.png');">
+                    <div class="outer-div" style="background-image: url(images/icons/fond.png);">
                         <div class="inner-div ${getMarineSpriteClassNameById(t.id-1)}" style="margin: auto;"></div>
                     </div>
                     <div class="center">
