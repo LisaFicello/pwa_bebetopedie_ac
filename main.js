@@ -27,6 +27,32 @@ firebase.auth().onAuthStateChanged(function(user) {
 const insectesDiv = document.querySelector('#insects');
 const fishesDiv = document.querySelector('#fishes');
 const marineDiv = document.querySelector('#marine');
+const eventsDiv = document.querySelector('#events');
+
+function loadEvents() {
+    //TODO: MANAGE SOUTHERN just have to replace the tag
+
+    const allInsectes = eventData.map(t => `
+            <div class="col-lg-2 col-sm-3 col-md-3 col-xs-6" style="padding: 15px 20px 0px 10px;">
+                <div class="thumbnail">
+                    <div class="thumb">
+                        <div class="outer-div" style="background-image: url('https://www.animalcrossing-online.com/img/fond.png');">
+                            <div class="inner-div ${getEventSpriteClassNameById(t.id-1)}" style="margin: auto;"></div>
+                        </div>
+                    </div>  
+                    <div class="caption">
+                        <h6 class="text-semibold no-margin text-center animals-name">${t.title}</h6>
+                        <p class="text-muted mb-15 mt-5">
+                            <span><strong>Date : </strong>${t.text}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>   
+    `).join('');
+
+    insectesDiv.innerHTML = allInsectes; 
+
+}
 
 
 function loadInsectes() {
@@ -179,6 +205,7 @@ function marineChecked(marineId) {
 loadInsectes();
 loadFishes();
 loadMarines();
+loadEvents();
 
 
 

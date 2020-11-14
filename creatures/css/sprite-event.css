@@ -1,0 +1,93 @@
+.sprite-event {
+    background-image: url(../images/eventsImages.png);
+    width: 128px;
+    height: 128px;
+}
+
+.sprite-event-anniversary {
+    background-position: 0 0
+}
+
+.sprite-event-carnival {
+    background-position: -128px 0
+}
+
+.sprite-event-countdown_new_year {
+    background-position: -256px 0
+}
+
+.sprite-event-1th_may_escape {
+    background-position: -384px 0
+}
+
+.sprite-event-moon_festival {
+    background-position: -512px 0
+}
+
+.sprite-event-egg_festival {
+    background-position: -640px 0
+}
+
+.sprite-event-mother_day {
+    background-position: -768px 0
+}
+
+.sprite-event-father_day {
+    background-position: -896px 0
+}
+
+.sprite-event-mushroom_festival {
+    background-position: -1024px 0
+}
+
+.sprite-event-fireworks {
+    background-position: 0 -128px
+}
+
+.sprite-event-halloween {
+    background-position: -128px -128px
+}
+
+.sprite-event-insects_festival {
+    background-position: -254px -128px
+}
+
+.sprite-event-nature_day {
+    background-position: -384px -128px
+}
+
+.sprite-event-gift_day {
+    background-position: -512px -128px
+}
+
+.sprite-event-child_day {
+    background-position: -640px -128px
+}
+
+.sprite-event-museum_day {
+    background-position: -768px -128px
+}
+
+.sprite-event-new_year {
+    background-position: -896px -128px
+}
+
+.sprite-event-valentine_day {
+    background-position: -1024px -128px
+}
+
+.sprite-event-wedding_season {
+    background-position: 0 -256px
+}
+
+.sprite-event-summer_solstice {
+    background-position: -128px -256px
+}
+
+.sprite-event-winter_solstice {
+    background-position: -256px -256px
+}
+
+.sprite-event-fishing_tournement {
+    background-position: -384px -256px
+}
