@@ -72,6 +72,7 @@ function getEventByDate(){
         if(elem.day == currentDay && elem.month == currentMonth){
             event = elem;
             event['img'] = getEventSpriteClassNameById(elem.id);
+            event['url'] = getEventImgUrlById(elem.id);
         }
     });
     return event;
@@ -111,13 +112,15 @@ $(function(){
         $("#block-sort-mobile").show();
     });
 
+    $("#searchByName").on("focusin", function(){
+        // $("[name='creatureTypeRadios'][value='all'], [name='creatureTypeRadios-mobile'][value='all']").prop('checked', true);
+        // $("[name='creatureTypeRadios'], [name='creatureTypeRadios-mobile']").uniform();
+        // $("[name='creatureTypeRadios'], [name='creatureTypeRadios-mobile']").change();
+        // $("[name='periodRadios'][value='all'], [name='periodRadios-mobile'][value='all']").prop('checked', true);
+        // $("[name='periodRadios'], [name='periodRadios-mobile']").uniform();
+        // $("[name='periodRadios'], [name='periodRadios-mobile']").change();
+    });
     $("#searchByName").on("keyup", function(){
-        $("[name='creatureTypeRadios'][value='all'], [name='creatureTypeRadios-mobile'][value='all']").prop('checked', true);
-        $("[name='creatureTypeRadios'], [name='creatureTypeRadios-mobile']").uniform();
-        $("[name='creatureTypeRadios'], [name='creatureTypeRadios-mobile']").change();
-        $("[name='periodRadios'][value='all'], [name='periodRadios-mobile'][value='all']").prop('checked', true);
-        $("[name='periodRadios'], [name='periodRadios-mobile']").uniform();
-        $("[name='periodRadios'], [name='periodRadios-mobile']").change();
         var value = $(this).val();
         $(".animals-name").each(function(index, elem){
             if($(this).text().toUpperCase().includes(value.toUpperCase()))
