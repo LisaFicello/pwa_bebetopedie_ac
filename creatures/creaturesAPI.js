@@ -64,3 +64,19 @@ function getMarineSpriteClassNameById(id) {
     return className;
 }
 
+// Events
+
+function getEventNameById(id) {
+    console.log(eventData[id]["title"]);
+}
+
+function getEventSpriteClassNameById(id) {
+    if (eventData[id] == null) {return ""}
+    var className = "sprite-event sprite-event-";
+    var eventName = eventData[id]["title"];
+    eventName = eventName.replace("'", "");
+    eventName = eventName.replace(/\s+/g, '_').toLowerCase();
+
+    className = className + eventName;
+    return className;
+}

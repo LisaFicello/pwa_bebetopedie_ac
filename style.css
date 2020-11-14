@@ -1,8 +1,21 @@
 button{
     cursor: pointer;
 }
-.col-md-2{
-    padding: 3px;
+
+.show-important{
+  display: block !important;
+}
+
+.caption{
+  padding: 5px !important;
+}
+.thumbnail .caption{
+  height: 180px !important;
+}
+
+#block-filter-mobile .radio{
+  margin: 0;
+  margin-bottom: 5px;
 }
 
 .label__checkbox {
@@ -18,9 +31,9 @@ button{
   border: 5px solid rgba(0, 0, 0, 0.1);
   background: white;
   vertical-align: middle;
-  margin-right: 20px;
-  width: 2em;
-  height: 2em;
+  margin-right: 0;
+  width: 2.5em;
+  height: 2.5em;
   cursor: pointer;
   display: -webkit-box;
   display: flex;

@@ -27,14 +27,13 @@ function checkLoginButton(user) {
         console.log(user.displayName +" is logged in")
         const greetUserName = "<h2>Welcome "+user.displayName+"!</h2>";
         userDiv.innerHTML = greetUserName;
-        connectButtonDiv.innerHTML = logOutButton;
+        //connectButtonDiv.innerHTML = logOutButton;
     } else {
         console.log("No one is logged in")
-        connectButtonDiv.innerHTML = loginButton;
+        //connectButtonDiv.innerHTML = loginButton;
     }
 }
 
-var tocin;
 
 firebase.auth().onAuthStateChanged(function(user) {checkLoginButton(user)});
 
@@ -47,44 +46,73 @@ connectedRef.on("value", function(snap) {
     } else {
         isOnline = false;
         console.log("Disconnected from the database");
-        connectButtonDiv.innerHTML = offlineButton;
+        //connectButtonDiv.innerHTML = offlineButton;
     }
 });
 
 const insectesDiv = document.querySelector('#insects');
 const fishesDiv = document.querySelector('#fishes');
 const marineDiv = document.querySelector('#marine');
+const eventsDiv = document.querySelector('#events');
+
+function loadEvents() {
+    //TODO: MANAGE SOUTHERN just have to replace the tag
+
+    const allInsectes = eventData.map(t => `
+            <div class="col-lg-2 col-sm-3 col-md-3 col-xs-6" style="padding: 15px 20px 0px 10px;">
+                <div class="thumbnail">
+                    <div class="thumb">
+                        <div class="outer-div" style="background-image: url('https://www.animalcrossing-online.com/img/fond.png');">
+                            <div class="inner-div ${getEventSpriteClassNameById(t.id-1)}" style="margin: auto;"></div>
+                        </div>
+                    </div>  
+                    <div class="caption">
+                        <h6 class="text-semibold no-margin text-center animals-name">${t.title}</h6>
+                        <p class="text-muted mb-15 mt-5">
+                            <span><strong>Date : </strong>${t.text}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>   
+    `).join('');
+
+    insectesDiv.innerHTML = allInsectes; 
+
+}
 
 
 function loadInsectes() {
     //TODO: MANAGE SOUTHERN just have to replace the tag
+
     const allInsectes = insectData.map(t => `
-        <div class="col-md-2">
-            <div class="card">
-                <div style="background:url(images/icons/fond.png);" align="center">
-                <div class="${getInsectSpriteClassNameById(t.id-1)}"></div>
-                  <div class="center">
-                    <label class="label">
-                      <input id="insect-checkbox-${t.id-1}" onclick="insectChecked(${t.id-1})" class="label__checkbox" type="checkbox" />
-                      <span class="label__text">
-                        <span class="label__check">
-                          <i class="fa fa-check icon"></i>
-                        </span>
-                      </span>
-                    </label>
-                  </div>
-                </div>
-                <div class="card-body" style="padding: 5px;">
-                    <h5 class="card-title" style="font-size: 14px;text-align: center;">${t.name}</h5>
-                    <p class="card-text" style="font-size: 10px;">
-                        <span><strong>Period : </strong> ${t.months.northern.text}</span><br>
-                        <span><strong>Hour : </strong>${t.times.text}</span><br>
-                        <span><strong>Place : </strong><span>${t.location}</span></span><br>
+            <div class="col-lg-2 col-sm-3 col-md-3 col-xs-6" style="padding: 15px 20px 0px 10px;">
+                <div class="thumbnail">
+                    <div class="thumb">
+                        <div class="outer-div" style="background-image: url('https://www.animalcrossing-online.com/img/fond.png');">
+                            <div class="inner-div ${getInsectSpriteClassNameById(t.id-1)}" style="margin: auto;"></div>
+                        </div>
+                        <div class="center">
+                            <label class="label">
+                                <input id="insect-checkbox-${t.id-1}" onclick="insectChecked(${t.id-1})" class="label__checkbox" type="checkbox" />
+                                <span class="label__text">
+                                    <span class="label__check">
+                                        <i class="fa fa-check icon"></i>
+                                    </span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>  
+                    <div class="caption">
+                        <h6 class="text-semibold no-margin text-center animals-name">${t.name}</h6>
+                        <p class="text-muted mb-15 mt-5">
+                        <span data-months-northern-array="${t.months.northern.array}" data-months-northern-text="${t.months.northern.text}" data-months-southern-array="${t.months.southern.array}" data-months-southern-text="${t.months.southern.text}"><strong>Period : </strong> <span class="period-text">${t.months.northern.text}</span></span><br>
+                        <span data-times-array="${t.times.array}"><strong>Time : </strong>${t.times.text}</span><br>
+                        <span><strong>Location : </strong><span>${t.location}</span></span><br>
                         <span><strong>Price : </strong>${t.price}</span>
-                    </p>
+                        </p>
+                    </div>
                 </div>
-            </div>
-        </div>
+            </div>   
     `).join('');
 
     insectesDiv.innerHTML = allInsectes; 
@@ -93,33 +121,36 @@ function loadInsectes() {
 
 function loadFishes() {
     //TODO: MANAGE SOUTHERN just have to replace the tag
-    const allFishes = fishData.map(t => `
-        <div class="col-md-2">
-            <div class="card">
-                <div style="background:url(images/icons/fond.png);" align="center">
-                <div class="${getFishSpriteClassNameById(t.id-1)}"></div>
-                <div class="center">
-                    <label class="label">
-                    <input id="fish-checkbox-${t.id-1}" onclick="fishChecked(${t.id-1})" class="label__checkbox" type="checkbox" />
-                    <span class="label__text">
-                        <span class="label__check">
-                        <i class="fa fa-check icon"></i>
-                        </span>
-                    </span>
-                    </label>
-                </div>
-                </div>
-                <div class="card-body" style="padding: 5px;">
-                    <h5 class="card-title" style="font-size: 14px;text-align: center;">${t.name}</h5>
-                    <p class="card-text" style="font-size: 10px;">
-                        <span><strong>Period : </strong> ${t.months.northern.text}</span><br>
-                        <span><strong>Hour : </strong>${t.times.text}</span><br>
-                        <span><strong>Place : </strong><span>${t.location}</span></span><br>
-                        <span><strong>Price : </strong>${t.price}</span>
+    const allFishes = fishData.map(t => `    
+        <div class="col-lg-2 col-sm-3 col-md-3 col-xs-6" style="padding: 15px 20px 0px 10px;">
+            <div class="thumbnail">
+                <div class="thumb">
+                    <div class="outer-div" style="background-image: url('https://www.animalcrossing-online.com/img/fond.png');">
+                        <div class="inner-div ${getFishSpriteClassNameById(t.id-1)}" style="margin: auto;"></div>
+                    </div>
+                    <div class="center">
+                        <label class="label">
+                            <input id="fish-checkbox-${t.id-1}" onclick="fishChecked(${t.id-1})" class="label__checkbox" type="checkbox" />
+                            <span class="label__text">
+                                <span class="label__check">
+                                    <i class="fa fa-check icon"></i>
+                                </span>
+                            </span>
+                        </label>
+                    </div>
+                </div>  
+                <div class="caption">
+                    <h6 class="text-semibold no-margin text-center animals-name">${t.name}</h6>
+                    <p class="text-muted mb-15 mt-5">
+                    <span data-months-northern-array="${t.months.northern.array}" data-months-northern-text="${t.months.northern.text}" data-months-southern-array="${t.months.southern.array}" data-months-southern-text="${t.months.southern.text}"><strong>Period : </strong> <span class="period-text">${t.months.northern.text}</span></span><br>
+                    <span data-times-array="${t.times.array}"><strong>Time : </strong>${t.times.text}</span><br>
+                <span><strong>Location : </strong><span>${t.location}</span></span><br>
+                    <span><strong>Price : </strong>${t.price}</span><br>
+                    <span><strong>Size : </strong>${t.shadow_size}</span>
                     </p>
                 </div>
             </div>
-        </div>
+        </div>  
     `).join('');
 
     fishesDiv.innerHTML = allFishes; 
@@ -128,32 +159,36 @@ function loadFishes() {
 function loadMarines() {
     //TODO: MANAGE SOUTHERN just have to replace the tag
     const allMarines = marineData.map(t => `
-        <div class="col-md-2">
-            <div class="card">
-            <div style="background:url(images/icons/fond.png);" align="center">
-                <div class="${getMarineSpriteClassNameById(t.id-1)}"></div>
-                <div class="center">
-                    <label class="label">
-                    <input id="marine-checkbox-${t.id-1}" onclick="marineChecked(${t.id-1})" class="label__checkbox" type="checkbox" />
-                    <span class="label__text">
-                        <span class="label__check">
-                        <i class="fa fa-check icon"></i>
-                        </span>
-                    </span>
-                    </label>
-                </div>
-                </div>
-                <div class="card-body" style="padding: 5px;">
-                    <h5 class="card-title" style="font-size: 14px;text-align: center;">${t.name}</h5>
-                    <p class="card-text" style="font-size: 10px;">
-                        <span><strong>Period : </strong> ${t.months.northern.text}</span><br>
-                        <span><strong>Hour : </strong>${t.times.text}</span><br>
-                        <span><strong>Place : </strong><span>${t.location}</span></span><br>
-                        <span><strong>Price : </strong>${t.price}</span>
+        <div class="col-lg-2 col-sm-3 col-md-3 col-xs-6" style="padding: 15px 20px 0px 10px;">
+            <div class="thumbnail">
+                <div class="thumb">
+                    <div class="outer-div" style="background-image: url('https://www.animalcrossing-online.com/img/fond.png');">
+                        <div class="inner-div ${getMarineSpriteClassNameById(t.id-1)}" style="margin: auto;"></div>
+                    </div>
+                    <div class="center">
+                        <label class="label">
+                            <input id="marine-checkbox-${t.id-1}" onclick="marineChecked(${t.id-1})" class="label__checkbox" type="checkbox" />
+                            <span class="label__text">
+                                <span class="label__check">
+                                    <i class="fa fa-check icon"></i>
+                                </span>
+                            </span>
+                        </label>
+                    </div>
+                </div>  
+                <div class="caption">
+                    <h6 class="text-semibold no-margin text-center animals-name">${t.name}</h6>
+                    <p class="text-muted mb-15 mt-5">
+                    <span data-months-northern-array="${t.months.northern.array}" data-months-northern-text="${t.months.northern.text}" data-months-southern-array="${t.months.southern.array}" data-months-southern-text="${t.months.southern.text}"><strong>Period : </strong> <span class="period-text">${t.months.northern.text}</span></span><br>
+                    <span data-times-array="${t.times.array}"><strong>Time : </strong>${t.times.text}</span><br>
+                <span><strong>Location : </strong><span>${t.location}</span></span><br>
+                    <span><strong>Price : </strong>${t.price}</span><br>
+                    <span><strong>Size : </strong>${t.shadow_size}</span><br>
+                    <span><strong>Movement : </strong>${t.Swimming_pattern}</span>
                     </p>
                 </div>
             </div>
-        </div>
+        </div>  
     `).join('');
 
     marineDiv.innerHTML = allMarines; 
@@ -196,6 +231,7 @@ function marineChecked(marineId) {
 loadInsectes();
 loadFishes();
 loadMarines();
+loadEvents();
 
 
 
