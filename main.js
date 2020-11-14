@@ -83,7 +83,7 @@ function loadEvents() {
             <div class="col-lg-2 col-sm-3 col-md-3 col-xs-6" style="padding: 15px 20px 0px 10px;">
                 <div class="thumbnail">
                     <div class="thumb">
-                        <div class="outer-div" style="background-image: url('https://www.animalcrossing-online.com/img/fond.png');">
+                        <div class="outer-div" style="background-image: url(images/icons/fond.png);">
                             <div class="inner-div ${getEventSpriteClassNameById(t.id-1)}" style="margin: auto;"></div>
                         </div>
                     </div>  
@@ -109,7 +109,7 @@ function loadInsectes() {
             <div class="col-lg-2 col-sm-3 col-md-3 col-xs-6" style="padding: 15px 20px 0px 10px;">
                 <div class="thumbnail">
                     <div class="thumb">
-                        <div class="outer-div" style="background-image: url('https://www.animalcrossing-online.com/img/fond.png');">
+                        <div class="outer-div" style="background-image: url(images/icons/fond.png);">
                             <div class="inner-div ${getInsectSpriteClassNameById(t.id-1)}" style="margin: auto;"></div>
                         </div>
                         <div class="center">
@@ -146,7 +146,7 @@ function loadFishes() {
         <div class="col-lg-2 col-sm-3 col-md-3 col-xs-6" style="padding: 15px 20px 0px 10px;">
             <div class="thumbnail">
                 <div class="thumb">
-                    <div class="outer-div" style="background-image: url('https://www.animalcrossing-online.com/img/fond.png');">
+                    <div class="outer-div" style="background-image: url(images/icons/fond.png);">
                         <div class="inner-div ${getFishSpriteClassNameById(t.id-1)}" style="margin: auto;"></div>
                     </div>
                     <div class="center">
@@ -183,7 +183,7 @@ function loadMarines() {
         <div class="col-lg-2 col-sm-3 col-md-3 col-xs-6" style="padding: 15px 20px 0px 10px;">
             <div class="thumbnail">
                 <div class="thumb">
-                    <div class="outer-div" style="background-image: url('https://www.animalcrossing-online.com/img/fond.png');">
+                    <div class="outer-div" style="background-image: url(images/icons/fond.png);">
                         <div class="inner-div ${getMarineSpriteClassNameById(t.id-1)}" style="margin: auto;"></div>
                     </div>
                     <div class="center">
