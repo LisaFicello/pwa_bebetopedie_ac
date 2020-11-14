@@ -33,7 +33,10 @@ self.addEventListener('install', (evt) => {
             'assets/js/uniform.min.js',
             'assets/css/bootstrap.css',
             'assets/css/components.css',
-            'assets/css/core.css'
+            'assets/css/core.css',
+            'assets/css/colors.css',
+            'assets/js/select2.min.js',
+            'assets/js/fab.min.js'
             //maybe icons missing in that folder?
         ])
         .then(console.log('cache initialisé'))
