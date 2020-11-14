@@ -51,7 +51,39 @@ function showSpecificCreatures(these){
     });
 }
 
+function horloge(){
+    var hms = new Date();
+    var h, m, s;
+    h = hms.getHours();
+    if (h<10) h = "0" + h;
+    m = hms.getMinutes();
+    if (m<10) m = "0" + m;
+    s = hms.getSeconds();
+    if (s<10) s = "0" + s;
+    $('#currentTime').html(h + ' : ' + m + ' : ' + s);
+}
+
+function getEventByDate(){
+    var event;
+    var currentDate = new Date();
+    var currentDay = currentDate.getDate();
+    var currentMonth = currentDate.getMonth() + 1;
+    eventData.forEach(function(elem,index){
+        if(elem.day == currentDay && elem.month == currentMonth){
+            event = elem;
+            event['img'] = getEventSpriteClassNameById(elem.id);
+        }
+    });
+    return event;
+}
+
 $(function(){
+
+    setInterval(horloge,1000);
+
+    var eventDay = getEventByDate();
+    $("#titleEventTime").text(eventDay.title);
+    $("#imgEventTime").addClass(eventDay.img);
 
     $('.select-search').select2();
     $(".styled").uniform({
