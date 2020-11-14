@@ -1,3 +1,7 @@
+// Online or not?
+var isOnline = false;
+
+
 // Account stuff
 const userDiv = document.querySelector('#user-greet');
 const connectButtonDiv = document.querySelector('#connect-button');
@@ -30,15 +34,18 @@ function checkLoginButton(user) {
     }
 }
 
-firebase.auth().onAuthStateChanged(function(user) {checkLoginButton(user)});
+var tocin;
 
+firebase.auth().onAuthStateChanged(function(user) {checkLoginButton(user)});
 
 var connectedRef = firebase.database().ref(".info/connected");
 connectedRef.on("value", function(snap) {
     if (snap.val() === true) {
+        isOnline = true;
         console.log("Connected to the database");
         checkLoginButton(firebase.auth().currentUser);
     } else {
+        isOnline = false;
         console.log("Disconnected from the database");
         connectButtonDiv.innerHTML = offlineButton;
     }
@@ -157,10 +164,10 @@ function insectChecked(insectId) {
     const newState = document.getElementById("insect-checkbox-"+insectId).checked;
     console.log(insectData[insectId]["name"]+ " checked: "+ newState);
     if (newState == true){
-        addInsectId(insectId);
+        addInsectId(insectId, isOnline);
     } else {
         console.log('on degage');
-        removeInsectId(insectId);
+        removeInsectId(insectId, isOnline);
     }
 }
 
@@ -168,10 +175,10 @@ function fishChecked(fishId) {
     const newState = document.getElementById("fish-checkbox-"+fishId).checked;
     console.log(fishData[fishId]["name"]+ " checked: "+ newState);
     if (newState == true){
-        addFishId(fishId);
+        addFishId(fishId, isOnline);
     } else {
         console.log('on degage');
-        removeFishId(fishId);
+        removeFishId(fishId, isOnline);
     }
 }
 
@@ -179,10 +186,10 @@ function marineChecked(marineId) {
     const newState = document.getElementById("marine-checkbox-"+marineId).checked;
     console.log(marineData[marineId]["name"]+ " checked: "+ newState);
     if (newState == true){
-        addMarineId(marineId);
+        addMarineId(marineId, isOnline);
     } else {
         console.log('on degage');
-        removeMarineId(marineId);
+        removeMarineId(marineId, isOnline);
     }
 }
 
@@ -195,7 +202,7 @@ loadMarines();
 
 // Delegates from database API
 
-function insectSateChanged(insectId, state) {
+function insectStateChanged(insectId, state) {
     document.getElementById("insect-checkbox-"+insectId).checked = state;
 }
 

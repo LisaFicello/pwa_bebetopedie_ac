@@ -23,6 +23,8 @@ self.addEventListener('install', (evt) => {
             'creatures/data/fishData.js',
             'creatures/data/insectData.js',
             'creatures/data/marineData.js',
+            'idb/database.js',
+            'idb/idb.js'
         ])
         .then(console.log('cache initialisé'))
         .catch(console.err);

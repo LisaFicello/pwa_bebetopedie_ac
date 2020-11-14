@@ -4,20 +4,6 @@
 
 // TODO: Add filters logic here
 
-function getAllCreatures(){
-
-}
-
-// Fishes
-
-function getAllFishes() {
-
-}
-
-function getFishById(id) {
-
-}
-
 function getFishSpriteClassNameById(id) {
     if (fishData[id] == null) {return ""}
     var className = "sprite-fish sprite-fish-";
@@ -37,13 +23,6 @@ function getFishImageHTMLById(id) {
 
 // Insects
 
-function getAllInsects() {
-
-}
-
-function getInsectById(id) {
-
-}
 
 function getInsectNameById(id) {
     console.log(insectData[id]["name"]);
@@ -85,18 +64,3 @@ function getMarineSpriteClassNameById(id) {
     return className;
 }
 
-//Not used
-// function getAllInsectImagesHTML() {
-//     var html = ``;
-
-//     for (i=0; i < insectData.length - 1; i++) {
-//         const insect = insectData[i];
-//         html = html + getInsectImageHTMLById(insect["id"]);
-//     }
-
-//     return html;
-// }
-
-
-
-//console.log(getFishSpriteClassNameById(4));

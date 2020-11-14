@@ -22,6 +22,7 @@
     <link href="splashscreens/ipadpro3_splash.png" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
     <link href="splashscreens/ipadpro2_splash.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
 
+    <meta name="theme-color" content="#fec560"/>
     <link rel="manifest" href="/manifest.json">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta charset="utf-8">
@@ -39,7 +40,8 @@
   </head>
   
   <body>
-
+    <script src="idb/database.js"></script>
+    <script src="idb/idb.js"></script>
     <script type="text/javascript" src="creatures/data/fishData.js"></script>
     <script type="text/javascript" src="creatures/data/insectData.js"></script>
     <script type="text/javascript" src="creatures/data/marineData.js"></script>
@@ -52,7 +54,7 @@
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
         https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="vendor/firebase-analytics.js"></script>
+    <!-- <script src="vendor/firebase-analytics.js"></script> -->
 
     <script src="vendor/firebase-auth.js"></script>
 
@@ -74,11 +76,8 @@
       };
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
-      firebase.analytics();
     </script>
 
-    <script src="vendor/firebase-ui-auth.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
     <script src="databaseAPI.js"></script>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
