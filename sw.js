@@ -62,25 +62,9 @@ self.addEventListener('activate', (evt) => {
     evt.waitUntil(cacheCleanPromise);
 });
  	
-self.addEventListener('fetch', (evt) => {
-    //console.log('sw intercepte la requête suivante via fetch', evt);
-    //console.log('url interceptée', evt.request.url);
-});
-
-self.addEventListener('sync', event => {
-    console.log('sync event', event);
-    // test du tag de synchronisation utilisé dans add_techno
-    // if (event.tag === 'sync-technos') {
-    //     console.log('syncing', event.tag);
-    //     // Utilisation de waitUntil pour s'assurer que le code est exécuté (Attend une promise)
-    //     event.waitUntil(updateTechnoPromise);
-    // }
-})
 
 //..
 self.addEventListener('fetch', (evt) => {
-
-    
     if(evt.request.method === 'POST') {
         return;
     }
@@ -89,7 +73,7 @@ self.addEventListener('fetch', (evt) => {
     evt.respondWith(
         // on doit d'abord faire une requête sur le réseau de ce qui a été intercepté
         fetch(evt.request).then(res => {
-            console.log("url récupérée depuis le réseau", evt.request.url);
+            //console.log("url récupérée depuis le réseau", evt.request.url);
             // mettre dans le cache le résultat de cette réponse : en clef la requête et en valeur la réponse
             caches.open(cacheName).then(cache => cache.put(evt.request, res));
             // quand on a la réponse on la retourne (clone car on ne peut la lire qu'une fois)
@@ -97,56 +81,37 @@ self.addEventListener('fetch', (evt) => {
         })
         // Si on a une erreur et que l'on arrive pas à récupérer depuis le réseau, on va chercher dans le cache
         .catch(err => {
-            console.log("url récupérée depuis le cache", evt.request.url);
+           // console.log("url récupérée depuis le cache", evt.request.url);
             return caches.match(evt.request);
         })
     );
-    
-
-    // if(!navigator.onLine) {
-    //     const headers = { headers: { 'Content-Type': 'text/html;charset=utf-8'} };
-    //     evt.respondWith(new Response('<h1>Pas de connexion internet</h1><div>Application en mode dégradé. Veuillez vous connecter</div>', headers));
-    // }
-
-    // console.log('sw intercepte la requête suivante via fetch', evt);
-    // console.log('url interceptée', evt.request.url);
-
-
-    // // 5.1 Stratégie : cache only with network callback
-    // evt.respondWith(
-    //     caches.match(evt.request)
-    //         .then(cachedResponse => {   
-    //             if (cachedResponse) {
-    //                 // 5.2 identification de la requête trouvée dans le cache
-    //                 console.log("url depuis le cache", evt.request.url);
-
-    //                 return cachedResponse;
-    //             }
-
-    //             // 5.1 Stratégie de cache
-    //             return fetch(evt.request).then(
-    //                 // On récupère la requête
-    //                 function(newResponse) {
-    //                     // 5.2 identification de la requête ajoutée au cache
-    //                     console.log("url depuis le réseau et mise en cache", evt.request.url);
-
-    //                     // Accès au cache
-    //                     caches.open(cacheName).then(
-    //                         function(cache){
-    //                             // ajout du résultat de la requête au cache
-    //                             cache.put(evt.request, newResponse);
-    //                         }
-    //                     );
-    //                     // Utilisation de clone car on ne peut utiliser qu'une fois la réponse
-    //                     return newResponse.clone();
-    //                 }
-    //             )
-    //         }
-    //     )
-    // );
-
-
 });
 
+
+	
+// self.registration.showNotification("Notification du SW", {
+//     body:"je suis une notification dite persistante"
+// })
+ 
+// Ecoute de l'événement close
+self.addEventListener("notificationclose", evt => {
+    console.log("Notification fermée", evt);
+})
+	
+	
+self.addEventListener("push", evt => {
+
+
+    console.log("push event", evt);
+    console.log("data envoyée par la push notification :", evt.data.text());
+ 
+    // 8.1 afficher son contenu dans une notification
+    const title = evt.data.text();
+    const objNotification = {
+        body: "ça fonctionne", 
+        icon : "images/icons/icon-72x72.png"
+    };
+    self.registration.showNotification(title, objNotification);
+})
 
  
