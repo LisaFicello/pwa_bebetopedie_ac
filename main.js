@@ -3,52 +3,54 @@ var isOnline = false;
 
 
 // Account stuff
-const userDiv = document.querySelector('#user-greet');
-const connectButtonDiv = document.querySelector('#connect-button');
+const loginZoneDiv = document.querySelector('#login-zone');
 
 const loginButton = `
-                    <form class="form-inline my-2 my-lg-0" action="/login.html">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Connexion</button>
-                    </form>`;
-
-const logOutButton = `
-                    <form class="form-inline my-2 my-lg-0">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onClick="signOut()">Déconnexion</button>
-                    </form>`;
-
-const offlineButton = `
-                    <form class="form-inline my-2 my-lg-0">
-                        <p class="nav-link my-2 my-sm-0">Mode hors connexion</p>
-                    </form>`;
+                    <ul class="nav navbar-nav navbar-right">       
+                        <button onclick="window.location='/login.html';" type="button" class="btn bg-success btn-labeled" style="margin-top: 5px;"><b><i class="fa fa-sign-in" style="height: 16px;width: 16px;"></i></b> Connect</button>
+                    </ul>`;
 
 
-function checkLoginButton(user) {
-    if (user) {
-        console.log(user.displayName +" is logged in")
-        const greetUserName = "<h2>Welcome "+user.displayName+"!</h2>";
-        userDiv.innerHTML = greetUserName;
-        //connectButtonDiv.innerHTML = logOutButton;
-    } else {
-        console.log("No one is logged in")
-        //connectButtonDiv.innerHTML = loginButton;
-    }
+function logOutButton(text) {
+    return `
+    <ul class="nav navbar-nav navbar-right">
+    <div class="btn-group" style="margin-top: 5px;">
+    <button type="button" class="btn bg-success btn-labeled dropdown-toggle" data-toggle="dropdown">
+      <b><i class="icon-reading"></i></b> ${text} <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-right">
+      <li><a href="#"><i class="fa fa-sign-out"></i> Logout</a></li>
+    </ul>
+  </div>
+
+    </ul>`;
 }
-
-
 firebase.auth().onAuthStateChanged(function(user) {checkLoginButton(user)});
 
+
 var connectedRef = firebase.database().ref(".info/connected");
-connectedRef.on("value", function(snap) {
-    if (snap.val() === true) {
-        isOnline = true;
-        console.log("Connected to the database");
-        checkLoginButton(firebase.auth().currentUser);
-    } else {
-        isOnline = false;
-        console.log("Disconnected from the database");
-        //connectButtonDiv.innerHTML = offlineButton;
-    }
-});
+
+function checkLoginButton(user) {
+    connectedRef.on("value", function(snap) {
+        isOnline = snap.val();
+        if (user && isOnline == true) {
+            loginZoneDiv.innerHTML = logOutButton(user.displayName);
+            return;
+        } 
+        if (user && isOnline == false) {
+            loginZoneDiv.innerHTML = logOutButton(user.displayName+" (Offline mode)");
+            return;
+        }
+        if (user == null && isOnline == true) {
+            loginZoneDiv.innerHTML = loginButton;
+            return;
+        }
+        if (user == null && isOnline == false) {
+            loginZoneDiv.innerHTML = "Full Offline";
+            return;
+        } 
+    });
+}
 
 const insectesDiv = document.querySelector('#insects');
 const fishesDiv = document.querySelector('#fishes');
@@ -231,7 +233,7 @@ function marineChecked(marineId) {
 loadInsectes();
 loadFishes();
 loadMarines();
-loadEvents();
+//loadEvents();
 
 
 
