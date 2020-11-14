@@ -2,7 +2,8 @@
 // const insectData = require("./data/insectData.json")
 
 
-// Fishes
+// TODO: Add filters logic here
+
 function getFishSpriteClassNameById(id) {
     if (fishData[id] == null) {return ""}
     var className = "sprite-fish sprite-fish-";
@@ -62,18 +63,19 @@ function getMarineSpriteClassNameById(id) {
     return className;
 }
 
-//Not used
-// function getAllInsectImagesHTML() {
-//     var html = ``;
+// Events
 
-//     for (i=0; i < insectData.length - 1; i++) {
-//         const insect = insectData[i];
-//         html = html + getInsectImageHTMLById(insect["id"]);
-//     }
+function getEventNameById(id) {
+    console.log(eventData[id]["title"]);
+}
 
-//     return html;
-// }
+function getEventSpriteClassNameById(id) {
+    if (eventData[id] == null) {return ""}
+    var className = "sprite-event sprite-event-";
+    var eventName = eventData[id]["title"];
+    eventName = eventName.replace("'", "");
+    eventName = eventName.replace(/\s+/g, '_').toLowerCase();
 
-
-
-//console.log(getFishSpriteClassNameById(4));
+    className = className + eventName;
+    return className;
+}

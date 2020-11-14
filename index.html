@@ -1,7 +1,6 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
-<html lang="fr">
+<html lang="en">
 
   <head>
 
@@ -29,42 +28,49 @@
     <link href="splashscreens/ipadpro3_splash.png" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
     <link href="splashscreens/ipadpro2_splash.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
 
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-
+    <meta name="theme-color" content="#fec560"/>
     <link rel="manifest" href="/manifest.json">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+<!-- 
+    <link rel="stylesheet" href="vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/fontawesome-free-5.15.1-web/css/all.min.css" /> -->
 
     <link rel="stylesheet" href="assets/css/bootstrap.css">
     <link rel="stylesheet" href="assets/css/icons/icomoon/styles.css" />
     <link rel="stylesheet" href="assets/css/icons/fontawesome/styles.min.css" />
     <link rel="stylesheet" href="assets/css/components.css" />
     <link rel="stylesheet" href="assets/css/core.css" />
+    <link rel="stylesheet" href="https://dev.lanfranchi-family.fr/LIMITLESS/layout_3/LTR/default/assets/css/colors.css" />
 
     <link href="style.css" rel="stylesheet">
     <link href="creatures/css/sprite-fish.css" rel="stylesheet">
     <link href="creatures/css/sprite-insect.css" rel="stylesheet">
     <link href="creatures/css/sprite-marine.css" rel="stylesheet">
+    <link href="creatures/css/sprite-event.css" rel="stylesheet">
   
   </head>
   
   <body>
-
+    <script src="idb/database.js"></script>
+    <script src="idb/idb.js"></script>
     <script type="text/javascript" src="creatures/data/fishData.js"></script>
     <script type="text/javascript" src="creatures/data/insectData.js"></script>
     <script type="text/javascript" src="creatures/data/marineData.js"></script>
+    <script type="text/javascript" src="creatures/data/eventData.js"></script>
     <script src="creatures/creaturesAPI.js"></script>
 
     <!-- Integration Firebase -->
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+    <script src="vendor/firebase-app.js"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
         https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-analytics.js"></script>
+    <!-- <script src="vendor/firebase-analytics.js"></script> -->
 
-    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
+    <script src="vendor/firebase-auth.js"></script>
 
-    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-database.js"></script>
+    <script src="vendor/firebase-database.js"></script>
 
     <script>
       // Your web app's Firebase configuration
@@ -81,11 +87,8 @@
       };
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
-      firebase.analytics();
     </script>
 
-    <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
     <script src="databaseAPI.js"></script>
 
     <div class="navbar navbar-inverse" id="navbar-main">
@@ -101,30 +104,15 @@
       </div>
   
       <div class="navbar-collapse collapse" id="navbar-mobile">
-  
-        <ul class="nav navbar-nav navbar-right">
-  
-          <li class="dropdown dropdown-user">
 
-            <a class="dropdown-toggle" data-toggle="dropdown">
-              <span>Alexandre</span>
-              <i class="caret"></i>
-            </a>
-  
-            <ul class="dropdown-menu dropdown-menu-right">
-              <li><a href="#"><i class="icon-calendar3"></i> Event</a></li>
-              <li><a href="#"><i class="icon-switch2"></i> Logout</a></li>
-            </ul>
+        <div id="login-zone">
 
-          </li>
+        </div>
 
-        </ul>
 
       </div>
 
     </div>
-
-    <div id="user-greet"></div>
 
     <div class="page-container">
 
@@ -134,121 +122,381 @@
   
           <div class="row">
 
-            <div class="form-group" style="text-align: right;">
-              <label class="control-label">Sort by : </label>
-              <label class="radio-inline">
-                  <input type="radio" name="animalRadios" class="styled" checked="checked" value="insects">
-                  Name
-                </label>
-                <label class="radio-inline">
-                  <input type="radio" name="animalRadios" class="styled" value="fishes">
-                  Location
-                </label>
-                <label class="radio-inline">
-                  <input type="radio" name="animalRadios" class="styled" value="marine">
-                  Price desc
-                </label>
-                <label class="radio-inline">
-                  <input type="radio" name="animalRadios" class="styled" value="marine">
-                  Price asc
-                </label>
+            <div class="col-sm-3 col-md-2">
+
+              <div id="block-next-update" style="text-align: center;margin-bottom: 20px; display: none;">
+                <span class="label label-info label-icon">
+                  <i class="icon-loop3"></i>&nbsp;&nbsp;
+                  Next update in
+                  <span id="block-next-update-time"></span>&nbsp;
+                  seconds
+                </span>
+              </div>        
+  
             </div>
 
-            <div class="col-md-2">
-          
-              <div class="panel panel-flat">
+            <div class="col-sm-9 col-md-10" style="padding-right: 25px;">
 
+              <div class="row">
+
+                <div class="col-md-6 col-sm-4">
+                  <div id="block-search" class="form-group form-group-xs has-feedback has-feedback-left visible-sm-block visible-md-block visible-lg-block">
+                    <input type="text" class="form-control" placeholder="Search by name..." id="searchByName">
+                    <div class="form-control-feedback">
+                      <i class="icon-search4 text-size-base"></i>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6 col-sm-8">
+                  <div id="block-sort-desktop" class="form-group visible-sm-block visible-md-block visible-lg-block" style="text-align: right;">
+                    <label class="control-label">Sort by : </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="creatureSort" class="styled" checked="checked" value="name">
+                      Name
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="creatureSort" class="styled" value="location">
+                      Location
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="creatureSort" class="styled" value="price_desc">
+                      Price desc
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="creatureSort" class="styled" value="price_asc">
+                      Price asc
+                    </label>
+                  </div>                      
+                </div>
+
+              </div>
+
+            </div>
+
+            <div id="block-sort-mobile" style="display: none;">
+              <div class="panel panel-flat">
+                <form style="padding: 20px; padding-bottom: 0;">
+                  <div class="form-group">
+                    <label class="control-label">Sort by : </label>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="creatureSort-mobile" class="styled" checked="checked" value="name">
+                        Name
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="creatureSort-mobile" class="styled" value="location">
+                        Location
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="creatureSort-mobile" class="styled" value="price_desc">
+                        Price desc
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="creatureSort-mobile" class="styled" value="price_asc">
+                        Price asc
+                      </label>
+                    </div>                          
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <div id="block-filter-desktop" class="col-md-2 col-sm-3 visible-sm-block visible-md-block visible-lg-block" style="padding-top: 15px;">          
+              <div class="panel panel-flat">
                 <form style="padding: 20px; padding-bottom: 0;">
 
                   <div class="form-group">
                     <label class="control-label">Type of creature :</label>
-                    <div class="">
-                      <div class="radio">
-                        <label>
-                          <input type="radio" name="animalRadios" class="styled" checked="checked" value="insects">
-                          Insects
-                        </label>
-                      </div>
-                      <div class="radio">
-                        <label>
-                          <input type="radio" name="animalRadios" class="styled" value="fishes">
-                          Fishes
-                        </label>
-                      </div>
-                      <div class="radio">
-                        <label>
-                          <input type="radio" name="animalRadios" class="styled" value="marine">
-                          Marine
-                        </label>
-                      </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="creatureTypeRadios" class="styled" checked="checked" value="all">
+                        All
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="creatureTypeRadios" class="styled" value="insects">
+                        Insects
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="creatureTypeRadios" class="styled" value="fishes">
+                        Fishes
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="creatureTypeRadios" class="styled" value="marine">
+                        Marine
+                      </label>
                     </div>
                   </div>
 
                   <div class="form-group">
                     <label class="control-label">Hemisphere :</label>
-                    <div class="">
-                      <div class="radio">
-                        <label>
-                          <input type="radio" name="hemisphereRadios" class="styled" checked="checked" value="northern">
-                          Northern
-                        </label>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="hemisphereRadios" class="styled" checked="checked" value="northern">
+                        Northern
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="hemisphereRadios" class="styled" value="southern">
+                        Southern
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="control-label">Period :</label>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="periodRadios" class="styled" checked="checked" value="all">
+                        All
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="periodRadios" class="styled" value="currently">
+                        Currently
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="periodRadios" class="styled" value="month">
+                        In the month
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="periodRadios" class="styled" value="custom">
+                        Custom
+                      </label>
+                    </div>
+                    <div id="block-customPeriod" style="display: none;">
+                      <div class="form-group form-group-xs" style="margin-bottom: 5px;">
+                        <select name="selectMonth" data-placeholder="Month..." class="select-search">
+                          <option></option>
+                          <option value="1">January</option>
+                          <option value="2">February</option>
+                          <option value="3">March</option>
+                          <option value="4">April</option>
+                          <option value="5">May</option>
+                          <option value="6">June</option>
+                          <option value="7">July</option>
+                          <option value="8">August</option>
+                          <option value="9">September</option>
+                          <option value="10">October</option>
+                          <option value="11">November</option>
+                          <option value="12">December</option>
+                        </select>
                       </div>
-                      <div class="radio">
-                        <label>
-                          <input type="radio" name="hemisphereRadios" class="styled" value="southern">
-                          Southern
-                        </label>
+                      <div class="form-group form-group-xs">
+                        <select name="selectTime" data-placeholder="Time..." class="select-search">
+                          <option></option>
+                          <option value="0">00:00 AM</option>
+                          <option value="1">01:00 AM</option>
+                          <option value="2">02:00 AM</option>
+                          <option value="3">03:00 AM</option>
+                          <option value="4">04:00 AM</option>
+                          <option value="5">05:00 AM</option>
+                          <option value="6">06:00 AM</option>
+                          <option value="7">07:00 AM</option>
+                          <option value="8">08:00 AM</option>
+                          <option value="9">09:00 AM</option>
+                          <option value="10">10:00 AM</option>
+                          <option value="11">11:00 AM</option>
+                          <option value="12">00:00 PM</option>
+                          <option value="13">01:00 PM</option>
+                          <option value="14">02:00 PM</option>
+                          <option value="15">03:00 PM</option>
+                          <option value="16">04:00 PM</option>
+                          <option value="17">05:00 PM</option>
+                          <option value="18">06:00 PM</option>
+                          <option value="19">07:00 PM</option>
+                          <option value="20">08:00 PM</option>
+                          <option value="21">09:00 PM</option>
+                          <option value="22">10:00 PM</option>
+                          <option value="23">11:00 PM</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                </form>
+              </div>
+            </div>
+        
+            <div id="block-filter-mobile" style="display: none;">
+              <div class="panel panel-flat">
+                <form style="padding: 20px; padding-bottom: 0;">
+                        
+                  <div class="form-group">
+                    <label class="control-label">Type of creature :</label><br>
+                    <div class="row">
+                      <div class="col-xs-6">
+                        <div class="radio">
+                          <label>
+                            <input type="radio" name="creatureTypeRadios-mobile" class="styled" value="all">
+                            All
+                          </label>
+                        </div>  
+                      </div>
+                      <div class="col-xs-6">
+                        <div class="radio">
+                          <label>
+                            <input type="radio" name="creatureTypeRadios-mobile" class="styled" value="insects">
+                            Insects
+                          </label>
+                        </div>  
+                      </div>
+                      <div class="col-xs-6">
+                        <div class="radio">
+                          <label>
+                            <input type="radio" name="creatureTypeRadios-mobile" class="styled" value="fishes">
+                            Fishes
+                          </label>
+                        </div>  
+                      </div>
+                      <div class="col-xs-6">
+                        <div class="radio">
+                          <label>
+                            <input type="radio" name="creatureTypeRadios-mobile" class="styled" value="marine">
+                            Marine
+                          </label>
+                        </div>  
+                      </div>  
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="control-label">Hemisphere :</label><br>
+                    <div class="row">
+                      <div class="col-xs-6">
+                        <div class="radio">
+                          <label>
+                            <input type="radio" name="hemisphereRadios-mobile" class="styled" value="northern">
+                            Northern
+                          </label>
+                        </div>  
+                      </div>
+                      <div class="col-xs-6">
+                        <div class="radio">
+                          <label>
+                            <input type="radio" name="hemisphereRadios-mobile" class="styled" value="southern">
+                            Southern
+                          </label>
+                        </div>  
                       </div>
                     </div>
                   </div>
 
                   <div class="form-group">
                     <label class="control-label">Period :</label>
-                    <div class="">
-                      <div class="radio">
-                        <label>
-                          <input type="radio" name="periodRadios" class="styled" checked="checked" value="all">
-                          All
-                        </label>
+                    <div class="row">
+                      <div class="col-xs-6">
+                        <div class="radio">
+                          <label>
+                            <input type="radio" name="periodRadios-mobile" class="styled" value="all">
+                            All
+                          </label>
+                        </div>  
                       </div>
-                      <div class="radio">
-                        <label>
-                          <input type="radio" name="periodRadios" class="styled" value="currently">
-                          Currently
-                        </label>
+                      <div class="col-xs-6">
+                        <div class="radio">
+                          <label>
+                            <input type="radio" name="periodRadios-mobile" class="styled" value="currently">
+                            Currently
+                          </label>
+                        </div>  
                       </div>
-                      <div class="radio">
-                        <label>
-                          <input type="radio" name="periodRadios" class="styled" value="month">
-                          In the month
-                        </label>
+                      <div class="col-xs-6">
+                        <div class="radio">
+                          <label>
+                            <input type="radio" name="periodRadios-mobile" class="styled" value="month">
+                            In the month
+                          </label>
+                        </div>  
+                      </div>
+                      <div class="col-xs-6">
+                        <div class="radio">
+                          <label>
+                            <input type="radio" name="periodRadios-mobile" class="styled" value="custom">
+                            Custom
+                          </label>
+                        </div>  
                       </div>
                     </div>
-                  </div>
 
-                  <div class="form-group form-group-xs">
-                    <label class="control-label">Search By name :</label>
-                    <div class="">
-                      <input type="text" class="form-control" id="searchByName">
+                    <div id="block-customPeriod-mobile" style="margin-top: 5px;display: none;">  
+                      <div class="form-group form-group-xs" style="margin-bottom: 5px;">
+                        <select name="selectMonth-mobile" data-placeholder="Month..." class="select-search">
+                          <option></option>
+                          <option value="1">January</option>
+                          <option value="2">February</option>
+                          <option value="3">March</option>
+                          <option value="4">April</option>
+                          <option value="5">May</option>
+                          <option value="6">June</option>
+                          <option value="7">July</option>
+                          <option value="8">August</option>
+                          <option value="9">September</option>
+                          <option value="10">October</option>
+                          <option value="11">November</option>
+                          <option value="12">December</option>
+                        </select>
+                      </div>
+                      <div class="form-group form-group-xs">
+                        <select name="selectTime-mobile" data-placeholder="Time..." class="select-search">
+                          <option></option>
+                          <option value="0">00:00 AM</option>
+                          <option value="1">01:00 AM</option>
+                          <option value="2">02:00 AM</option>
+                          <option value="3">03:00 AM</option>
+                          <option value="4">04:00 AM</option>
+                          <option value="5">05:00 AM</option>
+                          <option value="6">06:00 AM</option>
+                          <option value="7">07:00 AM</option>
+                          <option value="8">08:00 AM</option>
+                          <option value="9">09:00 AM</option>
+                          <option value="10">10:00 AM</option>
+                          <option value="11">11:00 AM</option>
+                          <option value="12">00:00 PM</option>
+                          <option value="13">01:00 PM</option>
+                          <option value="14">02:00 PM</option>
+                          <option value="15">03:00 PM</option>
+                          <option value="16">04:00 PM</option>
+                          <option value="17">05:00 PM</option>
+                          <option value="18">06:00 PM</option>
+                          <option value="19">07:00 PM</option>
+                          <option value="20">08:00 PM</option>
+                          <option value="21">09:00 PM</option>
+                          <option value="22">10:00 PM</option>
+                          <option value="23">11:00 PM</option>
+                        </select>
+                      </div>
                     </div>
-                  </div>
 
+                  </div>
+   
                 </form>
-
               </div>
-  
             </div>
-  
-            <div class="col-md-10">
-          
-                <div class="">
-
-                  <div id="insects" class="row animals-div"></div>
-                  <div id="fishes" class="row animals-div" style="display: none;"></div>
-                  <div id="marine" class="row animals-div" style="display: none;"></div>    
-        
-                </div>
-  
+                
+            <div id="block-creatures" class="col-md-10">
+              <div id="events" class="row creatures-div"></div>
+              <div id="insects" class="row creatures-div"></div>
+              <div id="fishes" class="row creatures-div"></div>
+              <div id="marine" class="row creatures-div"></div>
             </div>
   
           </div> 
@@ -259,12 +507,42 @@
   
     </div>
     <script src="event.js"></script>
+
+    <ul class="fab-menu fab-menu-fixed fab-menu-bottom-right visible-xs-block" data-fab-toggle="click">
+      <li>
+        <a id="menu-mobile" class="fab-menu-btn btn bg-blue btn-float btn-rounded btn-icon">
+          <i class="fab-icon-open icon-menu7"></i>
+          <i class="fab-icon-close icon-cross2"></i>
+        </a>
+
+        <ul class="fab-menu-inner">
+          <li>
+            <a id="btn-show-panel-search" class="btn btn-default btn-rounded btn-icon btn-float">
+              <i class="icon-search4"></i>
+            </a>
+          </li>
+          <li>
+            <a id="btn-show-panel-filter" class="btn btn-default btn-rounded btn-icon btn-float">
+              <i class="icon-filter3"></i>
+            </a>
+          </li>
+          <li>
+            <a id="btn-show-panel-sort" class="btn btn-default btn-rounded btn-icon btn-float">
+              <i class="icon-sort"></i>
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    
     <script src="main.js"></script>
     <script src="logout.js"></script>
 
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/uniform.min.js"></script>
+    <script src="https://dev.lanfranchi-family.fr/LIMITLESS/layout_3/LTR/default/assets/js/plugins/forms/selects/select2.min.js"></script>
+    <script src="https://dev.lanfranchi-family.fr/LIMITLESS/layout_3/LTR/default/assets/js/plugins/loaders/progressbar.min.js"></script>
 
     <script>
       var time = new Date().getTime();
@@ -334,5 +612,10 @@
         });
       });
     </script>
+    <script type="text/javascript" src="https://dev.lanfranchi-family.fr/LIMITLESS/layout_3/LTR/default/assets/js/plugins/ui/fab.min.js"></script>
+    <!-- <script type="text/javascript" src="view-source:https://dev.lanfranchi-family.fr/LIMITLESS/layout_3/LTR/default/extra_fab.html"></script> -->
+
+    <script src="functions.js"></script>
+
   </body>
 </html>

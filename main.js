@@ -1,32 +1,86 @@
+// Online or not?
+var isOnline = false;
+
+
 // Account stuff
-const userDiv = document.querySelector('#user-greet');
-const connectButtonDiv = document.querySelector('#connect-button');
+const loginZoneDiv = document.querySelector('#login-zone');
 
 const loginButton = `
-                    <form class="form-inline my-2 my-lg-0" action="/login.html">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Connexion</button>
-                    </form>`;
+                    <ul class="nav navbar-nav navbar-right">       
+                        <button onclick="window.location='/login.html';" type="button" class="btn bg-success btn-labeled" style="margin-top: 5px;"><b><i class="fa fa-sign-in" style="height: 16px;width: 16px;"></i></b> Connect</button>
+                    </ul>`;
 
-const logOutButton = `
-                    <form class="form-inline my-2 my-lg-0">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onClick="signOut()">Déconnexion</button>
-                    </form>`;
 
-firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-        console.log(user.displayName +" is logged in")
-        const greetUserName = "<h2>Bienvenue "+user.displayName+" !</h2>";
-        userDiv.innerHTML = greetUserName;
-        connectButtonDiv.innerHTML = logOutButton;
-    } else {
-        console.log("No one is logged in")
-        connectButtonDiv.innerHTML = loginButton;
-    }
-  });
+function logOutButton(text) {
+    return `
+    <ul class="nav navbar-nav navbar-right">
+    <div class="btn-group" style="margin-top: 5px;">
+    <button type="button" class="btn bg-success btn-labeled dropdown-toggle" data-toggle="dropdown">
+      <b><i class="icon-reading"></i></b> ${text} <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-right">
+      <li><a href="#"><i class="fa fa-sign-out"></i> Logout</a></li>
+    </ul>
+  </div>
+
+    </ul>`;
+}
+firebase.auth().onAuthStateChanged(function(user) {checkLoginButton(user)});
+
+
+var connectedRef = firebase.database().ref(".info/connected");
+
+function checkLoginButton(user) {
+    connectedRef.on("value", function(snap) {
+        isOnline = snap.val();
+        if (user && isOnline == true) {
+            loginZoneDiv.innerHTML = logOutButton(user.displayName);
+            return;
+        } 
+        if (user && isOnline == false) {
+            loginZoneDiv.innerHTML = logOutButton(user.displayName+" (Offline mode)");
+            return;
+        }
+        if (user == null && isOnline == true) {
+            loginZoneDiv.innerHTML = loginButton;
+            return;
+        }
+        if (user == null && isOnline == false) {
+            loginZoneDiv.innerHTML = "Full Offline";
+            return;
+        } 
+    });
+}
 
 const insectesDiv = document.querySelector('#insects');
 const fishesDiv = document.querySelector('#fishes');
 const marineDiv = document.querySelector('#marine');
+const eventsDiv = document.querySelector('#events');
+
+function loadEvents() {
+    //TODO: MANAGE SOUTHERN just have to replace the tag
+
+    const allInsectes = eventData.map(t => `
+            <div class="col-lg-2 col-sm-3 col-md-3 col-xs-6" style="padding: 15px 20px 0px 10px;">
+                <div class="thumbnail">
+                    <div class="thumb">
+                        <div class="outer-div" style="background-image: url('https://www.animalcrossing-online.com/img/fond.png');">
+                            <div class="inner-div ${getEventSpriteClassNameById(t.id-1)}" style="margin: auto;"></div>
+                        </div>
+                    </div>  
+                    <div class="caption">
+                        <h6 class="text-semibold no-margin text-center animals-name">${t.title}</h6>
+                        <p class="text-muted mb-15 mt-5">
+                            <span><strong>Date : </strong>${t.text}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>   
+    `).join('');
+
+    insectesDiv.innerHTML = allInsectes; 
+
+}
 
 
 // if(window.Notification && window.Notification !== "denied"){
@@ -57,11 +111,12 @@ const marineDiv = document.querySelector('#marine');
 
 function loadInsectes() {
     const allInsectes = insectData.map(t => `
-            <div class="col-lg-2 col-sm-2 col-xs-6">
+            <div class="col-lg-2 col-sm-3 col-md-3 col-xs-6" style="padding: 15px 20px 0px 10px;">
                 <div class="thumbnail">
                     <div class="thumb">
-                        <img src="https://www.animalcrossing-online.com/img/fond.png" alt="">
-                        <div class="${getInsectSpriteClassNameById(t.id-1)}" style="position: absolute;top: 0; margin: 20px 0px 0 15%;"></div>
+                        <div class="outer-div" style="background-image: url('https://www.animalcrossing-online.com/img/fond.png');">
+                            <div class="inner-div ${getInsectSpriteClassNameById(t.id-1)}" style="margin: auto;"></div>
+                        </div>
                         <div class="center">
                             <label class="label">
                                 <input id="insect-checkbox-${t.id-1}" onclick="insectChecked(${t.id-1})" class="label__checkbox" type="checkbox" />
@@ -93,11 +148,12 @@ function loadInsectes() {
 function loadFishes() {
     //TODO: MANAGE SOUTHERN just have to replace the tag
     const allFishes = fishData.map(t => `    
-        <div class="col-lg-2 col-sm-2 col-xs-6">
+        <div class="col-lg-2 col-sm-3 col-md-3 col-xs-6" style="padding: 15px 20px 0px 10px;">
             <div class="thumbnail">
                 <div class="thumb">
-                    <img src="https://www.animalcrossing-online.com/img/fond.png" alt="">
-                    <div class="${getFishSpriteClassNameById(t.id-1)}" style="position: absolute;top: 0; margin: 20px 0px 0 15%;"></div>
+                    <div class="outer-div" style="background-image: url('https://www.animalcrossing-online.com/img/fond.png');">
+                        <div class="inner-div ${getFishSpriteClassNameById(t.id-1)}" style="margin: auto;"></div>
+                    </div>
                     <div class="center">
                         <label class="label">
                             <input id="fish-checkbox-${t.id-1}" onclick="fishChecked(${t.id-1})" class="label__checkbox" type="checkbox" />
@@ -129,11 +185,12 @@ function loadFishes() {
 function loadMarines() {
     //TODO: MANAGE SOUTHERN just have to replace the tag
     const allMarines = marineData.map(t => `
-        <div class="col-lg-2 col-sm-2 col-xs-6">
+        <div class="col-lg-2 col-sm-3 col-md-3 col-xs-6" style="padding: 15px 20px 0px 10px;">
             <div class="thumbnail">
                 <div class="thumb">
-                    <img src="https://www.animalcrossing-online.com/img/fond.png" alt="">
-                    <div class="${getMarineSpriteClassNameById(t.id-1)}" style="position: absolute;top: 0; margin: 20px 0px 0 15%;"></div>
+                    <div class="outer-div" style="background-image: url('https://www.animalcrossing-online.com/img/fond.png');">
+                        <div class="inner-div ${getMarineSpriteClassNameById(t.id-1)}" style="margin: auto;"></div>
+                    </div>
                     <div class="center">
                         <label class="label">
                             <input id="marine-checkbox-${t.id-1}" onclick="marineChecked(${t.id-1})" class="label__checkbox" type="checkbox" />
@@ -167,10 +224,10 @@ function insectChecked(insectId) {
     const newState = document.getElementById("insect-checkbox-"+insectId).checked;
     console.log(insectData[insectId]["name"]+ " checked: "+ newState);
     if (newState == true){
-        addInsectId(insectId);
+        addInsectId(insectId, isOnline);
     } else {
         console.log('on degage');
-        removeInsectId(insectId);
+        removeInsectId(insectId, isOnline);
     }
 }
 
@@ -178,10 +235,10 @@ function fishChecked(fishId) {
     const newState = document.getElementById("fish-checkbox-"+fishId).checked;
     console.log(fishData[fishId]["name"]+ " checked: "+ newState);
     if (newState == true){
-        addFishId(fishId);
+        addFishId(fishId, isOnline);
     } else {
         console.log('on degage');
-        removeFishId(fishId);
+        removeFishId(fishId, isOnline);
     }
 }
 
@@ -189,21 +246,24 @@ function marineChecked(marineId) {
     const newState = document.getElementById("marine-checkbox-"+marineId).checked;
     console.log(marineData[marineId]["name"]+ " checked: "+ newState);
     if (newState == true){
-        addMarineId(marineId);
+        addMarineId(marineId, isOnline);
     } else {
         console.log('on degage');
-        removeMarineId(marineId);
+        removeMarineId(marineId, isOnline);
     }
 }
 
 loadInsectes();
 loadFishes();
-loadMarines(); 
+loadMarines();
+//loadEvents();
+
+
 
 
 // Delegates from database API
 
-function insectSateChanged(insectId, state) {
+function insectStateChanged(insectId, state) {
     document.getElementById("insect-checkbox-"+insectId).checked = state;
 }
 
@@ -239,7 +299,7 @@ function urlBase64ToUint8Array(base64String) {
 //         .catch(err => console.error('service worker NON enregistré', err));
 // }
 
-
+// PWA
 if(navigator.serviceWorker) {
 	// Enregistrement du service worker
     navigator.serviceWorker
@@ -296,4 +356,11 @@ function extractKeysFromArrayBuffer(subscription){
     console.dir(subscription.endpoint);
     console.log('p256dh key :', p256dh);
     console.log('auth key :', auth);
+const cacheName = 'bebetopedia-1.0';
+}
+
+if(window.caches) {
+    caches.open(cacheName);
+    caches.open('other-1.0');
+    caches.keys().then(console.log);
 }
