@@ -80,3 +80,33 @@ function getEventSpriteClassNameById(id) {
     className = className + eventName;
     return className;
 }
+
+
+
+function getEventImgUrlById(id) {
+    if (eventData[id] == null) {return ""}
+    var className = "sprite-event-";
+    var eventName = eventData[id]["title"];
+    eventName = eventName.replace("'", "");
+    eventName = eventName.replace(/\s+/g, '_').toLowerCase();
+    eventName = (eventName.includes('birthday')) ? "anniversary" : eventName;
+    className = "creatures/images/events/" + className + eventName + ".png";
+    return className;
+}
+
+function getEventByDate(){
+    var event;
+    var currentDate = new Date();
+    var currentDay = currentDate.getDate();
+    var currentMonth = currentDate.getMonth() + 1;
+    eventData.forEach(function(elem,index){
+        if(elem.day == currentDay && elem.month == currentMonth){
+            event = elem;
+            event['img'] = getEventSpriteClassNameById(elem.id);
+            event['url'] = getEventImgUrlById(elem.id);
+            console.log(event['img']);
+            console.log(event['url']);
+        }
+    });
+    return event;
+}

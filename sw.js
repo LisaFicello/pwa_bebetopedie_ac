@@ -1,5 +1,6 @@
 const cacheName = 'bebetopedia-1.0';
 
+self.importScripts('creatures/creaturesAPI.js', 'creatures/data/eventData.js');
  
 self.addEventListener('install', (evt) => {
     console.log(`sw installé à ${new Date().toLocaleTimeString()}`);
@@ -88,10 +89,15 @@ self.addEventListener('fetch', (evt) => {
 });
 
 
-	
-// self.registration.showNotification("Notification du SW", {
-//     body:"je suis une notification dite persistante"
-// })
+function displayNotification(sw) {
+    const event = getEventByDate();
+    sw.registration.showNotification("Today is "+event["title"]+"!", {
+        body:"",
+        icon: event["url"]
+    });
+}
+
+
  
 // Ecoute de l'événement close
 self.addEventListener("notificationclose", evt => {
@@ -100,18 +106,8 @@ self.addEventListener("notificationclose", evt => {
 	
 	
 self.addEventListener("push", evt => {
-
-
-    console.log("push event", evt);
-    console.log("data envoyée par la push notification :", evt.data.text());
- 
-    // 8.1 afficher son contenu dans une notification
-    const title = evt.data.text();
-    const objNotification = {
-        body: "ça fonctionne", 
-        icon : "images/icons/icon-72x72.png"
-    };
-    self.registration.showNotification(title, objNotification);
+   displayNotification(self);
 })
 
+displayNotification(self);
  
