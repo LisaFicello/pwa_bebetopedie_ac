@@ -16,8 +16,7 @@ function isMobile(){
     return ($("[name='hemisphereRadios']:visible").length === 0) ? '-mobile' : '';
 }
 function getHemisphereSelected(){
-    var isMobile = ($("[name='hemisphereRadios']:visible").length === 0) ? '-mobile' : '';
-    return $("[name='hemisphereRadios']" + isMobile).val();
+    return $("[name='hemisphereRadios" + isMobile() + "']:checked").val();
 }
 function updateCounter(time){
     $('#block-next-update-time').html(time);
@@ -107,11 +106,6 @@ $(function(){
     });
     $("[name='hemisphereRadios'], [name='hemisphereRadios-mobile']").on('change',function(){
         loadCreatures();
-        // var value = $(this).val();
-        // $(".creatures-div .caption").each(function(index, elem){
-        //     var period = $(this).find("span[data-months-" + value + "-text]").attr("data-months-" + value + "-text");
-        //     $(this).find('.period-text').text(period);
-        // });
     });
 
     $("[name='periodRadios'], [name='periodRadios-mobile']").on("change", function(){
