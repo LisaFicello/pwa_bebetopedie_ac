@@ -106,11 +106,12 @@ $(function(){
         loadCreatures();
     });
     $("[name='hemisphereRadios'], [name='hemisphereRadios-mobile']").on('change',function(){
-        var value = $(this).val();
-        $(".creatures-div .caption").each(function(index, elem){
-            var period = $(this).find("span[data-months-" + value + "-text]").attr("data-months-" + value + "-text");
-            $(this).find('.period-text').text(period);
-        });
+        loadCreatures();
+        // var value = $(this).val();
+        // $(".creatures-div .caption").each(function(index, elem){
+        //     var period = $(this).find("span[data-months-" + value + "-text]").attr("data-months-" + value + "-text");
+        //     $(this).find('.period-text').text(period);
+        // });
     });
 
     $("[name='periodRadios'], [name='periodRadios-mobile']").on("change", function(){
