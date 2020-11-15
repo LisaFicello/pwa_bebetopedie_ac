@@ -1,57 +1,31 @@
 var chrono;
 var realTime;
 
+function updateTime(){
+    var hms = new Date();
+    var h, m, s;
+    h = hms.getHours();
+    if (h<10) h = "0" + h;
+    m = hms.getMinutes();
+    if (m<10) m = "0" + m;
+    s = hms.getSeconds();
+    if (s<10) s = "0" + s;
+    $('#currentTime').html(h + ' : ' + m + ' : ' + s);
+}
+function isMobile(){
+    return ($("[name='hemisphereRadios']:visible").length === 0) ? '-mobile' : '';
+}
+function getHemisphereSelected(){
+    var isMobile = ($("[name='hemisphereRadios']:visible").length === 0) ? '-mobile' : '';
+    return $("[name='hemisphereRadios']" + isMobile).val();
+}
 function updateCounter(time){
     $('#block-next-update-time').html(time);
 }
 
-function showCurrentCreatures(creatureSelector, hemisphereSelected){
-    console.log('NEW Currently Period');
-    var currentDate = new Date();
-    var currentHours = currentDate.getHours();
-    var currentMonth = currentDate.getMonth() + 1;
-    $(creatureSelector).each(function(index, elem){
-        var hours = $(this).find("span[data-times-array]").attr("data-times-array").split(',');
-        var months = $(this).find("span[data-months-" + hemisphereSelected + "-array]").attr("data-months-" + hemisphereSelected + "-array").split(',');
-        if(hours.indexOf(currentHours.toString()) != -1 && months.indexOf(currentMonth.toString()) != -1)
-            $(this).parent().parent().show();
-    });
-}
-
-function showSpecificCreatures(these){
-    $(".creatures-div").children().hide();
-    var isMobile = (these.attr('name').includes('-mobile')) ? '-mobile' : '';
-    var creatureSelected = $("[name='creatureTypeRadios" + isMobile + "']:checked").val();
-    var hemisphereSelected = $("[name='hemisphereRadios" + isMobile + "']:checked").val();
-    var creatureSelector = (creatureSelected == "all") ? ".creatures-div  .caption" : "#" + creatureSelected + " .caption";
-    var timeSelected = $("[name='selectTime"+ isMobile +"']").val();
-    var monthSelected = $("[name='selectMonth"+ isMobile +"']").val();
-
-    console.log(timeSelected);
-    console.log(timeSelected.length);
-    console.log(monthSelected);
-    console.log(monthSelected.length);
-
-    $(creatureSelector).each(function(index, elem){
-        var hours = $(this).find("span[data-times-array]").attr("data-times-array").split(',');
-        var months = $(this).find("span[data-months-" + hemisphereSelected + "-array]").attr("data-months-" + hemisphereSelected + "-array").split(',');
-        if(timeSelected.length == 0 && monthSelected.length == 0){
-            console.log("timeSelected.length == 0 && monthSelected.length == 0")
-            $(this).parent().parent().show();
-        }else if(timeSelected.length > 0 && monthSelected.length == 0 && hours.indexOf(timeSelected) != -1){
-            console.log("timeSelected.length > 0 && monthSelected.length == 0 && hours.indexOf(timeSelected.toString()) != -1");
-            $(this).parent().parent().show();
-        }else if(timeSelected.length == 0 && monthSelected.length > 0 && months.indexOf(monthSelected) != -1){
-            console.log("timeSelected.length == 0 && monthSelected.length > 0 && months.indexOf(monthSelected.toString()) != -1");
-            $(this).parent().parent().show();
-        }else if(timeSelected.length > 0 && monthSelected.length > 0 && hours.indexOf(timeSelected) != -1 && months.indexOf(monthSelected) != -1){
-            console.log("timeSelected.length > 0 && monthSelected.length > 0 && hours.indexOf(timeSelected.toString()) != -1 && months.indexOf(monthSelected.toString()) != -1");
-            $(this).parent().parent().show();
-        }
-    });
-}
-
 $(function(){
+
+    setInterval(updateTime,1000);
 
     $('.select-search').select2();
     $(".styled").uniform({
@@ -79,13 +53,46 @@ $(function(){
         $("#block-sort-mobile").show();
     });
 
+    var eventDay = getEventByDate();
+    $("#titleEventTime").text(eventDay.title);
+    $("#imgEventTime").addClass(eventDay.img);
+
+    $("[name='creatureSort'], [name='creatureSort-mobile']").on('change', function(){
+        switch($(this).val()){
+            case "name":
+                insectSortByName();
+                fishSortByName();
+                marineSortByName();
+                break;
+            case "location":
+                insectSortByLocation();
+                fishSortByLocation();
+                marineSortByLocation();
+                break;
+            case "price_asc":
+                insectSortByPriceAsc();
+                fishSortByPriceAsc();
+                marineSortByPriceAsc();
+                break;
+            case "price_desc":
+                insectSortByPriceDesc();
+                fishSortByPriceDesc();
+                marineSortByPriceDesc();
+                break;
+            default:
+                break;
+        }
+        loadCreatures();
+    });
+
+    $("#searchByName").on("focusin", function(){
+        $("[name='creatureTypeRadios" + isMobile() + "'][value='all']").prop('checked', true);
+        $("[name='creatureTypeRadios" + isMobile() + "']").uniform();
+        $("[name='periodRadios" + isMobile() + "'][value='all']").prop('checked', true);
+        $("[name='periodRadios" + isMobile() + "']").uniform();
+        loadCreatures();
+    });
     $("#searchByName").on("keyup", function(){
-        $("[name='creatureTypeRadios'][value='all'], [name='creatureTypeRadios-mobile'][value='all']").prop('checked', true);
-        $("[name='creatureTypeRadios'], [name='creatureTypeRadios-mobile']").uniform();
-        $("[name='creatureTypeRadios'], [name='creatureTypeRadios-mobile']").change();
-        $("[name='periodRadios'][value='all'], [name='periodRadios-mobile'][value='all']").prop('checked', true);
-        $("[name='periodRadios'], [name='periodRadios-mobile']").uniform();
-        $("[name='periodRadios'], [name='periodRadios-mobile']").change();
         var value = $(this).val();
         $(".animals-name").each(function(index, elem){
             if($(this).text().toUpperCase().includes(value.toUpperCase()))
@@ -96,95 +103,61 @@ $(function(){
     });
 
     $("[name='creatureTypeRadios'], [name='creatureTypeRadios-mobile']").on('change',function(){
-        switch($(this).val()){
-            case 'all':
-                $(".creatures-div").show();
-                break;
-            default:
-                $(".creatures-div").hide();
-                $("#" + $(this).val()).show();
-                break;
-        }
+        loadCreatures();
     });
     $("[name='hemisphereRadios'], [name='hemisphereRadios-mobile']").on('change',function(){
-        var hemisphere = $(this).val();
+        var value = $(this).val();
         $(".creatures-div .caption").each(function(index, elem){
-            var period = $(this).find("span[data-months-" + hemisphere + "-text]").attr("data-months-" + hemisphere + "-text").split(',');
+            var period = $(this).find("span[data-months-" + value + "-text]").attr("data-months-" + value + "-text");
             $(this).find('.period-text').text(period);
         });
     });
 
+
     $("[name='periodRadios'], [name='periodRadios-mobile']").on("change", function(){
-        var isMobile = ($(this).attr('name').includes('-mobile')) ? '-mobile' : '';
-        var creatureSelected = $("[name='creatureTypeRadios" + isMobile + "']:checked").val();
-        var hemisphereSelected = $("[name='hemisphereRadios" + isMobile + "']:checked").val();
-        $(".creatures-div").children().hide();
-        $("#block-customPeriod" + isMobile).hide();
+
+        $("#block-customPeriod" + isMobile()).hide();
         $("#block-next-update").hide();
         clearInterval(chrono);
         clearInterval(realTime);
-        switch ($(this).val()) {
-            case 'all':
-                console.log('All period');
-                if(creatureSelected == "all")
-                    $(".creatures-div").children().show();
-                else
-                    $("#" + creatureSelected).children().show();
-                break;
+        
+        switch ($("[name='periodRadios" + isMobile() + "']:checked").val()) {    
             case 'currently':
                 console.log('Currently period');
-                console.log(creatureSelected);
-
-                var creatureSelector = (creatureSelected == "all") ? ".creatures-div  .caption" : "#" + creatureSelected + " .caption";
-                showCurrentCreatures(creatureSelector,hemisphereSelected);
-
-                chronoTime = 10; //In second
+                loadCreatures();
+                chronoTime = 60; //In second
                 updateCounter(chronoTime);
                 $("#block-next-update").show();
                 chrono = setInterval(function(){
                     chronoTime--;
                     updateCounter(chronoTime);
-                },1100);
-
+                },1100);    
                 realTime = setInterval(function(){
-                    showCurrentCreatures(creatureSelector,hemisphereSelected);
+                    loadCreatures();
                     clearInterval(chrono);
-                    chronoTime = 10; //In second
+                    chronoTime = 60; //In second
                     chrono = setInterval(function(){
                         updateCounter(chronoTime);
                         chronoTime--;
                     },1000);
-                }, 11500);
-
-                break;
-            case 'month':
-                console.log('In month period');
-
-                var currentDate = new Date();
-                var currentMonth = currentDate.getMonth() + 1;
-                var creatureSelector = (creatureSelected == "all") ? ".creatures-div  .caption" : "#" + creatureSelected + " .caption";
-                $(creatureSelector).each(function(index, elem){
-                    var months = $(this).find("span[data-months-" + hemisphereSelected + "-array]").attr("data-months-" + hemisphereSelected + "-array").split(',');
-                    if(months.indexOf(currentMonth.toString()) != -1)
-                        $(this).parent().parent().show();
-                });
-
+                }, 61500);
                 break;
             case 'custom':
-                console.log('Custom period');
-                $("#block-customPeriod" + isMobile).show();
+                $("#block-customPeriod" + isMobile()).show();
+                loadCreatures();
                 break;
             default:
+                loadCreatures();
                 break;
-        }
+        }    
+
     });
 
     $("[name='selectMonth'], [name='selectMonth-mobile']").on('change', function(){
-        showSpecificCreatures($(this));
+        loadCreatures();
     });
-
     $("[name='selectTime'], [name='selectTime-mobile']").on('change', function(){
-        showSpecificCreatures($(this));
+        loadCreatures();
     });
 
 });

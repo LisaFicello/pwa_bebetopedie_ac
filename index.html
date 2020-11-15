@@ -145,7 +145,7 @@
                   <div id="block-sort-desktop" class="form-group visible-sm-block visible-md-block visible-lg-block" style="text-align: right;">
                     <label class="control-label">Sort by : </label>
                     <label class="radio-inline">
-                      <input type="radio" name="creatureSort" class="styled" checked="checked" value="name">
+                      <input type="radio" name="creatureSort" class="styled" value="name" checked="checked" >
                       Name
                     </label>
                     <label class="radio-inline">
@@ -153,12 +153,12 @@
                       Location
                     </label>
                     <label class="radio-inline">
-                      <input type="radio" name="creatureSort" class="styled" value="price_desc">
-                      Price desc
-                    </label>
-                    <label class="radio-inline">
                       <input type="radio" name="creatureSort" class="styled" value="price_asc">
                       Price asc
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="creatureSort" class="styled" value="price_desc">
+                      Price desc
                     </label>
                   </div>                      
                 </div>
@@ -174,7 +174,7 @@
                     <label class="control-label">Sort by : </label>
                     <div class="radio">
                       <label>
-                        <input type="radio" name="creatureSort-mobile" class="styled" checked="checked" value="name">
+                        <input type="radio" name="creatureSort-mobile" class="styled" value="name" checked="checked">
                         Name
                       </label>
                     </div>
@@ -186,22 +186,22 @@
                     </div>
                     <div class="radio">
                       <label>
-                        <input type="radio" name="creatureSort-mobile" class="styled" value="price_desc">
-                        Price desc
-                      </label>
-                    </div>
-                    <div class="radio">
-                      <label>
                         <input type="radio" name="creatureSort-mobile" class="styled" value="price_asc">
                         Price asc
                       </label>
                     </div>                          
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="creatureSort-mobile" class="styled" value="price_desc">
+                        Price desc
+                      </label>
+                    </div>
                   </div>
                 </form>
               </div>
             </div>
 
-            <div id="block-filter-desktop" class="col-md-2 col-sm-3 visible-sm-block visible-md-block visible-lg-block" style="padding-top: 15px;">          
+            <div id="block-filter-desktop" class="col-md-2 col-sm-3 visible-sm-block visible-md-block visible-lg-block" style="padding-top: 15px;">
               <div class="panel panel-flat">
                 <form style="padding: 20px; padding-bottom: 0;">
 
@@ -209,7 +209,7 @@
                     <label class="control-label">Type of creature :</label>
                     <div class="radio">
                       <label>
-                        <input type="radio" name="creatureTypeRadios" class="styled" checked="checked" value="all">
+                        <input type="radio" name="creatureTypeRadios" class="styled" value="all" checked="checked">
                         All
                       </label>
                     </div>
@@ -237,7 +237,7 @@
                     <label class="control-label">Hemisphere :</label>
                     <div class="radio">
                       <label>
-                        <input type="radio" name="hemisphereRadios" class="styled" checked="checked" value="northern">
+                        <input type="radio" name="hemisphereRadios" class="styled" value="northern" checked="checked">
                         Northern
                       </label>
                     </div>
@@ -253,7 +253,7 @@
                     <label class="control-label">Period :</label>
                     <div class="radio">
                       <label>
-                        <input type="radio" name="periodRadios" class="styled" checked="checked" value="all">
+                        <input type="radio" name="periodRadios" class="styled" value="all" checked="checked">
                         All
                       </label>
                     </div>
@@ -327,6 +327,25 @@
 
                 </form>
               </div>
+
+              <div class="thumbnail">
+                <div style="height: 36px;">
+                  <span style="float: left; margin-top: 5px;">Event : </span>
+                  <span class="label label-striped border-left-teal-300 label-icon" style="float: right">
+                    <i class="icon-watch2"></i>&nbsp;
+                    <span id="currentTime"></span>
+                  </span>
+                </div>
+                <div class="thumb">
+                    <div class="outer-div" style="background-image: url(images/icons/fond.png);">
+                        <div id="imgEventTime" class="inner-div" style="margin: auto;"></div>
+                    </div>
+                </div>  
+                <div class="caption" style="height: auto !important;">
+                    <h6 id="titleEventTime" class="text-semibold no-margin text-center"></h6>
+                </div>
+              </div>
+
             </div>
         
             <div id="block-filter-mobile" style="display: none;">
@@ -339,7 +358,7 @@
                       <div class="col-xs-6">
                         <div class="radio">
                           <label>
-                            <input type="radio" name="creatureTypeRadios-mobile" class="styled" value="all">
+                            <input type="radio" name="creatureTypeRadios-mobile" class="styled" value="all" checked="checked">
                             All
                           </label>
                         </div>  
@@ -377,7 +396,7 @@
                       <div class="col-xs-6">
                         <div class="radio">
                           <label>
-                            <input type="radio" name="hemisphereRadios-mobile" class="styled" value="northern">
+                            <input type="radio" name="hemisphereRadios-mobile" class="styled" value="northern" checked="checked">
                             Northern
                           </label>
                         </div>  
@@ -399,7 +418,7 @@
                       <div class="col-xs-6">
                         <div class="radio">
                           <label>
-                            <input type="radio" name="periodRadios-mobile" class="styled" value="all">
+                            <input type="radio" name="periodRadios-mobile" class="styled" value="all" checked="checked">
                             All
                           </label>
                         </div>  
@@ -486,7 +505,6 @@
             </div>
                 
             <div id="block-creatures" class="col-md-10">
-              <div id="events" class="row creatures-div"></div>
               <div id="insects" class="row creatures-div"></div>
               <div id="fishes" class="row creatures-div"></div>
               <div id="marine" class="row creatures-div"></div>
@@ -527,16 +545,15 @@
       </li>
     </ul>
     
-    <script src="main.js"></script>
-    <script src="logout.js"></script>
-
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/uniform.min.js"></script>
     <script src="assets/js/select2.min.js"></script>
-    <script type="text/javascript" src="assets/js/fab.min.js"></script>
+    <script src="assets/js/fab.min.js"></script>
 
     <script src="functions.js"></script>
+    <script src="main.js"></script>
+    <script src="logout.js"></script>
 
   </body>
 

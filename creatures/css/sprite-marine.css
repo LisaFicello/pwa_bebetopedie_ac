@@ -1,173 +1,173 @@
-.sprite-marineCreature {
+.sprite-marine {
     background-image: url(../images/marineImages.png);
     width: 128px;
     height: 128px;
 }
 
-.sprite-marineCreature-sea_grapes {
+.sprite-marine-sea_grapes {
 	background-position: 0 0
 }
 
-.sprite-marineCreature-sea_anemone {
+.sprite-marine-sea_anemone {
 	background-position: -128px 0
 }
 
-.sprite-marineCreature-spotted_garden_eel {
+.sprite-marine-spotted_garden_eel {
 	background-position: -256px 0
 }
 
-.sprite-marineCreature-acorn_barnacle {
+.sprite-marine-acorn_barnacle {
 	background-position: -384px 0
 }
 
-.sprite-marineCreature-giant_isopod {
+.sprite-marine-giant_isopod {
 	background-position: -512px 0
 }
 
-.sprite-marineCreature-gigas_giant_clam {
+.sprite-marine-gigas_giant_clam {
 	background-position: -640px 0
 }
 
-.sprite-marineCreature-whelk {
+.sprite-marine-whelk {
 	background-position: -768px 0
 }
 
-.sprite-marineCreature-firefly_squid {
+.sprite-marine-firefly_squid {
 	background-position: -896px 0
 }
 
-.sprite-marineCreature-sea_pig {
+.sprite-marine-sea_pig {
     background-position: -1024px 0
 }
 
 
 
-.sprite-marineCreature-sea_cucumber {
+.sprite-marine-sea_cucumber {
 	background-position: 0 -128px
 }
 
-.sprite-marineCreature-venus_flower_basket {
+.sprite-marine-venus_flower_basket {
 	background-position: -128px -128px
 }
 
-.sprite-marineCreature-dungeness_crab {
+.sprite-marine-dungeness_crab {
 	background-position: -256px -128px
 }
 
-.sprite-marineCreature-snow_crab {
+.sprite-marine-snow_crab {
 	background-position: -384px -128px
 }
 
-.sprite-marineCreature-gazami_crab {
+.sprite-marine-gazami_crab {
 	background-position: -512px -128px
 }
 
-.sprite-marineCreature-red_king_crab {
+.sprite-marine-red_king_crab {
 	background-position: -640px -128px
 }
 
-.sprite-marineCreature-spider_crab {
+.sprite-marine-spider_crab {
 	background-position: -768px -128px
 }
 
-.sprite-marineCreature-sweet_shrimp {
+.sprite-marine-sweet_shrimp {
 	background-position: -896px -128px
 }
 
-.sprite-marineCreature-tiger_prawn {
+.sprite-marine-tiger_prawn {
     background-position: -1024px -128px
 }
 
 
 
-.sprite-marineCreature-mantis_shrimp {
+.sprite-marine-mantis_shrimp {
 	background-position: 0 -256px
 }
 
-.sprite-marineCreature-sea_star {
+.sprite-marine-sea_star {
 	background-position: -128px -256px
 }
 
-.sprite-marineCreature-sea_pineapple {
+.sprite-marine-sea_pineapple {
 	background-position: -256px -256px
 }
 
-.sprite-marineCreature-lobster {
+.sprite-marine-lobster {
 	background-position: -384px -256px
 }
 
-.sprite-marineCreature-pearl_oyster {
+.sprite-marine-pearl_oyster {
 	background-position: -512px -256px
 }
 
-.sprite-marineCreature-oyster {
+.sprite-marine-oyster {
 	background-position: -640px -256px
 }
 
-.sprite-marineCreature-spiny_lobster {
+.sprite-marine-spiny_lobster {
 	background-position: -768px -256px
 }
 
-.sprite-marineCreature-sea_slug {
+.sprite-marine-sea_slug {
 	background-position: -896px -256px
 }
 
-.sprite-marineCreature-horseshoe_crab {
+.sprite-marine-horseshoe_crab {
     background-position: -1024px -256px
 }
 
 
 
-.sprite-marineCreature-moon_jellyfish {
+.sprite-marine-moon_jellyfish {
 	background-position: 0 -384px
 }
 
-.sprite-marineCreature-mussel {
+.sprite-marine-mussel {
 	background-position: -128px -384px
 }
 
-.sprite-marineCreature-chambered_nautilus {
+.sprite-marine-chambered_nautilus {
 	background-position: -256px -384px
 }
 
-.sprite-marineCreature-abalone {
+.sprite-marine-abalone {
 	background-position: -384px -384px
 }
 
-.sprite-marineCreature-slate_pencil_urchin {
+.sprite-marine-slate_pencil_urchin {
 	background-position: -512px -384px
 }
 
-.sprite-marineCreature-sea_urchin {
+.sprite-marine-sea_urchin {
 	background-position: -640px -384px
 }
 
-.sprite-marineCreature-scallop {
+.sprite-marine-scallop {
 	background-position: -768px -384px
 }
 
-.sprite-marineCreature-umbrella_octopus {
+.sprite-marine-umbrella_octopus {
 	background-position: -896px -384px
 }
 
-.sprite-marineCreature-octopus {
+.sprite-marine-octopus {
     background-position: -1024px -384px
 }
 
 
 
-.sprite-marineCreature-turban_shell {
+.sprite-marine-turban_shell {
     background-position: 0 -512px
 }
 
-.sprite-marineCreature-vampire_squid {
+.sprite-marine-vampire_squid {
     background-position: -128px -512px
 }
 
-.sprite-marineCreature-flatworm {
+.sprite-marine-flatworm {
     background-position: -256px -512px
 }
 
-.sprite-marineCreature-seaweed {
+.sprite-marine-seaweed {
     background-position: -384px -512px
 }
