@@ -82,7 +82,7 @@ function loadInsectes(data) {
                         </div>
                         <div class="center">
                             <label class="label">
-                                <input id="insect-checkbox-${t.id-1}" onclick="insectChecked(${t.id-1})" class="label__checkbox" type="checkbox" />
+                                <input id="insect-checkbox-${t.id}" onclick="insectChecked(${t.id})" class="label__checkbox" type="checkbox" />
                                 <span class="label__text">
                                     <span class="label__check">
                                         <i class="fa fa-check icon"></i>
@@ -119,7 +119,7 @@ function loadFishes(data) {
                     </div>
                     <div class="center">
                         <label class="label">
-                            <input id="fish-checkbox-${t.id-1}" onclick="fishChecked(${t.id-1})" class="label__checkbox" type="checkbox" />
+                            <input id="fish-checkbox-${t.id}" onclick="fishChecked(${t.id})" class="label__checkbox" type="checkbox" />
                             <span class="label__text">
                                 <span class="label__check">
                                     <i class="fa fa-check icon"></i>
@@ -157,7 +157,7 @@ function loadMarines(data) {
                     </div>
                     <div class="center">
                         <label class="label">
-                            <input id="marine-checkbox-${t.id-1}" onclick="marineChecked(${t.id-1})" class="label__checkbox" type="checkbox" />
+                            <input id="marine-checkbox-${t.id}" onclick="marineChecked(${t.id})" class="label__checkbox" type="checkbox" />
                             <span class="label__text">
                                 <span class="label__check">
                                     <i class="fa fa-check icon"></i>

@@ -22,25 +22,19 @@ function filterCurrentMonthAndTimeFunction(element) {
 function filterSpecificMonthAndTimeFunction(element) {
 
     var hemisphereSelected = $("[name='hemisphereRadios" + isMobile() + "']:checked").val();
-    var timeSelected = $("[name='selectTime" + isMobile() + "']").val();
-    var monthSelected = $("[name='selectMonth" + isMobile() + "']").val();
+    var timeSelected = parseInt($("[name='selectTime" + isMobile() + "']").val());
+    var monthSelected = parseInt($("[name='selectMonth" + isMobile() + "']").val());
 
     var times = element["times"]["array"];
     var months = element["months"][hemisphereSelected]["array"];
 
-    console.log(times);
-    console.log(timeSelected);
-    console.log(monthSelected);
-    console.log(times.indexOf(timeSelected.toString()))
-    console.log(times.indexOf(timeSelected.toString()) != -1)
-
-    if(timeSelected.length == 0 && monthSelected.length == 0)
+    if(isNaN(timeSelected) && isNaN(monthSelected))
         return element
-    else if(timeSelected.length > 0 && monthSelected.length == 0 && times.indexOf(timeSelected) != -1)
+    else if(!isNaN(timeSelected) && isNaN(monthSelected))
         return (times.indexOf(timeSelected) != -1)
-    else if(timeSelected.length == 0 && monthSelected.length > 0 && months.indexOf(monthSelected) != -1)
+    else if(isNaN(timeSelected) && !isNaN(monthSelected))
         return (months.indexOf(monthSelected) != -1)
-    else if(timeSelected.length > 0 && monthSelected.length > 0 && times.indexOf(timeSelected) != -1 && months.indexOf(monthSelected) != -1)
+    else if(!isNaN(timeSelected) && !isNaN(monthSelected))
         return (times.indexOf(timeSelected) != -1 && months.indexOf(monthSelected) != -1)
 
 }
@@ -71,7 +65,6 @@ function getCreatureNameById(creature, id) {
 function getCreatureById(creature, id) {
     return creature.filter(c => c.id == id)[0];
 }
-
 
 // Insects
 function getInsectSpriteClassNameById(id) {
