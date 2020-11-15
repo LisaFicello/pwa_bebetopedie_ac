@@ -91,9 +91,15 @@ self.addEventListener('fetch', (evt) => {
 
 function displayNotification(sw) {
     const event = getEventByDate();
-    sw.registration.showNotification("Today is "+event["title"]+"!", {
+    var title = [];
+    var url = (event.length == 1) ? event[0]["url"] : "creatures/images/events/sprite-event-anniversary.png";
+    event.forEach(function(elem){
+        title.push(elem["title"]);
+    });
+    title = "Today is " + title.join(' and ') + "!";
+    sw.registration.showNotification(title, {
         body:"",
-        icon: event["url"]
+        icon: url
     });
 }
 

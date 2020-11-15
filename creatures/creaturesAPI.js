@@ -133,30 +133,31 @@ function getFilterMarine(){
 }
 
 // Events
-function getEventTitleById(id) {
-    return eventData[id]["title"];
+var dayEventSelected;
+var monthEventSelected;
+
+function getEventSpriteClassNameById(event) {
+    var eventTitle = getNameLower(event["title"]);
+    return (event == null) ? "" : "sprite-event sprite-event-" + eventTitle;
 }
-function getEventSpriteClassNameById(id) {
-    var eventTitle = getEventTitleById(id);
-    eventTitle = getNameLower(eventTitle);
-    return (eventData[id] == null) ? "" : "sprite-event sprite-event-" + eventTitle;
-}
-function getEventImgUrlById(id) {
-    var eventTitle = getEventTitleById(id);
-    eventTitle = getNameLower(eventTitle);
+function getEventImgUrlById(event) {
+    var eventTitle = getNameLower(event["title"]);
     eventTitle = (eventTitle.includes('birthday')) ? "anniversary" : eventTitle;
-    return (eventData[id] == null) ? "" : "creatures/images/events/sprite-event-" + eventTitle + ".png";
+    return (event == null) ? "" : "creatures/images/events/sprite-event-" + eventTitle + ".png";
+}
+function filterEvent(element) {
+    return (element.day == dayEventSelected && element.month == monthEventSelected);
 }
 function getEventByDate(date = new Date()){
-    var eventResult;
-    var day = date.getDate();
-    var month = date.getMonth() + 1;
-    eventData.forEach(function(currentEvent){
-        if(currentEvent.day == day && currentEvent.month == month){
-            eventResult = currentEvent;
-            eventResult['img'] = getEventSpriteClassNameById(currentEvent.id);
-            eventResult['url'] = getEventImgUrlById(currentEvent.id);
-        }
+    var eventResult = [];
+    dayEventSelected = date.getDate();
+    monthEventSelected = date.getMonth() + 1;
+    var eventFilter = eventData.filter(filterEvent);
+    eventFilter.forEach(function(elem){
+        var currentEvent = elem;
+        currentEvent['img'] = getEventSpriteClassNameById(elem);
+        currentEvent['url'] = getEventImgUrlById(elem);
+        eventResult.push(currentEvent);
     });
     return eventResult;
 }

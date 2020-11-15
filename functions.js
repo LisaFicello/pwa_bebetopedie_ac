@@ -12,6 +12,28 @@ function updateTime(){
     if (s<10) s = "0" + s;
     $('#currentTime').html(h + ' : ' + m + ' : ' + s);
 }
+function updateDateEvent(date = new Date()){
+    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    day = date.getDate();
+    if (day<10) day = "0" + day;
+    var eventDay = getEventByDate(date);
+    $('#currentDateEvent').html(day + " " + months[date.getMonth()]);
+
+    $("#eventsList").empty();
+    eventDay.forEach(function(elem){
+        $("#eventsList").append(`
+            <div class="thumb">
+                <div id="imgEventTime" class="outer-div" style="background-image: url(images/icons/fond.png);">
+                    <div class="inner-div ${elem.img}" style="margin: auto;"></div>
+                </div>
+            </div>  
+            <div class="caption" style="height: auto !important;">
+                <h6 class="text-semibold no-margin text-center">${elem.title}</h6>
+            </div>
+        `);
+    });
+    
+}
 function isMobile(){
     return ($("[name='hemisphereRadios']:visible").length === 0) ? '-mobile' : '';
 }
@@ -24,7 +46,29 @@ function updateCounter(time){
 
 $(function(){
 
-    setInterval(updateTime,1000);
+    updateDateEvent();
+    
+    //setInterval(updateTime,1000);
+
+    $("#btn-show-modal-change-date-event").on('click', function(e){
+        e.preventDefault();
+        $("#modal_change_date_event").modal('show');
+    })
+
+    $("#btn-apply-change-event-date").on('click', function(e){
+        e.preventDefault();
+        var date = new Date()
+        var day = $("[name='selectDayEvent']").val();
+        var month = $("[name='selectMonthEvent']").val();
+        console.log(day);
+        console.log(month);
+        var dateString = date.getFullYear() + "-" + month + "-" + day;
+        date = new Date(dateString);
+        console.log(dateString);
+        console.log(date);
+        updateDateEvent(date);
+        $("#modal_change_date_event").modal('hide');
+    })
 
     $('.select-search').select2();
     $(".styled").uniform({
@@ -51,10 +95,6 @@ $(function(){
         $("#block-filter-mobile").hide();
         $("#block-sort-mobile").show();
     });
-
-    var eventDay = getEventByDate();
-    $("#titleEventTime").text(eventDay.title);
-    $("#imgEventTime").addClass(eventDay.img);
 
     $("[name='creatureSort'], [name='creatureSort-mobile']").on('change', function(){
         switch($(this).val()){
