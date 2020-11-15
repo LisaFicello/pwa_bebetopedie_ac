@@ -113,7 +113,6 @@ $(function(){
         });
     });
 
-
     $("[name='periodRadios'], [name='periodRadios-mobile']").on("change", function(){
 
         $("#block-customPeriod" + isMobile()).hide();
