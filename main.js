@@ -288,7 +288,8 @@ if(navigator.serviceWorker) {
                 if(subscription){
                     console.log("subscription", subscription);
                     // Extraction des données permettant ensuite l'envoi de notification
-                    extractKeysFromArrayBuffer(subscription);
+                    var dataExtract = extractKeysFromArrayBuffer(subscription);
+                    sendSubscriptionInServer(dataExtract);
                     return subscription;
                 }
                 
@@ -303,7 +304,8 @@ if(navigator.serviceWorker) {
                     .then(newSubscription => {
                     	// Affiche le résultat pour vérifier
                         console.log('newSubscription', newSubscription);
-                        extractKeysFromArrayBuffer(newSubscription);
+                        var dataExtract = extractKeysFromArrayBuffer(subscription);
+                        sendSubscriptionInServer(dataExtract);
                         return newSubscription;
                     })
  
@@ -311,6 +313,23 @@ if(navigator.serviceWorker) {
             })
         })
         .catch(err => console.error('service worker NON enregistré', err));
+}
+
+function sendSubscriptionInServer(dataJson){
+    
+    var xhr = new XMLHttpRequest();
+    var url = "url"; //CHANGE URL
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            var json = JSON.parse(xhr.responseText);
+            console.log(json);
+        }
+    };
+    var data = JSON.stringify(dataJson);
+    xhr.send(data);
+            
 }
 
 function extractKeysFromArrayBuffer(subscription){
@@ -327,6 +346,15 @@ function extractKeysFromArrayBuffer(subscription){
     console.dir(subscription.endpoint);
     console.log('p256dh key :', p256dh);
     console.log('auth key :', auth);
+
+    return {
+        "endpoint": subscription.endpoint,
+        "keys": {
+            "p256dh": p256dh,
+            "auth": auth
+        }
+    }
+
 }
 
 // 8.4 Récupération ou création d'une souscription auprès d'un push service
