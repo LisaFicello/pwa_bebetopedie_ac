@@ -94,7 +94,7 @@ function loadInsectes(data) {
                     <div class="caption">
                         <h6 class="text-semibold no-margin text-center animals-name">${t.name}</h6>
                         <p class="text-muted mb-15 mt-5">
-                        <span data-months-northern-array="${t.months.northern.array}" data-months-northern-text="${t.months.northern.text}" data-months-southern-array="${t.months.southern.array}" data-months-southern-text="${t.months.southern.text}"><strong>Period : </strong> <span class="period-text">${t.months.northern.text}</span></span><br>
+                        <span data-months-northern-array="${t.months.northern.array}" data-months-northern-text="${t.months.northern.text}" data-months-southern-array="${t.months.southern.array}" data-months-southern-text="${t.months.southern.text}"><strong>Period : </strong> <span class="period-text">${(getHemisphereSelected() == "northern") ? t.months.northern.text : t.months.southern.text}</span></span><br>
                         <span data-times-array="${t.times.array}"><strong>Time : </strong>${t.times.text}</span><br>
                         <span><strong>Location : </strong><span>${t.location}</span></span><br>
                         <span><strong>Price : </strong>${t.price}</span>
@@ -131,7 +131,7 @@ function loadFishes(data) {
                 <div class="caption">
                     <h6 class="text-semibold no-margin text-center animals-name">${t.name}</h6>
                     <p class="text-muted mb-15 mt-5">
-                    <span data-months-northern-array="${t.months.northern.array}" data-months-northern-text="${t.months.northern.text}" data-months-southern-array="${t.months.southern.array}" data-months-southern-text="${t.months.southern.text}"><strong>Period : </strong> <span class="period-text">${t.months.northern.text}</span></span><br>
+                    <span data-months-northern-array="${t.months.northern.array}" data-months-northern-text="${t.months.northern.text}" data-months-southern-array="${t.months.southern.array}" data-months-southern-text="${t.months.southern.text}"><strong>Period : </strong> <span class="period-text">${(getHemisphereSelected() == "northern") ? t.months.northern.text : t.months.southern.text}</span></span><br>
                     <span data-times-array="${t.times.array}"><strong>Time : </strong>${t.times.text}</span><br>
                     <span><strong>Location : </strong><span>${t.location}</span></span><br>
                     <span><strong>Price : </strong>${t.price}</span><br>
@@ -169,7 +169,7 @@ function loadMarines(data) {
                 <div class="caption">
                     <h6 class="text-semibold no-margin text-center animals-name">${t.name}</h6>
                     <p class="text-muted mb-15 mt-5">
-                    <span data-months-northern-array="${t.months.northern.array}" data-months-northern-text="${t.months.northern.text}" data-months-southern-array="${t.months.southern.array}" data-months-southern-text="${t.months.southern.text}"><strong>Period : </strong> <span class="period-text">${t.months.northern.text}</span></span><br>
+                    <span data-months-northern-array="${t.months.northern.array}" data-months-northern-text="${t.months.northern.text}" data-months-southern-array="${t.months.southern.array}" data-months-southern-text="${t.months.southern.text}"><strong>Period : </strong> <span class="period-text">${(getHemisphereSelected() == "northern") ? t.months.northern.text : t.months.southern.text}</span></span><br>
                     <span data-times-array="${t.times.array}"><strong>Time : </strong>${t.times.text}</span><br>
                     <span><strong>Location : </strong><span>${t.location}</span></span><br>
                     <span><strong>Price : </strong>${t.price}</span><br>

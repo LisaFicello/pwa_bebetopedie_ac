@@ -1492,7 +1492,7 @@ const insectData =[
                     7,
                     8,
                     9,
-                    11
+                    10
                 ],
                 "text": "April - October"
             },
@@ -1537,7 +1537,7 @@ const insectData =[
                     7,
                     8,
                     9,
-                    11
+                    10
                 ],
                 "text": "May - October"
             },
