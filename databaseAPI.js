@@ -13,92 +13,105 @@ var fishesLoaded = false;
 var marinesLoaded = false;
 
 
-firebase.auth().onAuthStateChanged(function(user) {
-    tickOfflineCreatures();
-    if (user == null) {return;}
-    insectsRef = firebase.database().ref('users/' + user.uid + "/caughtCreatures/insects");
-    fishesRef = firebase.database().ref('users/' + user.uid + "/caughtCreatures/fishes");
-    marinesRef = firebase.database().ref('users/' + user.uid + "/caughtCreatures/marines");
-    
-    insectsRef.on('child_added', function(data) {
-       // console.log("child added " + data.key)      
-        console.log("child added id " + data.val());
-        //console.log(data);
-        const creatureIdAdded = data.val(); 
-        const key = data.key;
-        insectsUniqueIds[creatureIdAdded] = key;
-        OfflineCreatures.getCreature("insect", creatureIdAdded).then(creature => {
-            if (creature == null) {
-                OfflineCreatures.putCreature("insect", ["added", creatureIdAdded], creatureIdAdded);
-                insectStateChanged(creatureIdAdded, true);
-            }
-        })
-    });
-    
-    insectsRef.on('child_removed', function(data) {
-        console.log("child removed "+data.val())
-        if (insectsUniqueIds[data.val()] != null) {
-            delete insectsUniqueIds[data.val()];
-            OfflineCreatures.deleteCreature("insect",data.val());
-            insectStateChanged(data.val(), false);
-        }
-    });
+document.onreadystatechange = () => {
+    if (document.readyState === 'complete') {
+      console.log("Website ready");
+      downloadFromDB();
+    }
+};
 
-    fishesRef.on('child_added', function(data) {
-        //console.log("child added " + data.key)      
-        console.log("child added id " + data.val());
-        //console.log(data);
-        const creatureIdAdded = data.val(); 
-        const key = data.key;
-        fishesUniqueIds[creatureIdAdded] = key;
-        OfflineCreatures.getCreature("fish", creatureIdAdded).then(creature => {
-            console.log(creature);
-            if (creature == null) {
-                console.log("creature fish is null, so adding it");
-                OfflineCreatures.putCreature("fish", ["added", creatureIdAdded], creatureIdAdded);
-                fishStateChanged(creatureIdAdded, true);
-            }
-        })
-    });
-    
-    fishesRef.on('child_removed', function(data) {
-        console.log("child removed "+data.val())
-        if (fishesUniqueIds[data.val()] != null) {
-            delete fishesUniqueIds[data.val()];
-            OfflineCreatures.deleteCreature("fish", data.val());
-            fishStateChanged(data.val(), false);
-        }
-    });
 
-    marinesRef.on('child_added', function(data) {
-        //console.log("child added " + data.key)      
-        console.log("child added id " + data.val());
-        //console.log(data);
-        const creatureIdAdded = data.val(); 
-        const key = data.key;
-        marinesUniqueIds[creatureIdAdded] = key;
-        OfflineCreatures.getCreature("marine", creatureIdAdded).then(creature => {
-            if (creature == null) {
-                OfflineCreatures.putCreature("marine", ["added", creatureIdAdded], creatureIdAdded);
-                marineStateChanged(creatureIdAdded, true);
-            }
-        })
-    });
-    
-    marinesRef.on('child_removed', function(data) {
-        console.log("child removed "+data.val())
-        if (marinesUniqueIds[data.val()] != null) {
-            delete marinesUniqueIds[data.val()];
-            OfflineCreatures.deleteCreature("marine", data.val());
-            marineStateChanged(data.val(), false);
-        }
-    });
 
-    //Initial transfer readyier
-    insectsRef.once("value", function(snapshot) {insectsLoaded = true; checkIfInitialDataReady()});
-    fishesRef.once("value", function(snapshot) {fishesLoaded = true; checkIfInitialDataReady()});
-    marinesRef.once("value", function(snapshot) {marinesLoaded = true; checkIfInitialDataReady()});
-});
+function downloadFromDB() {
+    firebase.auth().onAuthStateChanged(function(user) {
+        tickOfflineCreatures();
+        if (user == null) {return;}
+        insectsRef = firebase.database().ref('users/' + user.uid + "/caughtCreatures/insects");
+        fishesRef = firebase.database().ref('users/' + user.uid + "/caughtCreatures/fishes");
+        marinesRef = firebase.database().ref('users/' + user.uid + "/caughtCreatures/marines");
+        
+        insectsRef.on('child_added', function(data) {
+           // console.log("child added " + data.key)      
+            console.log("child added id " + data.val());
+            //console.log(data);
+            const creatureIdAdded = data.val(); 
+            const key = data.key;
+            insectsUniqueIds[creatureIdAdded] = key;
+            OfflineCreatures.getCreature("insect", creatureIdAdded).then(creature => {
+                if (creature == null) {
+                    OfflineCreatures.putCreature("insect", ["added", creatureIdAdded], creatureIdAdded);
+                    console.log("call before state change: " +creatureIdAdded);
+                    insectStateChanged(creatureIdAdded, true);
+                }
+            })
+        });
+        
+        insectsRef.on('child_removed', function(data) {
+            console.log("child removed "+data.val())
+            if (insectsUniqueIds[data.val()] != null) {
+                delete insectsUniqueIds[data.val()];
+                OfflineCreatures.deleteCreature("insect",data.val());
+                insectStateChanged(data.val(), false);
+            }
+        });
+    
+        fishesRef.on('child_added', function(data) {
+            //console.log("child added " + data.key)      
+            console.log("child added id " + data.val());
+            //console.log(data);
+            const creatureIdAdded = data.val(); 
+            const key = data.key;
+            fishesUniqueIds[creatureIdAdded] = key;
+            OfflineCreatures.getCreature("fish", creatureIdAdded).then(creature => {
+                console.log(creature);
+                if (creature == null) {
+                    console.log("creature fish is null, so adding it");
+                    OfflineCreatures.putCreature("fish", ["added", creatureIdAdded], creatureIdAdded);
+                    fishStateChanged(creatureIdAdded, true);
+                }
+            })
+        });
+        
+        fishesRef.on('child_removed', function(data) {
+            console.log("child removed "+data.val())
+            if (fishesUniqueIds[data.val()] != null) {
+                delete fishesUniqueIds[data.val()];
+                OfflineCreatures.deleteCreature("fish", data.val());
+                fishStateChanged(data.val(), false);
+            }
+        });
+    
+        marinesRef.on('child_added', function(data) {
+            //console.log("child added " + data.key)      
+            console.log("child added id " + data.val());
+            //console.log(data);
+            const creatureIdAdded = data.val(); 
+            const key = data.key;
+            marinesUniqueIds[creatureIdAdded] = key;
+            OfflineCreatures.getCreature("marine", creatureIdAdded).then(creature => {
+                if (creature == null) {
+                    OfflineCreatures.putCreature("marine", ["added", creatureIdAdded], creatureIdAdded);
+                    marineStateChanged(creatureIdAdded, true);
+                }
+            })
+        });
+        
+        marinesRef.on('child_removed', function(data) {
+            console.log("child removed "+data.val())
+            if (marinesUniqueIds[data.val()] != null) {
+                delete marinesUniqueIds[data.val()];
+                OfflineCreatures.deleteCreature("marine", data.val());
+                marineStateChanged(data.val(), false);
+            }
+        });
+    
+        //Initial transfer readyier
+        insectsRef.once("value", function(snapshot) {insectsLoaded = true; checkIfInitialDataReady()});
+        fishesRef.once("value", function(snapshot) {fishesLoaded = true; checkIfInitialDataReady()});
+        marinesRef.once("value", function(snapshot) {marinesLoaded = true; checkIfInitialDataReady()});
+    });
+}
+
 
 // Insects
 
@@ -158,6 +171,7 @@ function tickOfflineCreatures() {
         for(var i = 0; i < creatures.length; i++) {
             const state = creatures[i][0];
             const creatureId = creatures[i][1];
+            if (creatureId == 0) {continue;}
             if(state == "added") {insectStateChanged(creatureId, true)}
             if(state == "removed") {insectStateChanged(creatureId, false)}
         }
@@ -167,6 +181,7 @@ function tickOfflineCreatures() {
         for(var i = 0; i < creatures.length; i++) {
             const state = creatures[i][0];
             const creatureId = creatures[i][1];
+            if (creatureId == 0) {continue;}
             if(state == "added") {fishStateChanged(creatureId, true)}
             if(state == "removed") {fishStateChanged(creatureId, false)}
         }
@@ -176,6 +191,7 @@ function tickOfflineCreatures() {
         for(var i = 0; i < creatures.length; i++) {
             const state = creatures[i][0];
             const creatureId = creatures[i][1];
+            if (creatureId == 0) {continue;}
             if(state == "added") {marineStateChanged(creatureId, true)}
             if(state == "removed") {marineStateChanged(creatureId, false)}
         }
