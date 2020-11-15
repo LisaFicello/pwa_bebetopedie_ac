@@ -1,10 +1,6 @@
 var chrono;
 var realTime;
 
-function showSpecificCreatures(these){
-
-}
-
 function updateTime(){
     var hms = new Date();
     var h, m, s;
@@ -129,7 +125,7 @@ $(function(){
             case 'currently':
                 console.log('Currently period');
                 loadCreatures();
-                chronoTime = 10; //In second
+                chronoTime = 60; //In second
                 updateCounter(chronoTime);
                 $("#block-next-update").show();
                 chrono = setInterval(function(){
@@ -139,12 +135,12 @@ $(function(){
                 realTime = setInterval(function(){
                     loadCreatures();
                     clearInterval(chrono);
-                    chronoTime = 10; //In second
+                    chronoTime = 60; //In second
                     chrono = setInterval(function(){
                         updateCounter(chronoTime);
                         chronoTime--;
                     },1000);
-                }, 11500);
+                }, 61500);
                 break;
             case 'custom':
                 $("#block-customPeriod" + isMobile()).show();

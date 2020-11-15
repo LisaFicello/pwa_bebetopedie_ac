@@ -78,7 +78,7 @@ function loadInsectes(data) {
                 <div class="thumbnail">
                     <div class="thumb">
                         <div class="outer-div" style="background-image: url(images/icons/fond.png);">
-                            <div class="inner-div ${getInsectSpriteClassNameById(t.id-1)}" style="margin: auto;"></div>
+                            <div class="inner-div ${getInsectSpriteClassNameById(t.id)}" style="margin: auto;"></div>
                         </div>
                         <div class="center">
                             <label class="label">
@@ -115,7 +115,7 @@ function loadFishes(data) {
             <div class="thumbnail">
                 <div class="thumb">
                     <div class="outer-div" style="background-image: url(images/icons/fond.png);">
-                        <div class="inner-div ${getFishSpriteClassNameById(t.id-1)}" style="margin: auto;"></div>
+                        <div class="inner-div ${getFishSpriteClassNameById(t.id)}" style="margin: auto;"></div>
                     </div>
                     <div class="center">
                         <label class="label">
@@ -153,7 +153,7 @@ function loadMarines(data) {
             <div class="thumbnail">
                 <div class="thumb">
                     <div class="outer-div" style="background-image: url(images/icons/fond.png);">
-                        <div class="inner-div ${getMarineSpriteClassNameById(t.id-1)}" style="margin: auto;"></div>
+                        <div class="inner-div ${getMarineSpriteClassNameById(t.id)}" style="margin: auto;"></div>
                     </div>
                     <div class="center">
                         <label class="label">

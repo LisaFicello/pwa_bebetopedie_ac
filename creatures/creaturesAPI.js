@@ -65,14 +65,19 @@ function getFilterData(data) {
 
 }
 function getCreatureNameById(creature, id) {
-    return creature[id]["name"];
+    var creatureSelected = getCreatureById(creature, id);
+    return creatureSelected["name"];
 }
+function getCreatureById(creature, id) {
+    return creature.filter(c => c.id == id)[0];
+}
+
 
 // Insects
 function getInsectSpriteClassNameById(id) {
     var insectName = getCreatureNameById(insectData,id);
     insectName = getNameLower(insectName);
-    return (insectData[id] == null) ? "" : "sprite-insect sprite-insect-" + insectName;
+    return (getCreatureById(insectData, id) == null) ? "" : "sprite-insect sprite-insect-" + insectName;
 }
 function insectSortByName() {
     return getSortedData(insectData, "name", true);
@@ -94,7 +99,7 @@ function getFilterInsectes(){
 function getFishSpriteClassNameById(id) {
     var fishName = getCreatureNameById(fishData,id);
     fishName = getNameLower(fishName);
-    return (fishData[id] == null) ? "" : "sprite-fish sprite-fish-" + fishName;
+    return (getCreatureById(fishData, id) == null) ? "" : "sprite-fish sprite-fish-" + fishName;
 }
 function fishSortByName() {
     return getSortedData(fishData, "name", true);
@@ -116,7 +121,7 @@ function getFilterFish(){
 function getMarineSpriteClassNameById(id) {
     var marineName = getCreatureNameById(marineData,id);
     marineName = getNameLower(marineName);
-    return (marineData[id] == null) ? "" : "sprite-marine sprite-marine-" + marineName;
+    return (getCreatureById(marineData, id) == null) ? "" : "sprite-marine sprite-marine-" + marineName;
 }
 function marineSortByName() {
     return getSortedData(marineData, "name", true);
