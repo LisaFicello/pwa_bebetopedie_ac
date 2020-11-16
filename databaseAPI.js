@@ -20,12 +20,17 @@ document.onreadystatechange = () => {
     }
 };
 
-
+// function invalidateListeners() {
+//     insectsRef.off("child_added");
+//     fishesRef.off("child_added");
+//     marinesRef.off("child_added");
+// }
 
 function downloadFromDB() {
     firebase.auth().onAuthStateChanged(function(user) {
         tickOfflineCreatures();
         if (user == null) {return;}
+        //invalidateListeners();
         insectsRef = firebase.database().ref('users/' + user.uid + "/caughtCreatures/insects");
         fishesRef = firebase.database().ref('users/' + user.uid + "/caughtCreatures/fishes");
         marinesRef = firebase.database().ref('users/' + user.uid + "/caughtCreatures/marines");
