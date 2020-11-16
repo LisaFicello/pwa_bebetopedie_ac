@@ -247,6 +247,7 @@ function loadCreatures(){
         default:
             break;
     }
+    downloadFromDB();
 }
 
 insectSortByName();
