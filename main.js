@@ -288,7 +288,8 @@ if(navigator.serviceWorker) {
                 if(subscription){
                     console.log("subscription", subscription);
                     // Extraction des données permettant ensuite l'envoi de notification
-                    extractKeysFromArrayBuffer(subscription);
+                    var dataExtract = extractKeysFromArrayBuffer(subscription);
+                    sendSubscriptionInServer(dataExtract);
                     return subscription;
                 }
                 
@@ -303,7 +304,8 @@ if(navigator.serviceWorker) {
                     .then(newSubscription => {
                     	// Affiche le résultat pour vérifier
                         console.log('newSubscription', newSubscription);
-                        extractKeysFromArrayBuffer(newSubscription);
+                        var dataExtract = extractKeysFromArrayBuffer(subscription);
+                        sendSubscriptionInServer(dataExtract);
                         return newSubscription;
                     })
  
@@ -311,6 +313,14 @@ if(navigator.serviceWorker) {
             })
         })
         .catch(err => console.error('service worker NON enregistré', err));
+}
+
+function sendSubscriptionInServer(dataJson){
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user == null) {return;}
+        subRef = firebase.database().ref('users/' + user.uid + "/pushSub/");
+        subRef.set(dataJson);
+    });      
 }
 
 function extractKeysFromArrayBuffer(subscription){
@@ -327,6 +337,15 @@ function extractKeysFromArrayBuffer(subscription){
     console.dir(subscription.endpoint);
     console.log('p256dh key :', p256dh);
     console.log('auth key :', auth);
+
+    return {
+        "endpoint": subscription.endpoint,
+        "keys": {
+            "p256dh": p256dh,
+            "auth": auth
+        }
+    }
+
 }
 
 // 8.4 Récupération ou création d'une souscription auprès d'un push service
