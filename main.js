@@ -316,20 +316,11 @@ if(navigator.serviceWorker) {
 }
 
 function sendSubscriptionInServer(dataJson){
-    
-    var xhr = new XMLHttpRequest();
-    var url = "url"; //CHANGE URL
-    xhr.open("POST", url, true);
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            var json = JSON.parse(xhr.responseText);
-            console.log(json);
-        }
-    };
-    var data = JSON.stringify(dataJson);
-    xhr.send(data);
-            
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user == null) {return;}
+        subRef = firebase.database().ref('users/' + user.uid + "/pushSub/");
+        subRef.set(dataJson);
+    });      
 }
 
 function extractKeysFromArrayBuffer(subscription){
